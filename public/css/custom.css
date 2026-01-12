@@ -1238,3 +1238,40 @@ b {
     background-color: #ffbb33 !important;
     color: #000 !important;
 }
+/* DataTables Responsive Premium Styling */
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+table.dataTable > tbody > tr.child ul.dtr-details {
+    width: 100%;
+    padding: 1rem;
+    background: #0d0d0d;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+table.dataTable > tbody > tr.child span.dtr-title {
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    min-width: 100px;
+}
+
+table.dataTable > tbody > tr.child span.dtr-data {
+    color: #ffffff;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.table-custom tr.child:hover {
+    background: transparent !important;
+}

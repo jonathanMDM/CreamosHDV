@@ -79,22 +79,26 @@
                                     </td>
                                     <td class="fw-bold">
                                         ${{ number_format($venta->valor_servicio, 0, ',', '.') }}
-                                        @if($venta->tipo_pago === 'pago_50')
-                                            <span class="badge bg-info d-block mt-1" style="font-size: 0.65rem;">PAGO 50%</span>
-                                        @else
-                                            <span class="badge bg-secondary d-block mt-1" style="font-size: 0.65rem;">TOTAL</span>
-                                        @endif
+                                        <div class="mt-1">
+                                            @if($venta->tipo_pago === 'pago_50')
+                                                <span class="badge bg-info d-inline-block" style="font-size: 0.65rem;">PAGO 50%</span>
+                                            @else
+                                                <span class="badge bg-secondary d-inline-block" style="font-size: 0.65rem;">TOTAL</span>
+                                            @endif
+                                        </div>
                                     </td>
                                     <td class="fw-bold">
                                         @php
                                             $statusClass = 'badge-status-' . $venta->estado;
                                         @endphp
-                                        <span class="badge {{ $statusClass }} py-2 px-3 w-100" style="font-size: 0.85rem;">
-                                            ${{ number_format($venta->comision, 0, ',', '.') }}
-                                        </span>
-                                        <small class="text-muted d-block text-center mt-1" style="font-size: 0.65rem;">
-                                            ({{ $venta->servicio->porcentaje_comision }}%)
-                                        </small>
+                                        <div class="d-flex flex-column align-items-md-center">
+                                            <span class="badge {{ $statusClass }} py-2 px-3" style="font-size: 0.85rem; width: fit-content;">
+                                                ${{ number_format($venta->comision, 0, ',', '.') }}
+                                            </span>
+                                            <small class="text-muted mt-1" style="font-size: 0.65rem;">
+                                                ({{ $venta->servicio->porcentaje_comision }}%)
+                                            </small>
+                                        </div>
                                     </td>
                                     <td>
                                         <div class="d-flex gap-1">
