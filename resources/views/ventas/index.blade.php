@@ -202,7 +202,7 @@ function rechazarVenta(url, asesor) {
         showLoaderOnConfirm: true,
         didOpen: () => {
             const quickReasonButtons = document.querySelectorAll('.quick-reason');
-            const textarea = document.getElementById('rejection-textarea');
+            const textarea = Swal.getInput();
             
             quickReasonButtons.forEach(button => {
                 button.addEventListener('click', function() {
