@@ -154,16 +154,42 @@
                     @method('PUT')
                     <div class="modal-body text-start">
                         <div class="alert alert-info py-2" style="font-size: 0.9rem;">
-                            <i class="fas fa-info-circle"></i> Ingrese una nueva contraseña segura para este asesor.
+                            <i class="fas fa-info-circle"></i> Escribe la nueva clave y cópiala antes de guardar.
                         </div>
+                        
                         <div class="mb-3">
                             <label class="form-label text-muted">Nueva Contraseña</label>
-                            <input type="password" name="password" class="form-control bg-dark text-white border-secondary" required minlength="6" placeholder="Mínimo 6 caracteres">
+                            <div class="input-group">
+                                <input type="password" name="password" id="newPass{{ $asesor->id }}" class="form-control bg-dark text-white border-secondary" required minlength="6" placeholder="Mínimo 6 caracteres">
+                                <button type="button" class="btn btn-outline-secondary" onclick="togglePass{{ $asesor->id }}()">
+                                    <i class="fas fa-eye" id="icon{{ $asesor->id }}"></i>
+                                </button>
+                            </div>
                         </div>
+
                         <div class="mb-3">
                             <label class="form-label text-muted">Confirmar Contraseña</label>
-                            <input type="password" name="password_confirmation" class="form-control bg-dark text-white border-secondary" required minlength="6" placeholder="Repite la contraseña">
+                            <input type="password" name="password_confirmation" id="confPass{{ $asesor->id }}" class="form-control bg-dark text-white border-secondary" required minlength="6" placeholder="Repite la contraseña">
                         </div>
+
+                        <script>
+                            function togglePass{{ $asesor->id }}() {
+                                var x = document.getElementById("newPass{{ $asesor->id }}");
+                                var y = document.getElementById("confPass{{ $asesor->id }}");
+                                var icon = document.getElementById("icon{{ $asesor->id }}");
+                                if (x.type === "password") {
+                                    x.type = "text";
+                                    y.type = "text";
+                                    icon.classList.remove("fa-eye");
+                                    icon.classList.add("fa-eye-slash");
+                                } else {
+                                    x.type = "password";
+                                    y.type = "password";
+                                    icon.classList.remove("fa-eye-slash");
+                                    icon.classList.add("fa-eye");
+                                }
+                            }
+                        </script>
                     </div>
                     <div class="modal-footer border-top border-secondary">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
