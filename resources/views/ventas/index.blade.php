@@ -19,7 +19,7 @@
     </div>
 
     <!-- Navegador de Semanas -->
-    <div class="card-custom mb-4 animate__animated animate__fadeIn">
+    <div class="card-custom mb-4 fade-in">
         <div class="card-body py-2 px-2">
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                 <a href="{{ route('ventas.index', ['semana' => $semanaActual - 1, 'año' => $añoActual]) }}" 
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <div class="card-custom animate__animated animate__fadeInUp">
+    <div class="card-custom fade-in">
         <div class="card-header-custom d-flex justify-content-between align-items-center">
             <span><i class="fas fa-list"></i> Registro de Ventas</span>
             <span class="badge bg-white text-dark">{{ $ventas->count() }} Resultados</span>

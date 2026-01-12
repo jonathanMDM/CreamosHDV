@@ -13,7 +13,7 @@
         </a>
     </div>
 
-    <div class="card-custom animate__animated animate__fadeInUp">
+    <div class="card-custom fade-in">
         <div class="card-header-custom">
             <i class="fas fa-list"></i> Lista de Asesores
         </div>

@@ -94,11 +94,19 @@
     border-color: #ffffff !important;
 }
 
+html,
 body {
+    background-color: #000000 !important;
+    color: #ffffff;
     font-family: 'Outfit', sans-serif;
-    background: #000000;
+    margin: 0;
+    padding: 0;
+    width: 100%;
     min-height: 100vh;
-    color: var(--white);
+    overflow-x: hidden;
+}
+
+body {
     background-attachment: fixed;
 }
 
@@ -106,11 +114,12 @@ body {
 .navbar-custom {
     background: #000000 !important;
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 0.75rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1rem;
     position: sticky;
-    top: 0;
+    top: 10px;
     z-index: 1000;
+    margin: 0 0 1.5rem 0;
 }
 
 .navbar-brand {
@@ -868,14 +877,40 @@ body {
 .h3,
 .h4,
 .h5,
-.h6,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: inherit;
+/* Bootstrap Utility Overrides */
+.bg-light,
+.bg-white,
+.bg-transparent {
+    background-color: transparent !important;
+}
+
+.bg-light.border,
+.bg-white.border {
+    background-color: #0a0a0a !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.text-dark {
+    color: #ffffff !important;
+}
+
+/* Animations Fix - Reducing complexity for stability */
+.animate__animated {
+    animation-duration: 0.5s !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Table Styling for Dark Theme */

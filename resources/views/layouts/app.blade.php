@@ -172,6 +172,7 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            background-color: #000000;
         }
         
         .sidebar-custom.collapsed ~ .main-content {
@@ -304,7 +305,7 @@
     <!-- Main Content -->
     <div class="main-content">
         <!-- Top Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom mb-4 rounded-4" style="margin-top: 10px;">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom rounded-4">
             <div class="container-fluid">
                 <button class="navbar-toggler d-lg-none" type="button" onclick="toggleSidebar()">
                     <span class="navbar-toggler-icon"></span>
