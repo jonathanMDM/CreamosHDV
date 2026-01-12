@@ -175,7 +175,6 @@
 
 @push('scripts')
 <script>
-<script>
 function rechazarVenta(url, asesor) {
     Swal.fire({
         title: 'Rechazar Venta',
@@ -228,6 +227,5 @@ function rechazarVenta(url, asesor) {
         allowOutsideClick: () => !Swal.isLoading()
     });
 }
-</script>
 </script>
 @endpush
