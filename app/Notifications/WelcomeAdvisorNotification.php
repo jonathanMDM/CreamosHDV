@@ -41,15 +41,33 @@ class WelcomeAdvisorNotification extends Notification
         $appUrl = config('app.url') ?: 'https://creamos-hojas-de-vida-67e514fac37f.herokuapp.com';
         
         return (new MailMessage)
-                    ->subject('¡Bienvenido a CreamosHDV! - Tus Credenciales de Acceso')
-                    ->greeting('¡Hola ' . $notifiable->name . '!')
-                    ->line('Te damos la bienvenida al equipo de CreamosHDV. Tu cuenta ha sido creada exitosamente.')
-                    ->line('Aquí tienes tus credenciales para acceder al portal de asesores:')
-                    ->line('**Correo Electrónico:** ' . $this->email)
-                    ->line('**Contraseña:** ' . $this->password)
-                    ->action('Ingresar al Portal', $appUrl . '/login')
-                    ->line('Te recomendamos cambiar tu contraseña una vez que hayas ingresado por primera vez.')
-                    ->line('¡Gracias por ser parte de nosotros!');
+                    ->subject('¡Bienvenido a CreamosHDV! 🎉 - Tus Credenciales de Acceso')
+                    ->from('creamoshojasdevida@gmail.com', 'Creamos Hojas de Vida')
+                    ->markdown('vendor.mail.html.message', [
+                        'greeting' => '¡Hola ' . $notifiable->name . '!',
+                        'introLines' => [
+                            '¡Te damos la más cordial bienvenida al equipo de **Creamos Hojas de Vida**! 🎊',
+                            '',
+                            'Tu cuenta ha sido creada exitosamente y ya puedes acceder a nuestro portal de asesores.',
+                            '',
+                            '**📋 Tus credenciales de acceso:**',
+                            '',
+                            '🔐 **Correo Electrónico:** ' . $this->email,
+                            '🔑 **Contraseña:** `' . $this->password . '`',
+                            '',
+                            '⚠️ **Importante:** Por seguridad, te recomendamos cambiar tu contraseña una vez que ingreses por primera vez.',
+                        ],
+                        'actionText' => '🚀 Ingresar al Portal',
+                        'actionUrl' => $appUrl . '/login',
+                        'outroLines' => [
+                            '¡Gracias por ser parte de nuestro equipo!',
+                            'Estamos emocionados de trabajar contigo. 💼✨',
+                        ],
+                        'salutation' => '---  
+**Creamos Hojas de Vida**  
+© ' . date('Y') . ' Todos los derechos reservados.  
+Desarrollado con ❤️ por [OutDeveloper](https://outdeveloper.com/)',
+                    ]);
     }
 
     /**
