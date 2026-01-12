@@ -90,7 +90,21 @@
                             <p class="mb-2 text-white-50"><i class="fas fa-phone me-2"></i> {{ $venta->telefono_cliente ?? 'No registrado' }}</p>
                             
                             @if($venta->telefono_cliente)
-                                <a href="https://wa.me/57{{ preg_replace('/[^0-9]/', '', $venta->telefono_cliente) }}" 
+                                @php
+                                    $hora = date('H');
+                                    $saludo = 'buen día';
+                                    if ($hora >= 12 && $hora < 18) {
+                                        $saludo = 'buenas tardes';
+                                    } elseif ($hora >= 18) {
+                                        $saludo = 'buenas noches';
+                                    }
+                                    
+                                    $mensaje = "Hola {$venta->nombre_cliente}, {$saludo} 😊\n" .
+                                               "Te habla Sara, del equipo de diseño y creación.\n\n" .
+                                               "El asesor {$venta->asesor->nombre_completo} nos indicó que adquiriste el servicio de {$venta->servicio->nombre_servicio}.\n" .
+                                               "¿Nos confirmas si la información es correcta para continuar? ✔️";
+                                @endphp
+                                <a href="https://wa.me/57{{ preg_replace('/[^0-9]/', '', $venta->telefono_cliente) }}?text={{ urlencode($mensaje) }}" 
                                    target="_blank" 
                                    class="btn btn-outline-success btn-sm w-100 mt-2"
                                    style="border-radius: 10px; border-color: #25d366; color: #25d366;">
