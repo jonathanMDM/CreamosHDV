@@ -58,7 +58,7 @@
 
                             <div class="manual-section mb-5">
                                 <h3 class="text-primary fw-bold mb-3"><i class="fas fa-cart-plus me-2"></i>2. Registro de Venta (Paso a Paso)</h3>
-                                <div class="alert alert-info border-0 text-white bg-opacity-10">
+                                <div class="alert alert-info border-0 text-dark" style="background-color: #cff4fc;">
                                     <i class="fas fa-lightbulb text-warning me-2"></i> <strong>Tip de Oro:</strong> ¡Registra la venta apenas el cliente pague!
                                 </div>
                                 <p class="text-white-50">Sigue estos pasos para asegurar tu pago:</p>
@@ -189,8 +189,8 @@
                                     <li class="mb-2"><strong>Comisiones a Pagar:</strong> Total que debes a los asesores por esas ventas.</li>
                                     <li class="mb-2"><strong>Top Asesores:</strong> Ranking de rendimiento para incentivos.</li>
                                 </ul>
-                                <div class="alert alert-danger border-0 text-white bg-opacity-10 py-2">
-                                    <small><i class="fas fa-exclamation-circle me-1"></i> Las ventas "Pendientes" <strong>NO</strong> suman aquí hasta que las apruebes.</small>
+                                <div class="alert alert-danger border-0 text-dark" style="background-color: #f8d7da;">
+                                    <small><i class="fas fa-exclamation-circle me-1 text-danger"></i> Las ventas "Pendientes" <strong>NO</strong> suman aquí hasta que las apruebes.</small>
                                 </div>
                             </div>
 
