@@ -96,13 +96,15 @@
                                                         @csrf
                                                         <input type="hidden" name="semana" value="{{ $semana['numero'] }}">
                                                         <input type="hidden" name="año" value="{{ $añoActual }}">
-                                                        <button type="submit" class="btn btn-sm btn-primary-custom">
-                                                            <i class="fas fa-plus"></i> Generar
+                                                        <button type="submit" class="btn btn-sm btn-primary-custom" title="Generar pagos">
+                                                            <i class="fas fa-plus"></i>
+                                                            <span class="d-none d-md-inline ms-1">Generar</span>
                                                         </button>
                                                     </form>
                                                 @else
-                                                    <button type="button" class="btn btn-sm btn-info-custom" data-bs-toggle="collapse" data-bs-target="#semana{{ $semana['numero'] }}">
-                                                        <i class="fas fa-eye"></i> Detalles
+                                                    <button type="button" class="btn btn-sm btn-info-custom" data-bs-toggle="collapse" data-bs-target="#semana{{ $semana['numero'] }}" title="Ver detalles">
+                                                        <i class="fas fa-eye"></i>
+                                                        <span class="d-none d-md-inline ms-1">Detalles</span>
                                                     </button>
                                                 @endif
                                             </div>
@@ -248,13 +250,15 @@
                                                         @csrf
                                                         <input type="hidden" name="mes" value="{{ $num }}">
                                                         <input type="hidden" name="año" value="{{ $añoActual }}">
-                                                        <button type="submit" class="btn btn-sm btn-primary-custom">
-                                                            <i class="fas fa-magic"></i> Procesar Mes
+                                                        <button type="submit" class="btn btn-sm btn-primary-custom" title="Procesar mes">
+                                                            <i class="fas fa-magic"></i>
+                                                            <span class="d-none d-md-inline ms-1">Procesar</span>
                                                         </button>
                                                     </form>
                                                 @else
-                                                    <button type="button" class="btn btn-sm btn-info-custom" data-bs-toggle="collapse" data-bs-target="#mes{{ $num }}">
-                                                        <i class="fas fa-eye"></i> Ver Bonos
+                                                    <button type="button" class="btn btn-sm btn-info-custom" data-bs-toggle="collapse" data-bs-target="#mes{{ $num }}" title="Ver bonos">
+                                                        <i class="fas fa-eye"></i>
+                                                        <span class="d-none d-md-inline ms-1">Ver</span>
                                                     </button>
                                                 @endif
                                             </div>
