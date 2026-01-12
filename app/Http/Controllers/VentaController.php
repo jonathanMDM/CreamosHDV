@@ -111,9 +111,9 @@ class VentaController extends Controller
 
         $imageUrl = null;
         if ($request->hasFile('comprobante')) {
-            // Subir con compresión máxima y formato automático usando el helper directo
+            // Subir usando el método más directo y compatible con la configuración actual
             $file = $request->file('comprobante');
-            $upload = cloudinary()->upload($file->getRealPath(), [
+            $upload = \CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::upload($file->getRealPath(), [
                 'folder' => 'ventas',
                 'quality' => 'auto:low',
                 'fetch_format' => 'auto'
