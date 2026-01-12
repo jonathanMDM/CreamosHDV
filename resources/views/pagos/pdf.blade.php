@@ -70,8 +70,7 @@
                 <p class="info-detail"><span class="text-muted">Cargo:</span> Asesor Comercial</p>
                 <p class="info-detail"><span class="text-muted">C.C.</span> {{ $pago->asesor->cedula }}</p>
                 <p class="info-detail" style="margin-top: 5px;">
-                    <img src="{{ public_path('images/whatsapp-logo.png') }}" style="width: 12px; vertical-align: middle;"> 
-                    {{ $pago->asesor->whatsapp }}
+                    <span class="text-muted">Tel:</span> {{ $pago->asesor->whatsapp }}
                 </p>
             </td>
             <td width="40%" class="text-right" style="vertical-align: top;">
