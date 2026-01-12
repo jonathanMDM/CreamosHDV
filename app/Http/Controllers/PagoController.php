@@ -7,6 +7,9 @@ use App\Models\Asesor;
 use App\Models\Venta;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ComprobantePagoMail;
 
 class PagoController extends Controller
 {
@@ -205,14 +208,52 @@ class PagoController extends Controller
 
     public function marcarPagado($id)
     {
-        $pago = Pago::findOrFail($id);
+        $pago = Pago::with('asesor')->findOrFail($id);
+        
+        // --- INICIO LÓGICA DE DATOS (Misma que en comprobante) ---
+        $ventas = collect();
+        if ($pago->tipo == 'semanal') {
+            $fechas = $this->obtenerFechasSemana($pago->semana, $pago->año);
+            $ventas = Venta::with('servicio')
+                ->where('asesor_id', $pago->asesor_id)
+                ->where('estado', '!=', 'rechazada')
+                ->whereBetween('created_at', [$fechas['inicio'], $fechas['fin']])
+                ->get();
+        } else {
+            $inicioMes = Carbon::create($pago->año, $pago->mes, 1)->startOfMonth();
+            $finMes = $inicioMes->copy()->endOfMonth();
+            $ventas = Venta::with('servicio')
+                ->where('asesor_id', $pago->asesor_id)
+                ->where('estado', '!=', 'rechazada')
+                ->whereBetween('created_at', [$inicioMes, $finMes])
+                ->get();
+        }
+        // --- FIN LÓGICA DE DATOS ---
+
+        // Generar PDF en Memoria
+        $pdf = Pdf::loadView('pagos.pdf', compact('pago', 'ventas'));
+        $pdfContent = $pdf->output();
+
+        $mensajeEmail = "";
+        
+        // Enviar Correo si tiene email
+        if ($pago->asesor->email) {
+            try {
+                Mail::to($pago->asesor->email)->send(new ComprobantePagoMail($pago, $pago->asesor, $pdfContent));
+                $mensajeEmail = " y correo enviado a " . $pago->asesor->email;
+            } catch (\Exception $e) {
+                \Log::error("Error enviando comprobante pago: " . $e->getMessage());
+                $mensajeEmail = " pero falló el envío del correo (" . $e->getMessage() . ")";
+            }
+        }
+
         $pago->update([
             'pagado' => true,
             'fecha_pago' => Carbon::now(),
         ]);
         
         return redirect()->back()
-            ->with('success', 'Pago marcado como pagado');
+            ->with('success', 'Pago marcado como pagado' . $mensajeEmail);
     }
 
     public function marcarNoPagado($id)
