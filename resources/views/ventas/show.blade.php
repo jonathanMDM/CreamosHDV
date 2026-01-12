@@ -99,10 +99,10 @@
                                         $saludo = 'buenas noches';
                                     }
                                     
-                                    $mensaje = "Hola {$venta->nombre_cliente}, {$saludo} 😊\n" .
+                                    $mensaje = "Hola {$venta->nombre_cliente}, {$saludo}\n" .
                                                "Te habla Sara, del equipo de diseño y creación.\n\n" .
                                                "El asesor {$venta->asesor->nombre_completo} nos indicó que adquiriste el servicio de {$venta->servicio->nombre_servicio}.\n" .
-                                               "¿Nos confirmas si la información es correcta para continuar? ✔️";
+                                               "¿Nos confirmas si la información es correcta para continuar?";
                                 @endphp
                                 <a href="https://wa.me/57{{ preg_replace('/[^0-9]/', '', $venta->telefono_cliente) }}?text={{ urlencode($mensaje) }}" 
                                    target="_blank" 
