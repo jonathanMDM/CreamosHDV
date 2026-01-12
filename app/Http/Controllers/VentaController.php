@@ -102,6 +102,12 @@ class VentaController extends Controller
         $servicio = Servicio::findOrFail($validated['servicio_id']);
         $valorServicio = $servicio->valor;
         $comision = ($valorServicio * $servicio->porcentaje_comision) / 100;
+        $tipoPago = $request->input('tipo_pago', 'pago_total');
+
+        if ($tipoPago === 'pago_50') {
+            $valorServicio = $valorServicio / 2;
+            $comision = $comision / 2;
+        }
 
         $imageUrl = null;
         if ($request->hasFile('comprobante')) {
@@ -121,6 +127,7 @@ class VentaController extends Controller
             'valor_servicio' => $valorServicio,
             'comision' => $comision,
             'image_url' => $imageUrl,
+            'tipo_pago' => $tipoPago,
             'estado' => $estado,
         ]);
 

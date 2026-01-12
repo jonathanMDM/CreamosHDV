@@ -74,6 +74,22 @@
                 </div>
 
                 <div class="mb-4">
+                    <label for="tipo_pago" class="form-label">
+                        <i class="fas fa-money-bill-wave"></i> Tipo de Pago *
+                    </label>
+                    <select class="form-control form-control-custom @error('tipo_pago') is-invalid @enderror" 
+                            id="tipo_pago" 
+                            name="tipo_pago" 
+                            required>
+                        <option value="pago_total" {{ old('tipo_pago') == 'pago_total' ? 'selected' : '' }}>Pago Total (100%)</option>
+                        <option value="pago_50" {{ old('tipo_pago') == 'pago_50' ? 'selected' : '' }}>Pago 50%</option>
+                    </select>
+                    @error('tipo_pago')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
                     <label for="comprobante" class="form-label">
                         <i class="fas fa-image"></i> Subir Comprobante / Captura (Opcional)
                     </label>
@@ -81,7 +97,7 @@
                            id="comprobante" 
                            name="comprobante" 
                            accept="image/*">
-                    <div class="form-text text-muted">Formatos permitidos: JPG, PNG. Máximo 5MB.</div>
+                    <div class="form-text text-muted">Formatos permitidos: JPG, PNG, WebP. Máximo 5MB.</div>
                     @error('comprobante')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -122,22 +138,35 @@
 
 @push('scripts')
 <script>
-document.getElementById('servicio_id').addEventListener('change', function() {
-    const selectedOption = this.options[this.selectedIndex];
-    const valor = parseFloat(selectedOption.dataset.valor || 0);
-    const comisionPorcentaje = parseFloat(selectedOption.dataset.comision || 0);
+function actualizarResumen() {
+    const servicioSelect = document.getElementById('servicio_id');
+    const tipoPagoSelect = document.getElementById('tipo_pago');
+    const selectedOption = servicioSelect.options[servicioSelect.selectedIndex];
     
-    if (valor > 0) {
-        const comision = (valor * comisionPorcentaje) / 100;
+    const valorOriginal = parseFloat(selectedOption.dataset.valor || 0);
+    const comisionPorcentaje = parseFloat(selectedOption.dataset.comision || 0);
+    const tipoPago = tipoPagoSelect.value;
+    
+    if (valorOriginal > 0) {
+        let valorServicio = valorOriginal;
+        let comision = (valorOriginal * comisionPorcentaje) / 100;
         
-        document.getElementById('valorServicio').textContent = '$' + valor.toLocaleString('es-CO');
+        if (tipoPago === 'pago_50') {
+            valorServicio = valorOriginal / 2;
+            comision = comision / 2;
+        }
+        
+        document.getElementById('valorServicio').textContent = '$' + valorServicio.toLocaleString('es-CO');
         document.getElementById('comisionAsesor').textContent = '$' + comision.toLocaleString('es-CO');
-        document.getElementById('porcentajeComision').textContent = '(' + comisionPorcentaje + '% del valor)';
+        document.getElementById('porcentajeComision').textContent = '(' + comisionPorcentaje + '% del valor cobrado)';
         document.getElementById('resumen').style.display = 'block';
     } else {
         document.getElementById('resumen').style.display = 'none';
     }
-});
+}
+
+document.getElementById('servicio_id').addEventListener('change', actualizarResumen);
+document.getElementById('tipo_pago').addEventListener('change', actualizarResumen);
 </script>
 @endpush
 @endsection

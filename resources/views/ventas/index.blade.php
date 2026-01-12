@@ -81,6 +81,11 @@
                                     </td>
                                     <td class="fw-bold">
                                         ${{ number_format($venta->valor_servicio, 0, ',', '.') }}
+                                        @if($venta->tipo_pago === 'pago_50')
+                                            <span class="badge bg-info d-block mt-1" style="font-size: 0.65rem;">PAGO 50%</span>
+                                        @else
+                                            <span class="badge bg-secondary d-block mt-1" style="font-size: 0.65rem;">TOTAL</span>
+                                        @endif
                                     </td>
                                     <td class="text-success fw-bold">
                                         ${{ number_format($venta->comision, 0, ',', '.') }}

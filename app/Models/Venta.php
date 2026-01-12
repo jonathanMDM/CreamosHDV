@@ -12,6 +12,7 @@ class Venta extends Model
         'valor_servicio',
         'comision',
         'image_url',
+        'tipo_pago',
         'estado',
         'motivo_rechazo'
     ];
