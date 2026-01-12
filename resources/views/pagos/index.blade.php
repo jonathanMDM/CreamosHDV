@@ -43,8 +43,8 @@
         <!-- TAB SEMANAL -->
         <div class="tab-pane fade show active" id="pills-semanal" role="tabpanel">
             <div class="alert alert-info alert-custom mb-4">
-                <h5><i class="fas fa-info-circle"></i> Información de Pagos Semanales</h5>
-                <p class="mb-0">Se generan cada domingo. <strong>Solo incluyen las comisiones acumuladas de la semana.</strong> Los bonos por rendimiento se calculan y pagan al final del mes en la pestaña correspondiente.</p>
+                <h5 style="font-size: 1.1rem;"><i class="fas fa-info-circle"></i> Información de Pagos Semanales</h5>
+                <p class="mb-0" style="font-size: 0.95rem;">Se generan cada domingo. <strong>Solo incluyen las comisiones acumuladas de la semana.</strong> Los bonos por rendimiento se calculan y pagan al final del mes en la pestaña correspondiente.</p>
             </div>
 
             <div class="card-custom fade-in">
@@ -195,8 +195,8 @@
         <!-- TAB MENSUAL -->
         <div class="tab-pane fade" id="pills-mensual" role="tabpanel">
             <div class="alert alert-warning alert-custom mb-4">
-                <h5><i class="fas fa-gift"></i> Información de Bonos Mensuales</h5>
-                <p class="mb-0">Se consolidan al finalizar cada mes. Son pagos adicionales o premios acumulados por el rendimiento total mensual.</p>
+                <h5 style="font-size: 1.1rem;"><i class="fas fa-gift"></i> Información de Bonos Mensuales</h5>
+                <p class="mb-0" style="font-size: 0.95rem;">Se consolidan al finalizar cada mes. Son pagos adicionales o premios acumulados por el rendimiento total mensual.</p>
             </div>
 
             <div class="card-custom fade-in">
