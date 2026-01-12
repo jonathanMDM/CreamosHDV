@@ -292,10 +292,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
-                <!-- Nombre del usuario visible en móvil -->
+                <!-- Nombre del usuario visible en móvil (Nombre Completo) -->
                 <div class="d-flex align-items-center d-lg-none ms-auto text-white pe-2">
                     <small class="me-2 opacity-75">Hola,</small>
-                    <span class="fw-bold" style="font-size: 0.9rem;">{{ explode(' ', trim(Auth::user()->name))[0] }}</span>
+                    <span class="fw-bold" style="font-size: 0.85rem;">{{ Auth::user()->name }}</span>
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
