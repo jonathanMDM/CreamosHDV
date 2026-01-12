@@ -189,7 +189,9 @@ class VentaController extends Controller
                 $parts = explode('/', $path);
                 $filename = end($parts);
                 $publicId = 'ventas/' . pathinfo($filename, PATHINFO_FILENAME);
-                \CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::destroy($publicId);
+                
+                $cloudinary = app(\Cloudinary\Cloudinary::class);
+                $cloudinary->uploadApi()->destroy($publicId);
             } catch (\Exception $e) {
                 // Silently fail if image not found or delete fails
             }
