@@ -105,7 +105,11 @@ class VentaController extends Controller
 
         $imageUrl = null;
         if ($request->hasFile('comprobante')) {
-            $result = $request->file('comprobante')->storeOnCloudinary('ventas');
+            // Subir con compresión máxima y formato automático
+            $result = $request->file('comprobante')->storeOnCloudinary('ventas', [
+                'quality' => 'auto:low',
+                'fetch_format' => 'auto'
+            ]);
             $imageUrl = $result->getSecurePath();
         }
 
