@@ -59,29 +59,6 @@
                         @enderror
                     </div>
 
-                    <script>
-                        document.getElementById('togglePassword').addEventListener('click', function() {
-                            const password = document.getElementById('password');
-                            const icon = this.querySelector('i');
-                            if (password.type === 'password') {
-                                password.type = 'text';
-                                icon.classList.remove('fa-eye');
-                                icon.classList.add('fa-eye-slash');
-                            } else {
-                                password.type = 'password';
-                                icon.classList.remove('fa-eye-slash');
-                                icon.classList.add('fa-eye');
-                            }
-                        });
-                    </script>
-
-                    <div class="mb-4 form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                        <label class="form-check-label" for="remember">
-                            Recordarme
-                        </label>
-                    </div>
-
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary-custom">
                             <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
@@ -96,5 +73,26 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePassword = document.getElementById('togglePassword');
+            if (togglePassword) {
+                togglePassword.addEventListener('click', function() {
+                    const password = document.getElementById('password');
+                    const icon = this.querySelector('i');
+                    if (password.type === 'password') {
+                        password.type = 'text';
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        password.type = 'password';
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
