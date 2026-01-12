@@ -75,6 +75,15 @@ Route::middleware(['auth'])->group(function () {
     // Recursos
     Route::resource('recursos', RecursoController::class);
 
+    // Mantenimiento (Temporal)
+    Route::get('/system/migrate', function() {
+        if (auth()->user()->role === 'admin') {
+            \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+            return "Migraciones ejecutadas exitosamente. El software está listo para empezar desde 1.";
+        }
+        abort(403);
+    });
+
     // Redirect home to dashboard
     Route::get('/home', function() {
         return redirect()->route('dashboard');
