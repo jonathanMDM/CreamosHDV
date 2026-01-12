@@ -92,7 +92,7 @@
                                             <!-- Botón Cambio de Clave -->
                                             @if($asesor->user_id)
                                             <button type="button" class="btn btn-sm btn-info text-white" 
-                                                    data-bs-toggle="modal" data-bs-target="#passwordModal{{ $asesor->id }}" 
+                                                    onclick="openChangePasswordModal({{ $asesor->id }}, '{{ addslashes($asesor->nombre_completo) }}')"
                                                     title="Restablecer Contraseña">
                                                 <i class="fas fa-key"></i>
                                             </button>
@@ -137,71 +137,96 @@
         </div>
     </div>
 </div>
-<!-- Modales de Cambio de Clave (Fuera de la tabla para evitar conflictos visuales) -->
-@foreach($asesores as $asesor)
-    @if($asesor->user_id)
-    <div class="modal fade" id="passwordModal{{ $asesor->id }}" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="background-color: #1a1d21; color: white; border: 1px solid #333;">
-                <div class="modal-header border-bottom border-secondary">
-                    <h5 class="modal-title">
-                        <i class="fas fa-key text-info me-2"></i>Nueva Clave para {{ Str::limit($asesor->nombre_completo, 20) }}
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="{{ route('asesores.cambiar-clave', $asesor->id) }}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <div class="modal-body text-start">
-                        <div class="alert alert-info py-2" style="font-size: 0.9rem;">
-                            <i class="fas fa-info-circle"></i> Escribe la nueva clave y cópiala antes de guardar.
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label text-muted">Nueva Contraseña</label>
-                            <div class="input-group">
-                                <input type="password" name="password" id="newPass{{ $asesor->id }}" class="form-control bg-dark text-white border-secondary" required minlength="6" placeholder="Mínimo 6 caracteres">
-                                <button type="button" class="btn btn-outline-secondary" onclick="togglePass{{ $asesor->id }}()">
-                                    <i class="fas fa-eye" id="icon{{ $asesor->id }}"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label text-muted">Confirmar Contraseña</label>
-                            <input type="password" name="password_confirmation" id="confPass{{ $asesor->id }}" class="form-control bg-dark text-white border-secondary" required minlength="6" placeholder="Repite la contraseña">
-                        </div>
-
-                        <script>
-                            function togglePass{{ $asesor->id }}() {
-                                var x = document.getElementById("newPass{{ $asesor->id }}");
-                                var y = document.getElementById("confPass{{ $asesor->id }}");
-                                var icon = document.getElementById("icon{{ $asesor->id }}");
-                                if (x.type === "password") {
-                                    x.type = "text";
-                                    y.type = "text";
-                                    icon.classList.remove("fa-eye");
-                                    icon.classList.add("fa-eye-slash");
-                                } else {
-                                    x.type = "password";
-                                    y.type = "password";
-                                    icon.classList.remove("fa-eye-slash");
-                                    icon.classList.add("fa-eye");
-                                }
-                            }
-                        </script>
-                    </div>
-                    <div class="modal-footer border-top border-secondary">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-save"></i> Guardar Clave
-                        </button>
-                    </div>
-                </form>
+<!-- Modal Único de Cambio de Clave (Optimizado) -->
+<div class="modal fade" id="universalPasswordModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: #1a1d21; color: white; border: 1px solid #333;">
+            <div class="modal-header border-bottom border-secondary">
+                <h5 class="modal-title" id="universalModalTitle">
+                    <i class="fas fa-key text-info me-2"></i>Nueva Clave
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <form id="universalPasswordForm" action="" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="modal-body text-start">
+                    <div class="alert alert-info py-2" style="font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Escribe la nueva clave y cópiala antes de guardar.
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label text-muted">Nueva Contraseña</label>
+                        <div class="input-group">
+                            <input type="password" name="password" id="univNewPass" class="form-control bg-dark text-white border-secondary" required minlength="6" placeholder="Mínimo 6 caracteres">
+                            <button type="button" class="btn btn-outline-secondary" onclick="toggleUniversalPass()">
+                                <i class="fas fa-eye" id="univIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-muted">Confirmar Contraseña</label>
+                        <input type="password" name="password_confirmation" id="univConfPass" class="form-control bg-dark text-white border-secondary" required minlength="6" placeholder="Repite la contraseña">
+                    </div>
+                </div>
+                <div class="modal-footer border-top border-secondary">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Guardar Clave
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-    @endif
-@endforeach
+</div>
+
+<script>
+    function openChangePasswordModal(id, nombre) {
+        // Establecer la acción del formulario dinámicamente
+        const form = document.getElementById('universalPasswordForm');
+        // Asegurarse de quitar cualquier ID previo de la URL si se reutiliza
+        let baseUrl = "{{ route('asesores.index') }}"; 
+        // Construir la ruta manualmente para evitar problemas de JS string
+        form.action = baseUrl + "/" + id + "/cambiar-clave";
+        
+        // Actualizar título
+        document.getElementById('universalModalTitle').innerHTML = `<i class="fas fa-key text-info me-2"></i>Nueva Clave para: ${nombre}`;
+
+        // Limpiar campos
+        document.getElementById('univNewPass').value = '';
+        document.getElementById('univConfPass').value = '';
+
+        // Resetear visibilidad password
+        const x = document.getElementById("univNewPass");
+        const y = document.getElementById("univConfPass");
+        const icon = document.getElementById("univIcon");
+        x.type = "password";
+        y.type = "password";
+        icon.className = "fas fa-eye";
+
+        // Mostrar modal usando Bootstrap 5
+        const modalEl = document.getElementById('universalPasswordModal');
+        const modal = new bootstrap.Modal(modalEl);
+        modal.show();
+    }
+
+    function toggleUniversalPass() {
+        const x = document.getElementById("univNewPass");
+        const y = document.getElementById("univConfPass");
+        const icon = document.getElementById("univIcon");
+        if (x.type === "password") {
+            x.type = "text";
+            y.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        } else {
+            x.type = "password";
+            y.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+    }
+</script>
 
 @endsection
