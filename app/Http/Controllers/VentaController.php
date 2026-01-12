@@ -136,6 +136,16 @@ class VentaController extends Controller
             'estado' => $estado,
         ]);
 
+        // Enviar notificación al administrador si es un asesor quien registra
+        if ($user->role !== 'admin') {
+            $admin = \App\Models\User::where('role', 'admin')->first();
+            if ($admin) {
+                $venta = Venta::latest()->first(); // Obtener la venta recién creada
+                $venta->load(['asesor', 'servicio']); // Cargar relaciones
+                $admin->notify(new \App\Notifications\NewSaleNotification($venta));
+            }
+        }
+
         return redirect()->route('ventas.index')
             ->with('success', 'Venta registrada exitosamente. ' . ($estado === 'pendiente' ? 'Pendiente de aprobación.' : 'Comisión: $' . number_format($comision, 0, ',', '.')));
     }
