@@ -238,6 +238,7 @@ class PagoController extends Controller
             $fechas = $this->obtenerFechasSemana($pago->semana, $pago->año);
             $ventas = Venta::with('servicio')
                 ->where('asesor_id', $pago->asesor_id)
+                ->where('estado', '!=', 'rechazada')
                 ->whereBetween('created_at', [$fechas['inicio'], $fechas['fin']])
                 ->get();
         } else {
@@ -246,6 +247,7 @@ class PagoController extends Controller
             $finMes = $inicioMes->copy()->endOfMonth();
             $ventas = Venta::with('servicio')
                 ->where('asesor_id', $pago->asesor_id)
+                ->where('estado', '!=', 'rechazada')
                 ->whereBetween('created_at', [$inicioMes, $finMes])
                 ->get();
         }
