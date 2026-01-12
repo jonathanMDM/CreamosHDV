@@ -1275,3 +1275,18 @@ table.dataTable > tbody > tr.child span.dtr-data {
 .table-custom tr.child:hover {
     background: transparent !important;
 }
+
+/* Alert Info/Warning Text Fix */
+.alert-info.alert-custom,
+.alert-warning.alert-custom {
+    color: #000000 !important;
+}
+
+.alert-info.alert-custom h5,
+.alert-warning.alert-custom h5,
+.alert-info.alert-custom p,
+.alert-warning.alert-custom p,
+.alert-info.alert-custom strong,
+.alert-warning.alert-custom strong {
+    color: #000000 !important;
+}
