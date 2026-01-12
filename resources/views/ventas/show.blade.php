@@ -81,6 +81,17 @@
                 </div>
             @endif
 
+            @if($venta->image_url)
+                <div class="mb-4">
+                    <h6 class="text-muted text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">
+                        <i class="fas fa-image me-2"></i>Comprobante / Captura de Pantalla
+                    </h6>
+                    <div class="text-center p-2 border rounded-4 bg-light">
+                        <img src="{{ $venta->image_url }}" alt="Comprobante" class="img-fluid rounded-4 shadow-sm" style="max-height: 400px;">
+                    </div>
+                </div>
+            @endif
+
             <div class="row text-center mb-4 g-2">
                 <div class="col-6">
                     <div class="border rounded p-2">

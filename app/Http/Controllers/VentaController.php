@@ -79,6 +79,7 @@ class VentaController extends Controller
         
         $rules = [
             'servicio_id' => 'required|exists:servicios,id',
+            'comprobante' => 'nullable|image|max:5120', // Máx 5MB
         ];
 
         if ($user->role === 'admin') {
@@ -102,11 +103,18 @@ class VentaController extends Controller
         $valorServicio = $servicio->valor;
         $comision = ($valorServicio * $servicio->porcentaje_comision) / 100;
 
+        $imageUrl = null;
+        if ($request->hasFile('comprobante')) {
+            $result = $request->file('comprobante')->storeOnCloudinary('ventas');
+            $imageUrl = $result->getSecurePath();
+        }
+
         Venta::create([
             'asesor_id' => $asesor_id,
             'servicio_id' => $validated['servicio_id'],
             'valor_servicio' => $valorServicio,
             'comision' => $comision,
+            'image_url' => $imageUrl,
             'estado' => $estado,
         ]);
 

@@ -15,7 +15,7 @@
             <i class="fas fa-cart-plus"></i> Registrar Nueva Venta
         </div>
         <div class="card-body">
-            <form action="{{ route('ventas.store') }}" method="POST" id="ventaForm">
+            <form action="{{ route('ventas.store') }}" method="POST" id="ventaForm" enctype="multipart/form-data">
                 @csrf
 
                 @if($myAsesor)
@@ -69,6 +69,20 @@
                         @endforeach
                     </select>
                     @error('servicio_id')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
+                    <label for="comprobante" class="form-label">
+                        <i class="fas fa-image"></i> Subir Comprobante / Captura (Opcional)
+                    </label>
+                    <input type="file" class="form-control form-control-custom @error('comprobante') is-invalid @enderror" 
+                           id="comprobante" 
+                           name="comprobante" 
+                           accept="image/*">
+                    <div class="form-text text-muted">Formatos permitidos: JPG, PNG. Máximo 5MB.</div>
+                    @error('comprobante')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
