@@ -137,7 +137,10 @@
         </div>
     </div>
 </div>
-<!-- Modal Único de Cambio de Clave (Optimizado) -->
+@endsection
+
+@push('modals')
+<!-- Modal Único de Cambio de Clave (Optimizado y fuera del flujo principal) -->
 <div class="modal fade" id="universalPasswordModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background-color: #1a1d21; color: white; border: 1px solid #333;">
@@ -180,7 +183,9 @@
         </div>
     </div>
 </div>
+@endpush
 
+@push('scripts')
 <script>
     function openChangePasswordModal(id, nombre) {
         // Establecer la acción del formulario dinámicamente
@@ -207,7 +212,11 @@
 
         // Mostrar modal usando Bootstrap 5
         const modalEl = document.getElementById('universalPasswordModal');
-        const modal = new bootstrap.Modal(modalEl);
+        // Crear instancia o obtener la existente para evitar duplicados en memoria
+        let modal = bootstrap.Modal.getInstance(modalEl);
+        if (!modal) {
+            modal = new bootstrap.Modal(modalEl);
+        }
         modal.show();
     }
 
@@ -228,5 +237,6 @@
         }
     }
 </script>
+@endpush
 
-@endsection
+

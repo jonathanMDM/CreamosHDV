@@ -550,6 +550,7 @@
         </a>
     @endif
 
+    @stack('modals')
     @stack('scripts')
 </body>
 </html>
