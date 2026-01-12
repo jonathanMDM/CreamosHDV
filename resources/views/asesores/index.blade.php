@@ -104,37 +104,7 @@
                                                 <i class="fas fa-edit"></i>
                                             </a>
 
-                                            <!-- Modal Cambio Clave -->
-                                            @if($asesor->user_id)
-                                            <div class="modal fade" id="passwordModal{{ $asesor->id }}" tabindex="-1" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content" style="background-color: #1a1d21; color: white;">
-                                                        <div class="modal-header border-secondary">
-                                                            <h5 class="modal-title">Cambiar Clave: {{ $asesor->nombre_completo }}</h5>
-                                                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <form action="{{ route('asesores.cambiar-clave', $asesor->id) }}" method="POST">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <div class="modal-body text-start">
-                                                                <div class="mb-3">
-                                                                    <label class="form-label">Nueva Contraseña</label>
-                                                                    <input type="password" name="password" class="form-control bg-dark text-white border-secondary" required minlength="6">
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label class="form-label">Confirmar Contraseña</label>
-                                                                    <input type="password" name="password_confirmation" class="form-control bg-dark text-white border-secondary" required minlength="6">
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer border-secondary">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                                <button type="submit" class="btn btn-primary">Guardar Nueva Clave</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @endif
+
                                             <form action="{{ route('asesores.destroy', $asesor) }}" 
                                                   method="POST" 
                                                   class="d-inline js-confirm"
@@ -167,4 +137,45 @@
         </div>
     </div>
 </div>
+<!-- Modales de Cambio de Clave (Fuera de la tabla para evitar conflictos visuales) -->
+@foreach($asesores as $asesor)
+    @if($asesor->user_id)
+    <div class="modal fade" id="passwordModal{{ $asesor->id }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: #1a1d21; color: white; border: 1px solid #333;">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title">
+                        <i class="fas fa-key text-info me-2"></i>Nueva Clave para {{ Str::limit($asesor->nombre_completo, 20) }}
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="{{ route('asesores.cambiar-clave', $asesor->id) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body text-start">
+                        <div class="alert alert-info py-2" style="font-size: 0.9rem;">
+                            <i class="fas fa-info-circle"></i> Ingrese una nueva contraseña segura para este asesor.
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Nueva Contraseña</label>
+                            <input type="password" name="password" class="form-control bg-dark text-white border-secondary" required minlength="6" placeholder="Mínimo 6 caracteres">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Confirmar Contraseña</label>
+                            <input type="password" name="password_confirmation" class="form-control bg-dark text-white border-secondary" required minlength="6" placeholder="Repite la contraseña">
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top border-secondary">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Guardar Clave
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endif
+@endforeach
+
 @endsection
