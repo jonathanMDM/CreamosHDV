@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Servicio extends Model
+{
+    protected $fillable = [
+        'nombre_servicio',
+        'valor',
+        'porcentaje_comision'
+    ];
+
+    public function ventas()
+    {
+        return $this->hasMany(Venta::class);
+    }
+}
