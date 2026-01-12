@@ -541,9 +541,9 @@ body {
 .table-responsive {
     background: #000000 !important;
     border-radius: 10px;
-    overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-collapse: collapse !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
 }
 
 .table {
@@ -575,16 +575,10 @@ body {
 }
 
 .table-custom tbody tr {
-    transition: all 0.3s ease;
-}
-
-.table-custom tbody tr:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-}
-
-.table-custom tbody tr {
     background-color: #0a0a0a !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .table-custom tbody td {
@@ -899,6 +893,10 @@ body {
 
 .fade-in {
     animation: fadeIn 0.5s ease-in-out;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 @keyframes fadeIn {
