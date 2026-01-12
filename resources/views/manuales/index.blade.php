@@ -159,34 +159,77 @@
                             <hr class="border-secondary opacity-25">
 
                             <div class="manual-section mb-5">
-                                <h3 class="text-danger fw-bold mb-3"><i class="fas fa-chart-line me-2"></i>1. Dashboard</h3>
-                                <p>Tus estadísticas <strong>SOLO cuentan ventas aprobadas</strong>. Las pendientes no influyen en los números para mantener la contabilidad real.</p>
+                                <h3 class="text-danger fw-bold mb-3"><i class="fas fa-chart-line me-2"></i>1. Dashboard (Panel Principal)</h3>
+                                <p class="text-white-50">Es tu centro de control. Aquí ves la salud financiera del negocio en tiempo real.</p>
+                                <ul class="list-unstyled text-white-50 ms-3">
+                                    <li class="mb-2"><strong>Ingresos Totales:</strong> Suma de dinero de ventas <em>aprobadas</em> (dinero real en caja).</li>
+                                    <li class="mb-2"><strong>Comisiones a Pagar:</strong> Total que debes a los asesores por esas ventas.</li>
+                                    <li class="mb-2"><strong>Top Asesores:</strong> Ranking de rendimiento para incentivos.</li>
+                                </ul>
+                                <div class="alert alert-danger border-0 text-white bg-opacity-10 py-2">
+                                    <small><i class="fas fa-exclamation-circle me-1"></i> Las ventas "Pendientes" <strong>NO</strong> suman aquí hasta que las apruebes.</small>
+                                </div>
                             </div>
 
                             <div class="manual-section mb-5">
-                                <h3 class="text-danger fw-bold mb-3"><i class="fas fa-tasks me-2"></i>2. Gestión de Ventas</h3>
-                                
-                                <h5 class="text-white mt-4 mb-2">✅ Aprobar Venta</h5>
-                                <p class="text-white-50">Verifica la información y el comprobante. Al aprobar, la comisión se suma automáticamente a la deuda semanal con el asesor.</p>
+                                <h3 class="text-danger fw-bold mb-3"><i class="fas fa-users me-2"></i>2. Gestión de Asesores</h3>
+                                <p class="text-white-50">Administra a tu equipo de ventas. Puedes:</p>
+                                <ul class="text-white-50">
+                                    <li class="mb-2"><strong>Nuevo Asesor:</strong> Registra sus datos básicos (Nombre, Cédula, Teléfono, Correo).</li>
+                                    <li class="mb-2"><strong>Crear Usuario:</strong> Una vez creado el asesor, haz clic en el botón <i class="fas fa-user-plus text-success"></i> para generarle acceso al sistema.</li>
+                                    <li class="mb-2"><strong>Editar/Desactivar:</strong> Si un asesor se retira, puedes desactivar su acceso sin borrar su historial de ventas.</li>
+                                </ul>
+                            </div>
 
-                                <h5 class="text-white mt-4 mb-2">❌ Rechazar Venta (NUEVO)</h5>
-                                <p class="text-white-50">Usa los botones rápidos para agilizar el proceso:</p>
-                                <div class="d-flex gap-2 mb-3">
-                                    <button class="btn btn-sm btn-outline-warning">📷 No adjuntó comprobante</button>
-                                    <button class="btn btn-sm btn-outline-danger">⚠️ Comprobante falso</button>
+                            <div class="manual-section mb-5">
+                                <h3 class="text-danger fw-bold mb-3"><i class="fas fa-briefcase me-2"></i>3. Gestión de Servicios</h3>
+                                <p class="text-white-50">Configura qué vendes y cuánto pagas por ello.</p>
+                                <ul class="text-white-50">
+                                    <li><strong>Precio:</strong> Lo que paga el cliente final.</li>
+                                    <li><strong>Comisión (%):</strong> El porcentaje exacto que ganará el asesor por venta.</li>
+                                    <li><em>Ejemplo: Si un servicio vale $100.000 y la comisión es 10%, el asesor gana $10.000 automáticamente.</em></li>
+                                </ul>
+                            </div>
+
+                            <div class="manual-section mb-5">
+                                <h3 class="text-danger fw-bold mb-3"><i class="fas fa-check-double me-2"></i>4. Control de Ventas</h3>
+                                <p class="text-white-50">Tu tarea diaria principal: Validar el ingreso de dinero.</p>
+                                
+                                <div class="row g-3 mt-2">
+                                    <div class="col-md-6">
+                                        <div class="p-3 border border-success border-opacity-25 rounded bg-dark">
+                                            <h6 class="text-success fw-bold"><i class="fas fa-check me-2"></i>Aprobar</h6>
+                                            <small class="text-white-50">Verifica que el comprobante sea real y el monto correcto. Al aprobar, el sistema calcula la comisión y la agenda para pagar el domingo.</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-3 border border-danger border-opacity-25 rounded bg-dark">
+                                            <h6 class="text-danger fw-bold"><i class="fas fa-times me-2"></i>Rechazar</h6>
+                                            <small class="text-white-50">Si algo está mal (foto borrosa, valor incompleto). Usa los <strong>botones rápidos</strong> para notificar al asesor instantáneamente.</small>
+                                        </div>
+                                    </div>
                                 </div>
-                                <p class="text-white-50">El asesor recibirá una notificación con el motivo exacto.</p>
+                            </div>
+
+                            <div class="manual-section mb-5">
+                                <h3 class="text-danger fw-bold mb-3"><i class="fas fa-money-bill-wave me-2"></i>5. Pagos y Finanzas</h3>
+                                <p class="text-white-50">El sistema hace la contabilidad por ti. Hay dos cortes:</p>
+                                
+                                <h5 class="text-white mt-3"><i class="fas fa-calendar-week me-2 text-warning"></i>Corte Semanal (Domingos)</h5>
+                                <p class="text-white-50">En la tabla "Pagos Semanales":</p>
+                                <ul class="text-white-50 small">
+                                    <li>El sistema suma todas las ventas aprobadas de la semana.</li>
+                                    <li><strong>Botón Factura:</strong> Descarga un PDF con el detalle venta por venta (para transparencia con el asesor).</li>
+                                    <li><strong>Botón Pagar:</strong> Marca la deuda como saldada y archiva la semana.</li>
+                                </ul>
+
+                                <h5 class="text-white mt-3"><i class="fas fa-star me-2 text-warning"></i>Bonos Mensuales</h5>
+                                <p class="text-white-50 small">Al final de la página, verás la tabla de Bonos. Si activas premios por meta, aquí aparecerá el 5% extra a pagar a fin de mes.</p>
                             </div>
 
                             <div class="manual-section">
-                                <h3 class="text-danger fw-bold mb-3"><i class="fas fa-money-bill-wave me-2"></i>3. Pagos y Finanzas</h3>
-                                <p>En la sección "Pagos" ves el acumulado semanal de cada asesor.</p>
-                                <ul class="text-white-50">
-                                    <li><strong>Factura:</strong> Genera un PDF detallado.</li>
-                                    <li><strong>Pagar:</strong> Marca la semana como saldada.</li>
-                                    <li><strong>Deshacer:</strong> Si te equivocaste, revierte el estado de pago.</li>
-                                    <li><strong>Bonos:</strong> Se gestionan igual, en su propia tabla inferior.</li>
-                                </ul>
+                                <h3 class="text-danger fw-bold mb-3"><i class="fas fa-folder-open me-2"></i>6. Recursos (Archivos)</h3>
+                                <p class="text-white-50">Sube material de apoyo para tus asesores (Imágenes de publicidad, guiones de venta, PDFs informativos). Ellos podrán descargarlos desde su perfil.</p>
                             </div>
 
                         </div>
