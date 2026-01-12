@@ -39,11 +39,16 @@
 
                             <div class="manual-section mb-5">
                                 <h3 class="text-primary fw-bold mb-3"><i class="fas fa-hand-point-right me-2"></i>1. Primeros Pasos</h3>
-                                <p>Bienvenido al equipo. En tu <strong>Dashboard (Inicio)</strong> encontrarás un resumen rápido de tu rendimiento:</p>
+                                <p>Bienvenido al equipo. En tu menú lateral izquierdo encontrarás acceso directo a tus herramientas principales:</p>
                                 <ul class="list-unstyled text-white-50 ms-3">
-                                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Tus ventas aprobadas del mes.</li>
-                                    <li class="mb-2"><i class="fas fa-dollar-sign text-warning me-2"></i> Tus comisiones acumuladas.</li>
-                                    <li class="mb-2"><i class="fas fa-history text-info me-2"></i> Tus ventas recientes.</li>
+                                    <li class="mb-2"><i class="fas fa-home me-2"></i> <strong>Dashboard:</strong> Resumen de tu rendimiento.</li>
+                                    <li class="mb-2"><i class="fas fa-shopping-cart me-2"></i> <strong>Ventas:</strong> Donde registras y sigues tus ventas.</li>
+                                    <li class="mb-2"><i class="fas fa-headset me-2"></i> <strong>Soporte:</strong> Contacto directo para ayuda técnica.</li>
+                                </ul>
+                                <p class="mt-3 text-white-50">En el <strong>Dashboard</strong> verás:</p>
+                                <ul class="list-unstyled text-white-50 ms-3">
+                                    <li class="mb-1"><i class="fas fa-check text-success me-2"></i> Tus ventas aprobadas.</li>
+                                    <li class="mb-1"><i class="fas fa-dollar-sign text-warning me-2"></i> Comisiones acumuladas.</li>
                                 </ul>
                             </div>
 
@@ -91,10 +96,25 @@
                                 </div>
                             </div>
                             
-                            <div class="manual-section">
-                                <h3 class="text-primary fw-bold mb-3"><i class="fas fa-wallet me-2"></i>4. Tus Pagos</h3>
-                                <p>Ve a la sección <strong>"Pagos"</strong> para ver tu corte semanal.</p>
-                                <p class="text-white-50">Cuando el administrador te pague, verás el estado <span class="badge bg-success">PAGADO</span> y podrás descargar tu comprobante.</p>
+                            <div class="manual-section text-white-50">
+                                <h3 class="text-primary fw-bold mb-3"><i class="fas fa-wallet me-2"></i>4. Pagos y Comisiones</h3>
+                                <div class="alert alert-custom border-0 text-white">
+                                    <i class="fas fa-calendar-check me-2"></i> <strong>Política de Pagos:</strong>
+                                </div>
+                                <ul class="list-unstyled mt-3">
+                                    <li class="mb-3">
+                                        <strong class="text-white d-block"><i class="fas fa-calendar-week me-2 text-primary"></i> Pagos Semanales:</strong>
+                                        El corte se realiza cada <strong>Domingo</strong>. Se pagan todas las comisiones de las ventas aprobadas durante esa semana.
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong class="text-white d-block"><i class="fas fa-star me-2 text-warning"></i> Bono Mensual (5%):</strong>
+                                        Si cumples las metas, el bono extra del 5% se liquida y paga a <strong>fin de mes</strong>.
+                                    </li>
+                                    <li>
+                                        <strong class="text-white d-block"><i class="fas fa-envelope me-2 text-info"></i> Comprobantes de Pago:</strong>
+                                        Una vez realizado el pago, el comprobante y el detalle se enviarán automáticamente al <strong>correo electrónico</strong> que registraste con el administrador.
+                                    </li>
+                                </ul>
                             </div>
 
                         </div>
