@@ -116,16 +116,41 @@
 
             // reCAPTCHA v3 form submission
             const loginForm = document.getElementById('loginForm');
-            if (loginForm) {
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+
+            if (loginForm && submitBtn) {
                 loginForm.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    grecaptcha.ready(function() {
-                        grecaptcha.execute('6Lccs0csAAAAALSMs3ORgCddP7eRJdeAT2VkjWC8', {action: 'login'}).then(function(token) {
-                            document.getElementById('recaptchaToken').value = token;
-                            loginForm.submit();
+                    // Disable button and show loading state
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Iniciando...';
+                    
+                    if (typeof grecaptcha !== 'undefined') {
+                        grecaptcha.ready(function() {
+                            try {
+                                grecaptcha.execute('6Lccs0csAAAAALSMs3ORgCddP7eRJdeAT2VkjWC8', {action: 'login'}).then(function(token) {
+                                    const recaptchaInput = document.getElementById('recaptchaToken');
+                                    if (recaptchaInput) {
+                                        recaptchaInput.value = token;
+                                    }
+                                    loginForm.submit();
+                                }).catch(function(error) {
+                                    console.error('reCAPTCHA error:', error);
+                                    // Fallback if recaptcha fails to execute
+                                    loginForm.submit();
+                                });
+                            } catch (err) {
+                                console.error('reCAPTCHA execution error:', err);
+                                loginForm.submit();
+                            }
                         });
-                    });
+                    } else {
+                        // If grecaptcha script is not loaded, just submit
+                        console.warn('reCAPTCHA not loaded');
+                        loginForm.submit();
+                    }
                 });
             }
         });
