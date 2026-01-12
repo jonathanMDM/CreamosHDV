@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <p class="mb-2"><i class="fas fa-map-marker-alt text-muted me-2"></i> {{ $venta->asesor->ciudad }}</p>
-                        <a href="https://wa.me/57{{ preg_replace('/[^0-9]/', '', $venta->asesor->whatsapp) }}" 
+                        <a href="https://wa.me/57{{ preg_replace('/[^0-9]/', '', $venta->asesor->whatsapp) }}?text=VENTA%20CONFIRMADA" 
                            target="_blank" 
                            class="whatsapp-btn btn-sm w-100 mt-2">
                             <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
