@@ -527,7 +527,7 @@
     
     @if(auth()->check() && auth()->user()->role === 'asesor')
         @php
-            $waMessage = "VENTA INGRESADA\n";
+            $waMessage = "*VENTA INGRESADA*\n";
             $waMessage .= "Nombre del Cliente: \n";
             $waMessage .= "Teléfono del cliente: \n";
             $waMessage .= "Servicio: \n";
