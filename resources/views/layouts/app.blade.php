@@ -39,16 +39,18 @@
     <style>
         /* Sidebar Styles */
         .sidebar-custom {
+            width: 260px;
+            background: #1a1d21;
+            min-height: 100vh;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: fixed;
-            top: 0;
             left: 0;
-            height: 100vh;
-            width: 280px;
-            background: #182335;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            top: 0;
             z-index: 1040;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
         
         .sidebar-custom.collapsed {
@@ -97,6 +99,9 @@
         .sidebar-nav {
             padding: 1rem 0;
             margin: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .sidebar-nav .nav-link {
@@ -264,6 +269,13 @@
                 <a class="nav-link {{ request()->routeIs('recursos.*') ? 'active' : '' }}" href="{{ route('recursos.index') }}">
                     <i class="fas fa-folder-open"></i>
                     <span class="nav-text">Recursos</span>
+                </a>
+            </li>
+            
+            <li class="nav-item mt-auto">
+                <a class="nav-link" href="https://wa.me/573145781261" target="_blank">
+                    <i class="fas fa-headset"></i>
+                    <span class="nav-text">Soporte</span>
                 </a>
             </li>
             
@@ -514,9 +526,19 @@
     </script>
     
     @if(auth()->check() && auth()->user()->role === 'asesor')
-        <a href="https://wa.me/573005038368" class="whatsapp-float" target="_blank">
+        @php
+            $waMessage = "VENTA INGRESADA\n";
+            $waMessage .= "Nombre del Cliente: \n";
+            $waMessage .= "Teléfono del cliente: \n";
+            $waMessage .= "Servicio: \n";
+            $waMessage .= "Valor total: \n";
+            $waMessage .= "Pago recibido: (especifica si es 50% o 100%)\n";
+            $waMessage .= "Comprobante: adjuntar comprobante \n";
+            $waMessage .= "Nombre del Asesor: " . auth()->user()->name;
+            $waUrl = "https://wa.me/573005038368?text=" . urlencode($waMessage);
+        @endphp
+        <a href="{{ $waUrl }}" class="whatsapp-float shadow-lg" target="_blank" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 30px; border-radius: 50%;">
             <i class="fab fa-whatsapp"></i>
-            <span>Soporte CreamosHDV</span>
         </a>
     @endif
 
