@@ -168,10 +168,23 @@ class VentaController extends Controller
 
     public function destroy(Venta $venta)
     {
+        // Borrar imagen de Cloudinary si existe
+        if ($venta->image_url) {
+            try {
+                $path = parse_url($venta->image_url, PHP_URL_PATH);
+                $parts = explode('/', $path);
+                $filename = end($parts);
+                $publicId = 'ventas/' . pathinfo($filename, PATHINFO_FILENAME);
+                \CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::destroy($publicId);
+            } catch (\Exception $e) {
+                // Silently fail if image not found or delete fails
+            }
+        }
+
         $venta->delete();
 
         return redirect()->route('ventas.index')
-            ->with('success', 'Venta eliminada exitosamente');
+            ->with('success', 'Venta eliminada permanentemente de la base de datos.');
     }
 
     public function aprobar(Venta $venta)

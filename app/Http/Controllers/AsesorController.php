@@ -52,8 +52,11 @@ class AsesorController extends Controller
 
         $asesor->update(['user_id' => $user->id]);
 
+        // Enviar notificación con credenciales
+        $user->notify(new \App\Notifications\WelcomeAdvisorNotification($asesor->email, $asesor->cedula));
+
         return redirect()->route('asesores.index')
-            ->with('success', 'Asesor registrado exitosamente. Ya puede iniciar sesión con su correo y cédula.');
+            ->with('success', 'Asesor registrado exitosamente. Se ha enviado un correo con sus credenciales (Contraseña inicial: Cédula).');
     }
 
     public function show(Asesor $asesor)
@@ -98,10 +101,18 @@ class AsesorController extends Controller
 
     public function destroy(Asesor $asesor)
     {
+        // Guardar referencia al usuario antes de borrar el asesor
+        $user = $asesor->user;
+        
         $asesor->delete();
+        
+        // Borrar usuario permanentemente si existe
+        if ($user) {
+            $user->delete();
+        }
 
         return redirect()->route('asesores.index')
-            ->with('success', 'Asesor eliminado exitosamente');
+            ->with('success', 'Asesor y su cuenta de usuario eliminados permanentemente.');
     }
 
     public function crearUsuario(Asesor $asesor)

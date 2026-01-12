@@ -254,14 +254,13 @@
                     <i class="fas fa-money-bill-wave"></i>
                     <span class="nav-text">Pagos</span>
                 </a>
-            </li>
+            @endif
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('recursos.*') ? 'active' : '' }}" href="{{ route('recursos.index') }}">
                     <i class="fas fa-folder-open"></i>
                     <span class="nav-text">Recursos</span>
                 </a>
             </li>
-            @endif
             
             <li class="nav-item d-lg-none">
                 <hr class="mx-3" style="border-color: rgba(255,255,255,0.1)">
@@ -512,7 +511,7 @@
     </script>
     
     @if(auth()->check() && auth()->user()->role === 'asesor')
-        <a href="https://wa.me/573005058368" class="whatsapp-float" target="_blank">
+        <a href="https://wa.me/573005038368" class="whatsapp-float" target="_blank">
             <i class="fab fa-whatsapp"></i>
             <span>Soporte CreamosHDV</span>
         </a>

@@ -42,15 +42,38 @@
                         <label for="password" class="form-label">
                             <i class="fas fa-lock"></i> Contraseña
                         </label>
-                        <input id="password" type="password" 
-                               class="form-control form-control-custom @error('password') is-invalid @enderror" 
-                               name="password" required autocomplete="current-password">
+                        <div class="input-group">
+                            <input id="password" type="password" 
+                                   class="form-control form-control-custom @error('password') is-invalid @enderror" 
+                                   name="password" required autocomplete="current-password"
+                                   style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                            <button class="btn btn-outline-light" type="button" id="togglePassword" 
+                                    style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
                         @error('password')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback d-block" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
                     </div>
+
+                    <script>
+                        document.getElementById('togglePassword').addEventListener('click', function() {
+                            const password = document.getElementById('password');
+                            const icon = this.querySelector('i');
+                            if (password.type === 'password') {
+                                password.type = 'text';
+                                icon.classList.remove('fa-eye');
+                                icon.classList.add('fa-eye-slash');
+                            } else {
+                                password.type = 'password';
+                                icon.classList.remove('fa-eye-slash');
+                                icon.classList.add('fa-eye');
+                            }
+                        });
+                    </script>
 
                     <div class="mb-4 form-check">
                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
