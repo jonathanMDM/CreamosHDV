@@ -151,13 +151,17 @@
                                                                     </td>
                                                                     <td class="text-center align-middle">
                                                                         @if($pago->pagado)
-                                                                            <div class="d-flex gap-1 justify-content-center">
-                                                                                <a href="{{ route('pagos.comprobante', $pago->id) }}" class="btn btn-xs btn-outline-info" title="Ver Factura">
-                                                                                    <i class="fas fa-file-invoice-dollar"></i> Factura
+                                                                            <div class="d-flex gap-1 justify-content-center flex-wrap">
+                                                                                <a href="{{ route('pagos.comprobante', $pago->id) }}" class="btn btn-sm btn-outline-info" title="Ver Factura">
+                                                                                    <i class="fas fa-file-invoice-dollar"></i>
+                                                                                    <span class="d-none d-lg-inline ms-1">Factura</span>
                                                                                 </a>
                                                                                 <form action="{{ route('pagos.marcar-no-pagado', $pago->id) }}" method="POST" class="js-confirm" data-confirm="¿Deshacer pago?">
                                                                                     @csrf
-                                                                                    <button type="submit" class="btn btn-xs btn-outline-danger">Deshacer</button>
+                                                                                    <button type="submit" class="btn btn-sm btn-outline-danger" title="Deshacer pago">
+                                                                                        <i class="fas fa-undo"></i>
+                                                                                        <span class="d-none d-lg-inline ms-1">Deshacer</span>
+                                                                                    </button>
                                                                                 </form>
                                                                             </div>
                                                                         @else
@@ -309,13 +313,17 @@
                                                                     </td>
                                                                     <td class="text-center align-middle">
                                                                         @if($pago->pagado)
-                                                                            <div class="d-flex gap-1 justify-content-center">
-                                                                                <a href="{{ route('pagos.comprobante', $pago->id) }}" class="btn btn-xs btn-outline-info">
-                                                                                    <i class="fas fa-file-invoice-dollar"></i> Factura
+                                                                            <div class="d-flex gap-1 justify-content-center flex-wrap">
+                                                                                <a href="{{ route('pagos.comprobante', $pago->id) }}" class="btn btn-sm btn-outline-info" title="Ver Factura">
+                                                                                    <i class="fas fa-file-invoice-dollar"></i>
+                                                                                    <span class="d-none d-lg-inline ms-1">Factura</span>
                                                                                 </a>
                                                                                 <form action="{{ route('pagos.marcar-no-pagado', $pago->id) }}" method="POST" class="js-confirm" data-confirm="¿Deshacer pago mensual?">
                                                                                     @csrf
-                                                                                    <button type="submit" class="btn btn-xs btn-outline-danger">Deshacer</button>
+                                                                                    <button type="submit" class="btn btn-sm btn-outline-danger" title="Deshacer pago">
+                                                                                        <i class="fas fa-undo"></i>
+                                                                                        <span class="d-none d-lg-inline ms-1">Deshacer</span>
+                                                                                    </button>
                                                                                 </form>
                                                                             </div>
                                                                         @else
