@@ -113,8 +113,9 @@ class VentaController extends Controller
         if ($request->hasFile('comprobante')) {
             try {
                 $file = $request->file('comprobante');
-                // Usar el método correcto del SDK de Cloudinary
-                $uploadedFileUrl = \Cloudinary\Cloudinary::uploadApi()->upload($file->getRealPath(), [
+                // Obtener la instancia de Cloudinary desde el contenedor de Laravel
+                $cloudinary = app(\Cloudinary\Cloudinary::class);
+                $uploadedFileUrl = $cloudinary->uploadApi()->upload($file->getRealPath(), [
                     'folder' => 'ventas',
                     'quality' => 'auto:low',
                     'fetch_format' => 'auto'
