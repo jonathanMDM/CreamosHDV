@@ -536,15 +536,7 @@
     
     @if(auth()->check() && auth()->user()->role === 'asesor')
         @php
-            $waMessage = "*VENTA INGRESADA*\n";
-            $waMessage .= "Nombre del Cliente: \n";
-            $waMessage .= "Teléfono del cliente: \n";
-            $waMessage .= "Servicio: \n";
-            $waMessage .= "Valor total: \n";
-            $waMessage .= "Pago recibido: (especifica si es 50% o 100%)\n";
-            $waMessage .= "Comprobante: adjuntar comprobante \n";
-            $waMessage .= "Nombre del Asesor: " . auth()->user()->name;
-            $waUrl = "https://wa.me/573005038368?text=" . urlencode($waMessage);
+            $waUrl = "https://wa.me/573005038368";
         @endphp
         <a href="{{ $waUrl }}" class="whatsapp-float shadow-lg" target="_blank" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 30px; border-radius: 50%;">
             <i class="fab fa-whatsapp"></i>

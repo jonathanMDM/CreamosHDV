@@ -9,6 +9,8 @@ class Venta extends Model
     protected $fillable = [
         'asesor_id',
         'servicio_id',
+        'nombre_cliente',
+        'telefono_cliente',
         'valor_servicio',
         'comision',
         'image_url',

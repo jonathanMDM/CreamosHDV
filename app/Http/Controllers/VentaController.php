@@ -79,6 +79,8 @@ class VentaController extends Controller
         
         $rules = [
             'servicio_id' => 'required|exists:servicios,id',
+            'nombre_cliente' => 'required|string|max:255',
+            'telefono_cliente' => 'required|string|max:20',
             'comprobante' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120', // Máx 5MB
         ];
 
@@ -126,9 +128,11 @@ class VentaController extends Controller
             }
         }
 
-        Venta::create([
+        $venta = Venta::create([
             'asesor_id' => $asesor_id,
             'servicio_id' => $validated['servicio_id'],
+            'nombre_cliente' => $validated['nombre_cliente'],
+            'telefono_cliente' => $validated['telefono_cliente'],
             'valor_servicio' => $valorServicio,
             'comision' => $comision,
             'image_url' => $imageUrl,
@@ -140,13 +144,13 @@ class VentaController extends Controller
         if ($user->role !== 'admin') {
             $admin = \App\Models\User::where('role', 'admin')->first();
             if ($admin) {
-                $venta = Venta::latest()->first(); // Obtener la venta recién creada
+                // $venta ya está definida arriba
                 $venta->load(['asesor', 'servicio']); // Cargar relaciones
                 $admin->notify(new \App\Notifications\NewSaleNotification($venta));
             }
         }
 
-        return redirect()->route('ventas.index')
+        return redirect()->route('ventas.show', $venta->id)
             ->with('success', 'Venta registrada exitosamente. ' . ($estado === 'pendiente' ? 'Pendiente de aprobación.' : 'Comisión: $' . number_format($comision, 0, ',', '.')));
     }
 

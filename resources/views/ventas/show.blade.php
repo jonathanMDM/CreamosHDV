@@ -24,31 +24,82 @@
         <div class="card-body p-4">
             <div class="row g-4 mb-4">
                 <!-- Columna Asesor -->
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <div class="p-3 rounded-4 border h-100" style="background-color: #0a0a0a;">
+                        @if(auth()->user()->role === 'admin')
+                            <h6 class="text-muted text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">
+                                <i class="fas fa-user me-2"></i>Información del Asesor
+                            </h6>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="avatar-circle bg-primary text-white me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                                    {{ substr($venta->asesor->nombre_completo, 0, 1) }}
+                                </div>
+                                <div>
+                                    <h5 class="mb-0 fw-bold">{{ $venta->asesor->nombre_completo }}</h5>
+                                    <small class="text-muted">C.C. {{ $venta->asesor->cedula }}</small>
+                                </div>
+                            </div>
+                            <p class="mb-2"><i class="fas fa-map-marker-alt text-muted me-2"></i> {{ $venta->asesor->ciudad }}</p>
+                            <a href="https://wa.me/57{{ preg_replace('/[^0-9]/', '', $venta->asesor->whatsapp) }}?text=VENTA%20CONFIRMADA" 
+                               target="_blank" 
+                               class="whatsapp-btn btn-sm w-100 mt-2">
+                                <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                            </a>
+                        @else
+                            <h6 class="text-muted text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">
+                                <i class="fas fa-headset me-2"></i>Soporte Administrativo
+                            </h6>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="avatar-circle bg-dark text-white me-3" style="width: 50px; height: 50px; font-size: 1.2rem; border: 1px solid rgba(255,255,255,0.1);">
+                                    CH
+                                </div>
+                                <div>
+                                    <h5 class="mb-0 fw-bold">Creamos Hojas de Vida</h5>
+                                    <small class="text-muted">Administrador</small>
+                                </div>
+                            </div>
+                            <p class="mb-2 small text-white-50"><i class="fas fa-info-circle me-2"></i>Pulsa el botón de abajo para informar de tu venta.</p>
+                            @php
+                                $msg = "VENTA INGRESADA\n";
+                                $msg .= "Nombre del Cliente: " . ($venta->nombre_cliente ?? 'N/A') . "\n";
+                                $msg .= "Teléfono del cliente: " . ($venta->telefono_cliente ?? 'N/A') . "\n";
+                                $msg .= "Servicio: " . $venta->servicio->nombre_servicio . "\n";
+                                $msg .= "Valor total: $" . number_format($venta->valor_servicio, 0, ',', '.') . "\n";
+                                $msg .= "Pago recibido: " . ($venta->tipo_pago === 'pago_total' ? '100%' : '50%') . "\n";
+                                $msg .= "Comprobante: (adjunto)\n";
+                                $msg .= "Nombre del Asesor: " . $venta->asesor->nombre_completo;
+                                $waUrl = "https://wa.me/573005038368?text=" . urlencode($msg);
+                            @endphp
+                            <a href="{{ $waUrl }}" 
+                               target="_blank" 
+                               class="whatsapp-btn btn-sm w-100 mt-2">
+                                <i class="fab fa-whatsapp"></i> Reportar Venta al Admin
+                            </a>
+                        @endif
+                    </div>
+                </div>
+
+                <!-- Columna Cliente -->
+                <div class="col-md-4">
                     <div class="p-3 rounded-4 border h-100" style="background-color: #0a0a0a;">
                         <h6 class="text-muted text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">
-                            <i class="fas fa-user me-2"></i>Información del Asesor
+                            <i class="fas fa-user-tag me-2"></i>Información del Cliente
                         </h6>
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="avatar-circle bg-primary text-white me-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
-                                {{ substr($venta->asesor->nombre_completo, 0, 1) }}
-                            </div>
-                            <div>
-                                <h5 class="mb-0 fw-bold">{{ $venta->asesor->nombre_completo }}</h5>
-                                <small class="text-muted">C.C. {{ $venta->asesor->cedula }}</small>
-                            </div>
+                        <div class="mb-3">
+                            <h5 class="fw-bold mb-1">{{ $venta->nombre_cliente ?? 'No registrado' }}</h5>
+                            <p class="mb-0 text-white-50"><i class="fas fa-phone me-2"></i> {{ $venta->telefono_cliente ?? 'No registrado' }}</p>
                         </div>
-                        <p class="mb-2"><i class="fas fa-map-marker-alt text-muted me-2"></i> {{ $venta->asesor->ciudad }}</p>
-                        <a href="https://wa.me/57{{ preg_replace('/[^0-9]/', '', $venta->asesor->whatsapp) }}?text=VENTA%20CONFIRMADA" 
-                           target="_blank" 
-                           class="whatsapp-btn btn-sm w-100 mt-2">
-                            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-                        </a>
+                        <div class="mt-4 pt-2 border-top border-secondary border-opacity-25">
+                            <small class="text-muted d-block text-uppercase" style="font-size: 0.65rem;">Estado de Pago:</small>
+                            <span class="badge {{ $venta->tipo_pago === 'pago_total' ? 'bg-success' : 'bg-info text-dark' }} mt-1">
+                                {{ $venta->tipo_pago === 'pago_total' ? 'Pago Completo (100%)' : 'Abono (50%)' }}
+                            </span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Columna Servicio -->
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="p-3 rounded-4 border h-100" style="background-color: #0a0a0a;">
                         <h6 class="text-muted text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">
                             <i class="fas fa-briefcase me-2"></i>Detalle del Servicio

@@ -49,6 +49,43 @@
                         @enderror
                     </div>
                 @endif
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label for="nombre_cliente" class="form-label">
+                                <i class="fas fa-user-tag"></i> Nombre del Cliente *
+                            </label>
+                            <input type="text" 
+                                   class="form-control form-control-custom @error('nombre_cliente') is-invalid @enderror" 
+                                   id="nombre_cliente" 
+                                   name="nombre_cliente" 
+                                   value="{{ old('nombre_cliente') }}"
+                                   placeholder="Ej: Juan Pérez"
+                                   required>
+                            @error('nombre_cliente')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-4">
+                            <label for="telefono_cliente" class="form-label">
+                                <i class="fas fa-phone"></i> Teléfono del Cliente *
+                            </label>
+                            <input type="text" 
+                                   class="form-control form-control-custom @error('telefono_cliente') is-invalid @enderror" 
+                                   id="telefono_cliente" 
+                                   name="telefono_cliente" 
+                                   value="{{ old('telefono_cliente') }}"
+                                   placeholder="Ej: 3001234567"
+                                   required>
+                            @error('telefono_cliente')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
 
                 <div class="mb-4">
                     <label for="servicio_id" class="form-label">
