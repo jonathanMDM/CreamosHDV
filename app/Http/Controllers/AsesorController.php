@@ -151,4 +151,31 @@ class AsesorController extends Controller
         $estado = $user->is_active ? 'habilitado' : 'deshabilitado';
         return back()->with('success', "Acceso al portal $estado correctamente para el asesor.");
     }
+    public function cambiarClave(Request $request, $id)
+    {
+        $request->validate([
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $asesor = Asesor::findOrFail($id);
+        
+        if (!$asesor->user_id) {
+            // Intentar buscar usuario por email si no está vinculado
+            $user = User::where('email', $asesor->email)->first();
+            if ($user) {
+                // Vincular si se encuentra
+                $asesor->user_id = $user->id;
+                $asesor->save();
+            } else {
+                return back()->with('error', 'Este asesor no tiene un usuario de sistema. Genérelo primero.');
+            }
+        } else {
+            $user = User::findOrFail($asesor->user_id);
+        }
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return back()->with('success', 'Contraseña restablecida correctamente.');
+    }
 }

@@ -88,11 +88,53 @@
                                                title="Ver detalles">
                                                 <i class="fas fa-eye"></i>
                                             </a>
+                                            
+                                            <!-- Botón Cambio de Clave -->
+                                            @if($asesor->user_id)
+                                            <button type="button" class="btn btn-sm btn-info text-white" 
+                                                    data-bs-toggle="modal" data-bs-target="#passwordModal{{ $asesor->id }}" 
+                                                    title="Restablecer Contraseña">
+                                                <i class="fas fa-key"></i>
+                                            </button>
+                                            @endif
+
                                             <a href="{{ route('asesores.edit', $asesor) }}" 
                                                class="btn btn-sm btn-warning-custom" 
                                                title="Editar">
                                                 <i class="fas fa-edit"></i>
                                             </a>
+
+                                            <!-- Modal Cambio Clave -->
+                                            @if($asesor->user_id)
+                                            <div class="modal fade" id="passwordModal{{ $asesor->id }}" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content" style="background-color: #1a1d21; color: white;">
+                                                        <div class="modal-header border-secondary">
+                                                            <h5 class="modal-title">Cambiar Clave: {{ $asesor->nombre_completo }}</h5>
+                                                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <form action="{{ route('asesores.cambiar-clave', $asesor->id) }}" method="POST">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="modal-body text-start">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Nueva Contraseña</label>
+                                                                    <input type="password" name="password" class="form-control bg-dark text-white border-secondary" required minlength="6">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label class="form-label">Confirmar Contraseña</label>
+                                                                    <input type="password" name="password_confirmation" class="form-control bg-dark text-white border-secondary" required minlength="6">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer border-secondary">
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                                <button type="submit" class="btn btn-primary">Guardar Nueva Clave</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endif
                                             <form action="{{ route('asesores.destroy', $asesor) }}" 
                                                   method="POST" 
                                                   class="d-inline js-confirm"

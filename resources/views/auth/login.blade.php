@@ -75,6 +75,14 @@
                     </div>
                 </form>
 
+                @if (Route::has('password.request'))
+                    <div class="text-center mt-3">
+                        <a class="text-muted text-decoration-none small" href="{{ route('password.request') }}" style="font-size: 0.9rem;">
+                            <i class="fas fa-key me-1"></i> ¿Olvidaste tu contraseña?
+                        </a>
+                    </div>
+                @endif
+
 
             </div>
         </div>

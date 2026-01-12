@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
     // Asesores
     Route::post('/asesores/{asesor}/usuario', [AsesorController::class, 'crearUsuario'])->name('asesores.usuario');
     Route::post('/asesores/{asesor}/toggle-usuario', [AsesorController::class, 'toggleUsuario'])->name('asesores.toggle-usuario');
+    Route::put('/asesores/{asesor}/cambiar-clave', [AsesorController::class, 'cambiarClave'])->name('asesores.cambiar-clave');
     Route::resource('asesores', AsesorController::class)->parameters([
         'asesores' => 'asesor'
     ]);
