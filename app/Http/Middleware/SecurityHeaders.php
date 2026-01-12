@@ -32,7 +32,7 @@ class SecurityHeaders
                "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://fonts.googleapis.com https://cdn.datatables.net; " .
                "img-src 'self' data: https://res.cloudinary.com https://*.whatsapp.com; " .
                "font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; " .
-               "connect-src 'self' https://res.cloudinary.com https://cdn.jsdelivr.net https://www.google.com; " .
+               "connect-src 'self' https://res.cloudinary.com https://cdn.jsdelivr.net https://www.google.com https://cdnjs.cloudflare.com; " .
                "frame-src 'self' https://www.google.com;";
                
         $response->headers->set('Content-Security-Policy', $csp);
