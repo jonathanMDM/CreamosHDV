@@ -55,12 +55,10 @@
                             <tr>
                                 <th style="width: 5%;">Item</th>
                                 <th style="width: 20%;">Asesor</th>
-                                <th style="width: 25%;">Servicio</th>
-                                <th style="width: 12%;">Valor Servicio</th>
-                                <th style="width: 12%;">Comisión</th>
-                                <th style="width: 15%;">Fecha</th>
-                                <th style="width: 10%;">Estado</th>
-                                <th class="no-sort" style="width: 11%;">Acciones</th>
+                                <th style="width: 30%;">Servicio</th>
+                                <th style="width: 15%;">Valor Servicio</th>
+                                <th style="width: 15%;">Comisión</th>
+                                <th class="no-sort text-center" style="width: 15%;">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -87,36 +85,16 @@
                                             <span class="badge bg-secondary d-block mt-1" style="font-size: 0.65rem;">TOTAL</span>
                                         @endif
                                     </td>
-                                    <td class="text-success fw-bold">
-                                        ${{ number_format($venta->comision, 0, ',', '.') }}
-                                        <small class="text-muted d-block" style="font-size: 0.7rem;">
+                                    <td class="fw-bold">
+                                        @php
+                                            $statusClass = 'badge-status-' . $venta->estado;
+                                        @endphp
+                                        <span class="badge {{ $statusClass }} py-2 px-3 w-100" style="font-size: 0.85rem;">
+                                            ${{ number_format($venta->comision, 0, ',', '.') }}
+                                        </span>
+                                        <small class="text-muted d-block text-center mt-1" style="font-size: 0.65rem;">
                                             ({{ $venta->servicio->porcentaje_comision }}%)
                                         </small>
-                                    </td>
-                                    <td>
-                                        {{ $venta->created_at->format('d/m/Y') }}
-                                        <small class="text-muted d-block" style="font-size: 0.7rem;">
-                                            {{ $venta->created_at->format('H:i') }}
-                                        </small>
-                                    </td>
-                                    <td>
-                                        @if($venta->estado === 'aprobada')
-                                            <span class="badge bg-success">Aprobada</span>
-                                        @elseif($venta->estado === 'pendiente')
-                                            <span class="badge bg-warning text-dark">Pendiente</span>
-                                        @else
-                                            <span class="badge bg-danger" 
-                                                  data-bs-toggle="tooltip" 
-                                                  data-bs-placement="top" 
-                                                  title="Motivo: {{ $venta->motivo_rechazo ?? 'No especificado' }}">
-                                                Rechazada
-                                            </span>
-                                            @if($venta->motivo_rechazo)
-                                                <small class="text-danger d-block mt-1" style="font-size: 0.7rem; max-width: 120px;">
-                                                    {{ Str::limit($venta->motivo_rechazo, 40) }}
-                                                </small>
-                                            @endif
-                                        @endif
                                     </td>
                                     <td>
                                         <div class="d-flex gap-1">
@@ -166,7 +144,7 @@
                                 <th colspan="3" class="text-end">TOTALES SEMANA:</th>
                                 <th>${{ number_format($ventas->where('estado', '!=', 'rechazada')->sum('valor_servicio'), 0, ',', '.') }}</th>
                                 <th class="text-success">${{ number_format($ventas->where('estado', '!=', 'rechazada')->sum('comision'), 0, ',', '.') }}</th>
-                                <th colspan="3"></th>
+                                <th></th>
                             </tr>
                         </tfoot>
                     </table>
