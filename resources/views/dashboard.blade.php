@@ -108,8 +108,7 @@
                                         <th>Servicio</th>
                                         <th>Valor</th>
                                         <th>Comisión</th>
-                                        <th>Estado</th>
-                                        <th>Fecha</th>
+                                        <th class="text-center">Acción</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -127,22 +126,17 @@
                                             <td>{{ $venta->servicio->nombre_servicio }}</td>
                                             <td class="fw-bold">${{ number_format($venta->valor_servicio, 0, ',', '.') }}</td>
                                             <td>
-                                                <span class="badge badge-success-modern">
+                                                @php
+                                                    $statusClass = 'badge-status-' . $venta->estado;
+                                                @endphp
+                                                <span class="badge {{ $statusClass }} py-2 px-3" style="font-size: 0.9rem;">
                                                     ${{ number_format($venta->comision, 0, ',', '.') }}
                                                 </span>
                                             </td>
-                                            <td>
-                                                <span class="badge badge-status-{{ $venta->estado }}">
-                                                    {{ ucfirst($venta->estado) }}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <small class="text-muted">
-                                                    <a href="{{ route('ventas.show', $venta) }}" class="btn btn-outline-light btn-sm px-2 py-0" style="font-size: 0.75rem;">
-                                                        <i class="fas fa-eye"></i> Ver
-                                                    </a>
-                                                    {{ $venta->created_at->format('d/m/Y') }}
-                                                </small>
+                                            <td class="text-center">
+                                                <a href="{{ route('ventas.show', $venta) }}" class="btn btn-outline-light btn-sm rounded-pill px-3" style="font-size: 0.7rem; border-color: rgba(255,255,255,0.1);">
+                                                    <i class="fas fa-eye me-1"></i> Ver
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
