@@ -238,19 +238,45 @@
 function rechazarVenta(url, asesor) {
     Swal.fire({
         title: 'Rechazar Venta',
-        text: '¿Por qué vas a rechazar la venta de ' + asesor + '?',
+        html: `
+            <p style="margin-bottom: 1rem; color: #fff;">¿Por qué vas a rechazar la venta de <strong>${asesor}</strong>?</p>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; justify-content: center;">
+                <button type="button" class="btn btn-sm btn-outline-warning quick-reason" data-reason="No adjuntó comprobante">
+                    <i class="fas fa-image"></i> No adjuntó comprobante
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-danger quick-reason" data-reason="Comprobante falso">
+                    <i class="fas fa-exclamation-triangle"></i> Comprobante falso
+                </button>
+            </div>
+        `,
         input: 'textarea',
-        inputPlaceholder: 'Escribe el motivo aquí...',
+        inputPlaceholder: 'O escribe un motivo personalizado...',
+        inputAttributes: {
+            'aria-label': 'Motivo de rechazo'
+        },
         showCancelButton: true,
         confirmButtonText: 'Confirmar Rechazo',
         cancelButtonText: 'Cancelar',
         confirmButtonColor: '#dc3545',
-        background: '#0d0d0d',
+        background: '#0d0d0d', // Mantengo el fondo oscuro específico de esta vista
         color: '#ffffff',
         showLoaderOnConfirm: true,
+        didOpen: () => {
+            const quickReasonButtons = document.querySelectorAll('.quick-reason');
+            const textarea = Swal.getInput();
+            
+            quickReasonButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const reason = this.getAttribute('data-reason');
+                    textarea.value = reason;
+                    quickReasonButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        },
         inputValidator: (value) => {
             if (!value) {
-                return '¡Debes escribir un motivo!'
+                return '¡Debes escribir un motivo o seleccionar una opción!';
             }
         },
         preConfirm: (motivo) => {
@@ -272,7 +298,8 @@ function rechazarVenta(url, asesor) {
             
             document.body.appendChild(form);
             form.submit();
-        }
+        },
+        allowOutsideClick: () => !Swal.isLoading()
     });
 }
 </script>
