@@ -459,12 +459,19 @@ body {
 }
 
 /* Tables */
-.table-custom {
+.table-custom,
+.table-responsive {
     background: #000000 !important;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-collapse: collapse !important;
+}
+
+.table {
+    --bs-table-bg: transparent !important;
+    background-color: transparent !important;
+    color: #ffffff !important;
 }
 
 .table-custom thead {
@@ -499,7 +506,7 @@ body {
 
 .table-custom tbody tr {
     background-color: #0a0a0a !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .table-custom tbody td {
@@ -800,14 +807,56 @@ h6 {
     color: inherit;
 }
 
+/* Table Styling for Dark Theme */
+table,
+.table,
+.table-responsive,
+.table-responsive-sm,
+.table-responsive-md,
+.table-responsive-lg,
+.table-responsive-xl,
+.table-responsive-xxl {
+    background-color: transparent !important;
+    color: var(--white) !important;
+}
+
+table th,
+table td {
+    background-color: transparent !important;
+    color: var(--white) !important;
+}
+
+table thead,
+table tbody,
+table tfoot {
+    background-color: transparent !important;
+}
+
+table thead th {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+table tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 .text-white {
     color: var(--white) !important;
 }
 
 .text-muted,
 .text-white-50,
-small {
+.text-muted small,
+small.text-muted {
     color: rgba(255, 255, 255, 0.5) !important;
+}
+
+small {
+    color: rgba(255, 255, 255, 0.6) !important;
 }
 
 strong,
