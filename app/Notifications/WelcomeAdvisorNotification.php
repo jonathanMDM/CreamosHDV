@@ -53,7 +53,7 @@ class WelcomeAdvisorNotification extends Notification
                     ->line('🔐 **Correo Electrónico:** ' . $this->email)
                     ->line('🔑 **Contraseña:** `' . $this->password . '`')
                     ->line('')
-                    ->line('⚠️ **Importante:** Por seguridad, te recomendamos cambiar tu contraseña una vez que ingreses por primera vez.')
+                    ->line('⚠️ **Importante:** Por seguridad, **es obligatorio** cambiar tu contraseña temporal la primera vez que ingreses al portal. El sistema te guiará automáticamente.')
                     ->action('🚀 Ingresar al Portal', $appUrl . '/login')
                     ->line('¡Gracias por ser parte de nuestro equipo!')
                     ->line('Estamos emocionados de trabajar contigo. 💼✨')

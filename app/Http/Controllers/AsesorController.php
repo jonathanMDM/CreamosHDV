@@ -130,6 +130,7 @@ class AsesorController extends Controller
             'email' => $email,
             'password' => Hash::make($asesor->cedula), // Password inicial es su cédula
             'role' => 'asesor',
+            'must_change_password' => true, // Forzar cambio de contraseña
         ]);
 
         $asesor->update(['user_id' => $user->id, 'email' => $email]);

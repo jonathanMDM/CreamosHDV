@@ -12,7 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
-        $middleware->append(\App\Http\Middleware\CheckMustChangePassword::class);
+        $middleware->web(append: [
+            \App\Http\Middleware\CheckMustChangePassword::class,
+        ]);
         $middleware->append(\App\Http\Middleware\VerifyRecaptcha::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
