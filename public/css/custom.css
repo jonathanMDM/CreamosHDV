@@ -23,6 +23,77 @@
     box-sizing: border-box;
 }
 
+/* Global Bootstrap Overrides for Black Premium Theme */
+.card {
+    background-color: #0a0a0a !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+.card-header {
+    background-color: #000000 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+.card-body {
+    background-color: transparent !important;
+    color: inherit !important;
+}
+
+.modal-content {
+    background-color: #0d0d0d !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+.modal-header,
+.modal-footer {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dropdown-menu {
+    background-color: #0d0d0d !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.dropdown-item {
+    color: #ffffff !important;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+.list-group-item {
+    background-color: #0a0a0a !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+.nav-tabs .nav-link {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #1a1a1a !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+}
+
+.pagination .page-link {
+    background-color: #0a0a0a !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
 body {
     font-family: 'Outfit', sans-serif;
     background: #000000;

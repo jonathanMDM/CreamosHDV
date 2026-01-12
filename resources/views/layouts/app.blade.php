@@ -165,7 +165,7 @@
         
         /* Main content with sidebar */
         .main-content {
-            margin-left: 280px;
+            margin-left: 260px;
             padding: 20px;
             min-height: 100vh;
             transition: all 0.3s ease;
