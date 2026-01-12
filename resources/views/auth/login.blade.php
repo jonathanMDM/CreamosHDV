@@ -66,13 +66,7 @@
                     </div>
                 </form>
 
-                <div class="mt-4 text-center">
-                    <small class="text-muted">
-                        <i class="fas fa-info-circle"></i> Credenciales por defecto:<br>
-                        <strong>Email:</strong> creamoshojasdevida@gmail.com<br>
-                        <strong>Contraseña:</strong> 43816727sAr@*
-                    </small>
-                </div>
+
             </div>
         </div>
     </div>
