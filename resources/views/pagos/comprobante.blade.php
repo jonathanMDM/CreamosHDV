@@ -156,18 +156,38 @@
 </div>
 
 <style>
+    #factura * {
+        color: #000000 !important;
+    }
+    #factura .text-muted {
+        color: #666666 !important;
+    }
+    #factura .text-primary {
+        color: #0d6efd !important;
+    }
+    #factura .text-success {
+        color: #198754 !important;
+    }
+    #factura .bg-light {
+        background-color: #f8f9fa !important;
+    }
+    #factura .table-light {
+        background-color: #f8f9fa !important;
+    }
     @media print {
         .no-print { display: none !important; }
         body { background: white !important; padding: 0 !important; }
+        #factura-container { box-shadow: none !important; border: none !important; }
         .card-custom { box-shadow: none !important; border: 1px solid #eee !important; width: 100% !important; margin: 0 !important; padding: 25px !important; }
         .container-fluid { padding: 0 !important; }
     }
     #factura {
         border-radius: 0;
         border: none;
+        background-color: white !important;
     }
     #factura-container {
-        background: white;
+        background: white !important;
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 10px 40px rgba(0,0,0,0.15);
@@ -191,6 +211,8 @@
             title: 'Generando PDF...',
             html: 'Preparando comprobante para enviar<br><small class="text-muted">El PDF se descargará automáticamente</small>',
             allowOutsideClick: false,
+            background: '#0d0d0d',
+            color: '#ffffff',
             didOpen: () => { Swal.showLoading(); }
         });
 
@@ -206,7 +228,9 @@
                     confirmButtonText: 'Abrir WhatsApp',
                     confirmButtonColor: '#25D366',
                     showCancelButton: true,
-                    cancelButtonText: 'Cancelar'
+                    cancelButtonText: 'Cancelar',
+                    background: '#0d0d0d',
+                    color: '#ffffff'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.open(urlWa, '_blank');

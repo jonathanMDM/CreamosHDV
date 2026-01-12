@@ -83,11 +83,21 @@
 
             @if($venta->image_url)
                 <div class="mb-4">
-                    <h6 class="text-muted text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">
-                        <i class="fas fa-image me-2"></i>Comprobante / Captura de Pantalla
+                    <h6 class="text-white-50 text-uppercase fw-bold mb-3" style="font-size: 0.8rem; letter-spacing: 1.5px;">
+                        <i class="fas fa-image me-2 text-primary"></i>Comprobante / Captura de Pantalla
                     </h6>
-                    <div class="text-center p-2 border rounded-4" style="background-color: #000000;">
-                        <img src="{{ $venta->image_url }}" alt="Comprobante" class="img-fluid rounded-4 shadow-sm" style="max-height: 400px;">
+                    <div class="text-center p-3 border rounded-4" style="background-color: #0d0d0d; border-color: rgba(255,255,255,0.1) !important;">
+                        <img src="{{ $venta->image_url }}" alt="Comprobante" class="img-fluid rounded-4 shadow-lg" style="max-height: 500px; border: 1px solid rgba(255,255,255,0.05);">
+                    </div>
+                </div>
+            @else
+                <div class="mb-4">
+                    <h6 class="text-white-50 text-uppercase fw-bold mb-3" style="font-size: 0.8rem; letter-spacing: 1.5px;">
+                        <i class="fas fa-image me-2 text-muted"></i>Comprobante / Captura de Pantalla
+                    </h6>
+                    <div class="text-center p-4 border border-dashed rounded-4" style="background-color: #050505; border-color: rgba(255,255,255,0.1) !important; border-style: dashed !important;">
+                        <i class="fas fa-file-image fa-3x text-muted mb-2 opacity-25"></i>
+                        <p class="text-muted mb-0">No se adjuntó comprobante para esta venta</p>
                     </div>
                 </div>
             @endif
@@ -159,6 +169,8 @@ function rechazarVenta(url, asesor) {
         confirmButtonText: 'Confirmar Rechazo',
         cancelButtonText: 'Cancelar',
         confirmButtonColor: '#dc3545',
+        background: '#0d0d0d',
+        color: '#ffffff',
         showLoaderOnConfirm: true,
         inputValidator: (value) => {
             if (!value) {

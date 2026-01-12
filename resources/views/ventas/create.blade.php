@@ -97,7 +97,7 @@
                            id="comprobante" 
                            name="comprobante" 
                            accept="image/*">
-                    <div class="form-text text-muted">Formatos permitidos: JPG, PNG, WebP. Máximo 5MB.</div>
+                    <div class="form-text text-white-50" style="font-size: 0.75rem;">Formatos permitidos: JPG, PNG, WebP. Máximo 5MB.</div>
                     @error('comprobante')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
