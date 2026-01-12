@@ -135,9 +135,11 @@
             </div>
 
             @if($venta->estado === 'rechazada' && $venta->motivo_rechazo)
-                <div class="alert alert-danger border-0 shadow-sm mb-4 rounded-4">
-                    <h6 class="fw-bold"><i class="fas fa-exclamation-circle me-2"></i>Motivo del Rechazo:</h6>
-                    <p class="mb-0">{{ $venta->motivo_rechazo }}</p>
+                <div class="rejection-box">
+                    <h6><i class="fas fa-exclamation-circle me-2"></i>Motivo del Rechazo:</h6>
+                    <div class="rejection-content">
+                        {{ $venta->motivo_rechazo }}
+                    </div>
                 </div>
             @endif
 

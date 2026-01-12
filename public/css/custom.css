@@ -187,7 +187,6 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    transition: all 0.3s ease;
     color: var(--white);
 }
 
@@ -207,8 +206,8 @@ body {
 }
 
 .card-modern:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    background: #0f0f0f;
 }
 
 .card-header-modern {
@@ -231,7 +230,6 @@ body {
     border-radius: 16px;
     padding: 1.5rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -239,8 +237,7 @@ body {
 }
 
 .stat-card-modern:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    background: #0f0f0f;
 }
 
 .stat-card-blue {
@@ -357,7 +354,6 @@ body {
     padding: 1.5rem;
     text-decoration: none;
     display: block;
-    transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -376,8 +372,8 @@ body {
 }
 
 .quick-action-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    background: #0f0f0f;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .quick-action-icon {
@@ -424,7 +420,7 @@ body {
 }
 
 .card-custom:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .card-header-custom {
@@ -1170,4 +1166,75 @@ b {
     .whatsapp-float i {
         font-size: 24px;
     }
+}
+
+/* Rejection Box Style */
+.rejection-box {
+    background: rgba(255, 68, 68, 0.05);
+    border: 1px solid rgba(255, 68, 68, 0.2) !important;
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.rejection-box h6 {
+    color: #ff4444 !important;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.rejection-content {
+    color: #ffaaaa;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    word-break: break-word;
+    max-height: 150px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Custom scrollbar for rejection content */
+.rejection-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.rejection-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.rejection-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 68, 68, 0.3);
+    border-radius: 10px;
+}
+
+/* Stable Table Hovers */
+.table-custom tr {
+    transition: none !important;
+    transform: none !important;
+}
+
+.table-custom tr:hover {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    transition: none !important;
+}
+
+/* Badge for Status */
+.badge-status-rechazada {
+    background-color: #ff4444 !important;
+    color: white !important;
+}
+
+.badge-status-aprobada {
+    background-color: #28a745 !important;
+    color: white !important;
+}
+
+.badge-status-pendiente {
+    background-color: #ffbb33 !important;
+    color: #000 !important;
 }

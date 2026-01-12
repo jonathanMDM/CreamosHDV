@@ -108,6 +108,7 @@
                                         <th>Servicio</th>
                                         <th>Valor</th>
                                         <th>Comisión</th>
+                                        <th>Estado</th>
                                         <th>Fecha</th>
                                     </tr>
                                 </thead>
@@ -131,7 +132,15 @@
                                                 </span>
                                             </td>
                                             <td>
+                                                <span class="badge badge-status-{{ $venta->estado }}">
+                                                    {{ ucfirst($venta->estado) }}
+                                                </span>
+                                            </td>
+                                            <td>
                                                 <small class="text-muted">
+                                                    <a href="{{ route('ventas.show', $venta) }}" class="btn btn-outline-light btn-sm px-2 py-0" style="font-size: 0.75rem;">
+                                                        <i class="fas fa-eye"></i> Ver
+                                                    </a>
                                                     {{ $venta->created_at->format('d/m/Y') }}
                                                 </small>
                                             </td>
