@@ -254,6 +254,7 @@
                     <i class="fas fa-money-bill-wave"></i>
                     <span class="nav-text">Pagos</span>
                 </a>
+            </li>
             @endif
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('recursos.*') ? 'active' : '' }}" href="{{ route('recursos.index') }}">
@@ -482,32 +483,23 @@
                 order: []
             });
             
-            // Sidebar toggle function
-            window.toggleSidebar = function() {
-                const sidebar = document.getElementById('sidebar');
-                const overlay = document.querySelector('.sidebar-overlay');
-                
-                // Check if mobile
-                if (window.innerWidth <= 991) {
-                    sidebar.classList.toggle('show');
-                    overlay.classList.toggle('show');
-                } else {
-                    sidebar.classList.toggle('collapsed');
-                }
-            };
-            
-            // Close sidebar on mobile when clicking a link
-            document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 991) {
-                        const sidebar = document.getElementById('sidebar');
-                        const overlay = document.querySelector('.sidebar-overlay');
-                        sidebar.classList.remove('show');
-                        overlay.classList.remove('show');
-                    }
-                });
-            });
         });
+
+        // Sidebar toggle function (definida fuera para disponibilidad inmediata)
+        window.toggleSidebar = function() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            
+            if (!sidebar || !overlay) return;
+
+            // Check if mobile
+            if (window.innerWidth <= 991) {
+                sidebar.classList.toggle('show');
+                overlay.classList.toggle('show');
+            } else {
+                sidebar.classList.toggle('collapsed');
+            }
+        };
     </script>
     
     @if(auth()->check() && auth()->user()->role === 'asesor')
