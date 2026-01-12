@@ -48,6 +48,11 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
+    // Manual de Usuario
+    Route::get('/manual', function () {
+        return view('manuales.index');
+    })->name('manuales.index');
+    
     // Asesores
     Route::post('/asesores/{asesor}/usuario', [AsesorController::class, 'crearUsuario'])->name('asesores.usuario');
     Route::post('/asesores/{asesor}/toggle-usuario', [AsesorController::class, 'toggleUsuario'])->name('asesores.toggle-usuario');

@@ -282,7 +282,14 @@
             </li>
             @endif
             
-            <li class="nav-item mt-auto">
+            <li class="nav-item mt-4">
+                <a class="nav-link {{ request()->routeIs('manuales.*') ? 'active' : '' }}" href="{{ route('manuales.index') }}">
+                    <i class="fas fa-book"></i>
+                    <span class="nav-text">Ayuda / Manual</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="https://wa.me/573145781261?text=*CREAMOS%20TU%20HOJA%20DE%20VIDA*%0A%0AHola%2C%20necesito%20soporte%20t%C3%A9cnico%20con%20el%20sistema." target="_blank">
                     <i class="fas fa-headset"></i>
                     <span class="nav-text">Soporte</span>
