@@ -13,9 +13,9 @@ class DashboardController extends Controller
         if ($user->role === 'admin') {
             $totalAsesores = \App\Models\Asesor::count();
             $totalServicios = \App\Models\Servicio::count();
-            $totalVentas = \App\Models\Venta::where('estado', '!=', 'rechazada')->count();
-            $totalComisiones = \App\Models\Venta::where('estado', '!=', 'rechazada')->sum('comision');
-            $totalIngresos = \App\Models\Venta::where('estado', '!=', 'rechazada')->sum('valor_servicio');
+            $totalVentas = \App\Models\Venta::where('estado', 'aprobada')->count();
+            $totalComisiones = \App\Models\Venta::where('estado', 'aprobada')->sum('comision');
+            $totalIngresos = \App\Models\Venta::where('estado', 'aprobada')->sum('valor_servicio');
             
             $ventasRecientes = \App\Models\Venta::with(['asesor', 'servicio'])
                 ->orderBy('created_at', 'desc')
@@ -46,9 +46,9 @@ class DashboardController extends Controller
 
             $totalAsesores = 1;
             $totalServicios = \App\Models\Servicio::count();
-            $totalVentas = \App\Models\Venta::where('asesor_id', $asesor->id)->where('estado', '!=', 'rechazada')->count();
-            $totalComisiones = \App\Models\Venta::where('asesor_id', $asesor->id)->where('estado', '!=', 'rechazada')->sum('comision');
-            $totalIngresos = \App\Models\Venta::where('asesor_id', $asesor->id)->where('estado', '!=', 'rechazada')->sum('valor_servicio');
+            $totalVentas = \App\Models\Venta::where('asesor_id', $asesor->id)->where('estado', 'aprobada')->count();
+            $totalComisiones = \App\Models\Venta::where('asesor_id', $asesor->id)->where('estado', 'aprobada')->sum('comision');
+            $totalIngresos = \App\Models\Venta::where('asesor_id', $asesor->id)->where('estado', 'aprobada')->sum('valor_servicio');
             
             $ventasRecientes = \App\Models\Venta::where('asesor_id', $asesor->id)
                 ->with(['asesor', 'servicio'])
