@@ -2,12 +2,12 @@
     --primary-dark: #000000;
     --primary-blue: #0a0a0a;
     --accent-blue: #ffffff;
-    --accent-indigo: #ffffff;
+    --accent-indigo: #1a1a1a;
     --white: #ffffff;
     --black: #000000;
     --gray-light: #1a1a1a;
     --gray-dark: #888888;
-    --success: #ffffff;
+    --success: #1a1a1a;
     --danger: #ff4444;
     --warning: #ffbb33;
     --info: #33b5e5;
@@ -323,12 +323,12 @@ body {
 }
 
 .card-header-custom {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-indigo) 100%);
+    background: #000000;
     color: var(--white);
     padding: 1.5rem;
     font-size: 1.25rem;
     font-weight: 700;
-    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card-body {
@@ -338,9 +338,9 @@ body {
 
 /* Buttons */
 .btn-primary-custom {
-    background: #ffffff;
-    border: none;
-    color: #000000;
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-weight: 700;
@@ -388,9 +388,9 @@ body {
 }
 
 .btn-success-custom {
-    background: #ffffff;
-    border: none;
-    color: #000000;
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-weight: 700;
@@ -398,8 +398,10 @@ body {
 }
 
 .btn-success-custom:hover {
+    background: #ffffff;
+    color: #000000;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
 .btn-danger-custom {
@@ -470,8 +472,18 @@ body {
 
 .table-custom thead th {
     padding: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     border: none;
+    color: var(--white) !important;
+}
+
+.table-custom td {
+    color: var(--white) !important;
+}
+
+.table-custom strong,
+.table-custom b {
+    color: var(--white) !important;
 }
 
 .table-custom tbody tr {
