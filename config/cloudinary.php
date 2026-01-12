@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the Cloudinary Laravel package.
+ *
+ * (c) Cloudinary Labs
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
 
     /*
@@ -20,5 +29,11 @@ return [
     |
     */
     'upload_preset' => env('CLOUDINARY_UPLOAD_PRESET'),
+
+    /**
+    | Notification URL
+    |
+    */
+    'notification_url' => env('CLOUDINARY_NOTIFICATION_URL'),
 
 ];
