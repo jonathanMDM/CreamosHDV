@@ -746,15 +746,15 @@ body {
 }
 
 .login-body .btn-primary-custom {
-    background: #ffffff;
-    border: none;
-    border-radius: 10px;
-    padding: 0.9rem;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #000000;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 0.9rem !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    transition: all 0.3s ease !important;
+    margin-top: 1rem !important;
 }
 
 .login-body .btn-primary-custom:hover {
