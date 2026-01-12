@@ -40,7 +40,7 @@
         /* Sidebar Styles */
         .sidebar-custom {
             width: 260px;
-            background: #1a1d21;
+            background: #000000;
             min-height: 100vh;
             color: white;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -51,6 +51,7 @@
             overflow-y: auto;
             display: flex;
             flex-direction: column;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .sidebar-custom.collapsed {
@@ -72,6 +73,7 @@
             max-height: 60px;
             object-fit: contain;
             transition: all 0.3s ease;
+            filter: brightness(0) invert(1);
         }
         
         .sidebar-custom.collapsed .sidebar-header {
@@ -116,16 +118,16 @@
         }
         
         .sidebar-nav .nav-link:hover {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            border-left-color: #3b82f6;
+            border-left-color: #ffffff;
         }
         
         .sidebar-nav .nav-link.active {
-            background: rgba(59, 130, 246, 0.2);
-            color: white;
-            border-left-color: #3b82f6;
-            font-weight: 600;
+            background: #ffffff;
+            color: #000000;
+            border-left-color: #ffffff;
+            font-weight: 700;
         }
         
         .sidebar-nav .nav-link i {
