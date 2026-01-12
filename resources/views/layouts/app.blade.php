@@ -229,6 +229,7 @@
 </head>
 <body>
     <!-- Sidebar -->
+    @auth
     <div class="sidebar-custom" id="sidebar">
         <div class="sidebar-header">
             <a href="{{ route('dashboard') }}" class="d-block">
@@ -312,13 +313,17 @@
             </li>
         </ul>
     </div>
+    @endauth
 
     <!-- Mobile Sidebar Overlay -->
+    @auth
     <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+    @endauth
 
     <!-- Main Content -->
-    <div class="main-content">
+    <div class="{{ auth()->check() ? 'main-content' : 'w-100' }}">
         <!-- Top Navbar -->
+        @auth
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom rounded-4">
             <div class="container-fluid">
                 <button class="navbar-toggler d-lg-none" type="button" onclick="toggleSidebar()">
@@ -353,6 +358,7 @@
                 </div>
             </div>
         </nav>
+        @endauth
 
         @if(session('success'))
             <div class="alert alert-success alert-custom alert-dismissible fade show fade-in" role="alert">
