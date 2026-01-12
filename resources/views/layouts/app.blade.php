@@ -245,7 +245,7 @@
                     <span class="nav-text">Dashboard</span>
                 </a>
             </li>
-            @if(auth()->user()->role === 'admin')
+            @if(auth()->check() && auth()->user()->role === 'admin')
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('asesores.*') ? 'active' : '' }}" href="{{ route('asesores.index') }}">
                     <i class="fas fa-users"></i>
@@ -265,7 +265,7 @@
                     <span class="nav-text">Ventas</span>
                 </a>
             </li>
-            @if(auth()->user()->role === 'admin')
+            @if(auth()->check() && auth()->user()->role === 'admin')
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('pagos.*') ? 'active' : '' }}" href="{{ route('pagos.index') }}">
                     <i class="fas fa-money-bill-wave"></i>
@@ -273,7 +273,7 @@
                 </a>
             </li>
             @endif
-            @if(auth()->user()->role === 'admin')
+            @if(auth()->check() && auth()->user()->role === 'admin')
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('recursos.*') ? 'active' : '' }}" href="{{ route('recursos.index') }}">
                     <i class="fas fa-folder-open"></i>
@@ -328,14 +328,14 @@
                 <!-- Nombre del usuario visible en móvil (Nombre Completo) -->
                 <div class="d-flex align-items-center d-lg-none ms-auto text-white pe-2">
                     <small class="me-2 opacity-75">Hola,</small>
-                    <span class="fw-bold" style="font-size: 0.85rem;">{{ Auth::user()->name }}</span>
+                    <span class="fw-bold" style="font-size: 0.85rem;">{{ Auth::check() ? Auth::user()->name : '' }}</span>
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                                <i class="fas fa-user me-2"></i> {{ Auth::user()->name }}
+                                <i class="fas fa-user me-2"></i> {{ Auth::check() ? Auth::user()->name : 'Cuenta' }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0">
                                 <li>
