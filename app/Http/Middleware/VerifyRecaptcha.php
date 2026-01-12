@@ -17,7 +17,7 @@ class VerifyRecaptcha
     public function handle(Request $request, Closure $next): Response
     {
         // Solo verificar en login POST
-        if ($request->isMethod('post') && $request->route()->named('login')) {
+        if ($request->isMethod('post') && $request->route() && $request->route()->named('login')) {
             $recaptchaToken = $request->input('recaptcha_token');
             
             if (!$recaptchaToken) {
