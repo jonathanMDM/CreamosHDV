@@ -43,31 +43,24 @@ class WelcomeAdvisorNotification extends Notification
         return (new MailMessage)
                     ->subject('¡Bienvenido a CreamosHDV! 🎉 - Tus Credenciales de Acceso')
                     ->from('creamoshojasdevida@gmail.com', 'Creamos Hojas de Vida')
-                    ->markdown('vendor.mail.html.message', [
-                        'greeting' => '¡Hola ' . $notifiable->name . '!',
-                        'introLines' => [
-                            '¡Te damos la más cordial bienvenida al equipo de **Creamos Hojas de Vida**! 🎊',
-                            '',
-                            'Tu cuenta ha sido creada exitosamente y ya puedes acceder a nuestro portal de asesores.',
-                            '',
-                            '**📋 Tus credenciales de acceso:**',
-                            '',
-                            '🔐 **Correo Electrónico:** ' . $this->email,
-                            '🔑 **Contraseña:** `' . $this->password . '`',
-                            '',
-                            '⚠️ **Importante:** Por seguridad, te recomendamos cambiar tu contraseña una vez que ingreses por primera vez.',
-                        ],
-                        'actionText' => '🚀 Ingresar al Portal',
-                        'actionUrl' => $appUrl . '/login',
-                        'outroLines' => [
-                            '¡Gracias por ser parte de nuestro equipo!',
-                            'Estamos emocionados de trabajar contigo. 💼✨',
-                        ],
-                        'salutation' => '---  
+                    ->greeting('¡Hola ' . $notifiable->name . '!')
+                    ->line('¡Te damos la más cordial bienvenida al equipo de **Creamos Hojas de Vida**! 🎊')
+                    ->line('')
+                    ->line('Tu cuenta ha sido creada exitosamente y ya puedes acceder a nuestro portal de asesores.')
+                    ->line('')
+                    ->line('**📋 Tus credenciales de acceso:**')
+                    ->line('')
+                    ->line('🔐 **Correo Electrónico:** ' . $this->email)
+                    ->line('🔑 **Contraseña:** `' . $this->password . '`')
+                    ->line('')
+                    ->line('⚠️ **Importante:** Por seguridad, te recomendamos cambiar tu contraseña una vez que ingreses por primera vez.')
+                    ->action('🚀 Ingresar al Portal', $appUrl . '/login')
+                    ->line('¡Gracias por ser parte de nuestro equipo!')
+                    ->line('Estamos emocionados de trabajar contigo. 💼✨')
+                    ->salutation('---  
 **Creamos Hojas de Vida**  
 © ' . date('Y') . ' Todos los derechos reservados.  
-Desarrollado con ❤️ por [OutDeveloper](https://outdeveloper.com/)',
-                    ]);
+Desarrollado con ❤️ por [OutDeveloper](https://outdeveloper.com/)');
     }
 
     /**
