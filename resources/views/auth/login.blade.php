@@ -17,8 +17,8 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     
-    <!-- Google reCAPTCHA v3 (Temporarily disabled due to domain mismatch) -->
-    <!-- <script src="https://www.google.com/recaptcha/api.js?render=6Lccs0csAAAAALSMs3ORgCddP7eRJdeAT2VkjWC8"></script> -->
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lea4kcsAAAAAByyP4gBzZ-PyW2YLzVRX0OhHlVC"></script>
 </head>
 <body>
     <div class="login-container">
@@ -30,8 +30,8 @@
                 <form method="POST" action="{{ route('login') }}" id="loginForm">
                     @csrf
                     
-                    <!-- Campo oculto para el token de reCAPTCHA (Disabled) -->
-                    <!-- <input type="hidden" name="recaptcha_token" id="recaptchaToken"> -->
+                    <!-- Campo oculto para el token de reCAPTCHA -->
+                    <input type="hidden" name="recaptcha_token" id="recaptchaToken">
 
                     <div class="mb-4">
                         <label for="email" class="form-label">
@@ -113,18 +113,42 @@
                 });
             }
 
-            // Simple form submission (reCAPTCHA disabled)
+            // reCAPTCHA v3 form submission
             const loginForm = document.getElementById('loginForm');
             const submitBtn = document.getElementById('submitBtn');
 
             if (loginForm && submitBtn) {
                 loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
                     // Disable button and show loading state
                     submitBtn.disabled = true;
                     submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Iniciando...';
                     
-                    // Allow normal submission
-                    return true;
+                    if (typeof grecaptcha !== 'undefined') {
+                        grecaptcha.ready(function() {
+                            try {
+                                grecaptcha.execute('6Lea4kcsAAAAAByyP4gBzZ-PyW2YLzVRX0OhHlVC', {action: 'login'}).then(function(token) {
+                                    const recaptchaInput = document.getElementById('recaptchaToken');
+                                    if (recaptchaInput) {
+                                        recaptchaInput.value = token;
+                                    }
+                                    loginForm.submit();
+                                }).catch(function(error) {
+                                    console.error('reCAPTCHA error:', error);
+                                    // Fallback if recaptcha fails to execute
+                                    loginForm.submit();
+                                });
+                            } catch (err) {
+                                console.error('reCAPTCHA execution error:', err);
+                                loginForm.submit();
+                            }
+                        });
+                    } else {
+                        // If grecaptcha script is not loaded, just submit
+                        console.warn('reCAPTCHA not loaded');
+                        loginForm.submit();
+                    }
                 });
             }
         });

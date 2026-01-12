@@ -15,7 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \App\Http\Middleware\CheckMustChangePassword::class,
         ]);
-        // $middleware->append(\App\Http\Middleware\VerifyRecaptcha::class);
+        $middleware->append(\App\Http\Middleware\VerifyRecaptcha::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
