@@ -277,31 +277,55 @@ class PagoController extends Controller
             ->with('success', 'Pago marcado como no pagado');
     }
 
-    public function comprobante($id)
+    // Método auxiliar para no repetir lógica
+    private function obtenerDatosPago($pago)
     {
-        $pago = Pago::with('asesor')->findOrFail($id);
-        
-        $ventas = collect();
-        
         if ($pago->tipo == 'semanal') {
-            // Obtener fechas de la semana
             $fechas = $this->obtenerFechasSemana($pago->semana, $pago->año);
-            $ventas = Venta::with('servicio')
+            return Venta::with('servicio')
                 ->where('asesor_id', $pago->asesor_id)
                 ->where('estado', '!=', 'rechazada')
                 ->whereBetween('created_at', [$fechas['inicio'], $fechas['fin']])
                 ->get();
         } else {
-            // Obtener bono mensual (ventas del mes completo)
             $inicioMes = Carbon::create($pago->año, $pago->mes, 1)->startOfMonth();
             $finMes = $inicioMes->copy()->endOfMonth();
-            $ventas = Venta::with('servicio')
+            return Venta::with('servicio')
                 ->where('asesor_id', $pago->asesor_id)
                 ->where('estado', '!=', 'rechazada')
                 ->whereBetween('created_at', [$inicioMes, $finMes])
                 ->get();
         }
+    }
 
+    public function enviarCorreo($id)
+    {
+        $pago = Pago::with('asesor')->findOrFail($id);
+        
+        if (!$pago->asesor->email) {
+            return redirect()->back()->with('error', 'El asesor no tiene un correo registrado.');
+        }
+
+        try {
+            $ventas = $this->obtenerDatosPago($pago);
+            
+            $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pagos.pdf', compact('pago', 'ventas'));
+            $pdfContent = $pdf->output();
+
+            Mail::to($pago->asesor->email)->send(new ComprobantePagoMail($pago, $pago->asesor, $pdfContent));
+            
+            return redirect()->back()->with('success', 'Comprobante enviado exitosamente a ' . $pago->asesor->email);
+
+        } catch (\Exception $e) {
+            \Log::error("Error enviando comprobante manual (Pago ID: $id): " . $e->getMessage());
+            return redirect()->back()->with('error', 'Error al enviar el correo: ' . $e->getMessage());
+        }
+    }
+
+    public function comprobante($id)
+    {
+        $pago = Pago::with('asesor')->findOrFail($id);
+        $ventas = $this->obtenerDatosPago($pago);
         return view('pagos.comprobante', compact('pago', 'ventas'));
     }
 

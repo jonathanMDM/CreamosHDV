@@ -14,14 +14,12 @@
                     <i class="fas fa-print"></i> Imprimir
                 </button>
                 
-                @php
-                    $nombreArchivo = "Comprobante_" . str_replace(' ', '_', $pago->asesor->nombre_completo) . "_" . ($pago->tipo == 'semanal' ? 'Semana_'.$pago->semana : 'Bono_'.($pago->mes)) . ".pdf";
-                    $urlWa = "https://wa.me/" . preg_replace('/[^0-9]/', '', $pago->asesor->whatsapp);
-                @endphp
-
-                <button onclick="enviarPDFWhatsApp('{{ $urlWa }}', '{{ $nombreArchivo }}')" class="btn btn-success-custom">
-                    <i class="fab fa-whatsapp"></i> Enviar PDF por WhatsApp
-                </button>
+                <form action="{{ route('pagos.enviar-correo', $pago->id) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Estás seguro de enviar este comprobante por correo?');">
+                    @csrf
+                    <button type="submit" class="btn btn-primary bg-gradient shadow-sm border-0">
+                        <i class="fas fa-envelope me-2"></i> Enviar al Correo
+                    </button>
+                </form>
             </div>
         </div>
 
@@ -195,49 +193,5 @@
     .table-sm td, .table-sm th { font-size: 0.8rem; }
 </style>
 
-<script>
-    function enviarPDFWhatsApp(urlWa, nombreArchivo) {
-        const element = document.getElementById('factura');
-        
-        const opt = {
-            margin:       [10, 5, 10, 5],
-            filename:     nombreArchivo,
-            image:        { type: 'jpeg', quality: 1 },
-            html2canvas:  { scale: 3, useCORS: true, letterRendering: true },
-            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
 
-        Swal.fire({
-            title: 'Generando PDF...',
-            html: 'Preparando comprobante para enviar<br><small class="text-muted">El PDF se descargará automáticamente</small>',
-            allowOutsideClick: false,
-            background: '#0d0d0d',
-            color: '#ffffff',
-            didOpen: () => { Swal.showLoading(); }
-        });
-
-        // Generar y descargar el PDF
-        html2pdf().set(opt).from(element).save().then(() => {
-            // Esperar un momento para que el PDF se descargue
-            setTimeout(() => {
-                Swal.fire({
-                    icon: 'success',
-                    title: '¡PDF Generado!',
-                    html: 'El archivo <strong>' + nombreArchivo + '</strong> se ha descargado.<br><br>' +
-                          '<small class="text-muted">Ahora se abrirá WhatsApp. Por favor adjunta el PDF descargado usando el botón de clip (📎) en el chat.</small>',
-                    confirmButtonText: 'Abrir WhatsApp',
-                    confirmButtonColor: '#25D366',
-                    showCancelButton: true,
-                    cancelButtonText: 'Cancelar',
-                    background: '#0d0d0d',
-                    color: '#ffffff'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.open(urlWa, '_blank');
-                    }
-                });
-            }, 1000);
-        });
-    }
-</script>
 @endsection

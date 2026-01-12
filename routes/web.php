@@ -76,6 +76,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/pagos/{id}/marcar-no-pagado', [PagoController::class, 'marcarNoPagado'])->name('pagos.marcar-no-pagado');
     Route::post('/pagos/actualizar-todos', [PagoController::class, 'actualizarTodos'])->name('pagos.actualizar-todos');
     Route::get('/pagos/{id}/comprobante', [PagoController::class, 'comprobante'])->name('pagos.comprobante');
+    Route::post('/pagos/{id}/enviar-correo', [PagoController::class, 'enviarCorreo'])->name('pagos.enviar-correo');
 
     // Recursos
     Route::resource('recursos', RecursoController::class);
