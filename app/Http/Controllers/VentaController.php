@@ -79,7 +79,7 @@ class VentaController extends Controller
         
         $rules = [
             'servicio_id' => 'required|exists:servicios,id',
-            'comprobante' => 'nullable|image|max:5120', // Máx 5MB
+            'comprobante' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120', // Máx 5MB
         ];
 
         if ($user->role === 'admin') {
