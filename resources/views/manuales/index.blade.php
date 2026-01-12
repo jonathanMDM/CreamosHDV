@@ -71,26 +71,53 @@
 
                             <div class="manual-section mb-5">
                                 <h3 class="text-primary fw-bold mb-3"><i class="fas fa-traffic-light me-2"></i>3. Estados de tus Ventas</h3>
+                                <p class="text-white-50 mb-4">Después de registrar una venta, esta pasará por tres posibles estados. Aquí te explicamos qué significa cada uno:</p>
+                                
                                 <div class="row g-3">
                                     <div class="col-md-4">
-                                        <div class="p-3 rounded bg-dark border border-warning border-opacity-25 text-center">
-                                            <i class="fas fa-clock fa-2x text-warning mb-2"></i>
-                                            <h5 class="fw-bold text-white">Pendiente</h5>
-                                            <small class="text-white-50">En revisión por el admin.</small>
+                                        <div class="p-3 rounded bg-dark border border-warning border-opacity-25 h-100">
+                                            <div class="text-center mb-3">
+                                                <i class="fas fa-clock fa-2x text-warning"></i>
+                                                <h5 class="fw-bold text-white mt-2">Pendiente</h5>
+                                            </div>
+                                            <p class="small text-white-50">
+                                                Tu venta se registró, pero el administrador aún está verificando el comprobante de pago.
+                                            </p>
+                                            <ul class="small text-white-50 mb-0 ps-3">
+                                                <li>El dinero <strong>aún no</strong> se suma a tu saldo.</li>
+                                                <li>Debes esperar la revisión.</li>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="p-3 rounded bg-dark border border-success border-opacity-25 text-center">
-                                            <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
-                                            <h5 class="fw-bold text-white">Aprobada</h5>
-                                            <small class="text-white-50">Comisión sumada a tu pago.</small>
+                                        <div class="p-3 rounded bg-dark border border-success border-opacity-25 h-100">
+                                            <div class="text-center mb-3">
+                                                <i class="fas fa-check-circle fa-2x text-success"></i>
+                                                <h5 class="fw-bold text-white mt-2">Aprobada</h5>
+                                            </div>
+                                            <p class="small text-white-50">
+                                                ¡Todo está correcto! El administrador validó el pago.
+                                            </p>
+                                            <ul class="small text-white-50 mb-0 ps-3">
+                                                <li>La comisión <strong>ya es tuya</strong>.</li>
+                                                <li>Entrará en el pago de este domingo.</li>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="p-3 rounded bg-dark border border-danger border-opacity-25 text-center">
-                                            <i class="fas fa-times-circle fa-2x text-danger mb-2"></i>
-                                            <h5 class="fw-bold text-white">Rechazada</h5>
-                                            <small class="text-white-50">Revisa el motivo y corrige.</small>
+                                        <div class="p-3 rounded bg-dark border border-danger border-opacity-25 h-100">
+                                            <div class="text-center mb-3">
+                                                <i class="fas fa-times-circle fa-2x text-danger"></i>
+                                                <h5 class="fw-bold text-white mt-2">Rechazada</h5>
+                                            </div>
+                                            <p class="small text-white-50">
+                                                Hubo un problema. Para solucionarlo:
+                                            </p>
+                                            <ol class="small text-white-50 mb-0 ps-3">
+                                                <li>Haz clic en el botón <strong>"Ver"</strong>.</li>
+                                                <li>Lee el motivo (ej: "Foto borrosa").</li>
+                                                <li>Vuelve a subir la venta corregida.</li>
+                                            </ol>
                                         </div>
                                     </div>
                                 </div>
