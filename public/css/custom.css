@@ -193,7 +193,7 @@ body {
 
 .stat-content p {
     margin: 0;
-    color: var(--gray-dark);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
 }
 
@@ -293,7 +293,7 @@ body {
 }
 
 .quick-action-card p {
-    color: var(--gray-dark);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.85rem;
 }
 
@@ -333,7 +333,7 @@ body {
 
 .card-body {
     padding: 2rem;
-    color: var(--black);
+    color: inherit;
 }
 
 /* Buttons */
@@ -451,7 +451,7 @@ body {
 
 .form-label {
     font-weight: 600;
-    color: var(--black);
+    color: var(--white);
     margin-bottom: 0.5rem;
 }
 
@@ -493,14 +493,14 @@ body {
 
 /* Dashboard Stats - Old */
 .stat-card {
-    background: var(--white);
+    background: #0a0a0a;
     border-radius: 15px;
     padding: 2rem;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
-    border-left: 5px solid var(--accent-blue);
-    color: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
 }
 
 .stat-card:hover {
@@ -509,14 +509,14 @@ body {
 }
 
 .stat-card h3 {
-    color: var(--primary-dark);
+    color: var(--white);
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
 
 .stat-card p {
-    color: var(--gray-dark);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1.1rem;
     margin: 0;
 }
@@ -782,6 +782,17 @@ h6 {
 
 .text-white {
     color: var(--white) !important;
+}
+
+.text-muted,
+.text-white-50,
+small {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+strong,
+b {
+    color: var(--white);
 }
 
 /* Badge */
