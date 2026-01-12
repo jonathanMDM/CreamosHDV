@@ -107,7 +107,7 @@ body {
 }
 
 body {
-    background-attachment: fixed;
+    background-color: #000000 !important;
 }
 
 /* Navbar */

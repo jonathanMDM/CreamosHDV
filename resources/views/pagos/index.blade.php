@@ -110,12 +110,12 @@
                                     </tr>
                                     @if($totalPagos > 0)
                                         <tr class="collapse" id="semana{{ $semana['numero'] }}">
-                                            <td colspan="5" class="bg-light p-4">
-                                                <div class="card p-3 shadow-sm border-0">
+                                            <td colspan="5" class="p-4" style="background-color: #0f0f0f; border: 1px solid rgba(255,255,255,0.05);">
+                                                <div class="card-custom p-3 shadow-none border-0">
                                                     <h6 class="fw-bold mb-3">Detalle de Pagos - Semana {{ $semana['numero'] }}</h6>
                                                 <div class="table-responsive">
                                                     <table class="table table-sm table-hover mb-0" style="min-width: 600px;">
-                                                        <thead class="table-light">
+                                                        <thead style="background-color: #0a0a0a; color: white;">
                                                             <tr>
                                                                 <th class="text-start" style="width: 30%;">Asesor</th>
                                                                 <th class="text-center" style="width: 10%;">Ventas</th>
@@ -170,7 +170,7 @@
                                                                 </tr>
                                                             @endforeach
                                                         </tbody>
-                                                        <tfoot class="table-light">
+                                                        <tfoot style="border-top: 2px solid rgba(255,255,255,0.1);">
                                                             <tr>
                                                                 <th class="text-end" colspan="2">TOTALES:</th>
                                                                 <th class="text-end text-success">${{ number_format($pagosSemana->sum('total_comisiones'), 0, ',', '.') }}</th>
@@ -262,12 +262,12 @@
                                     </tr>
                                     @if($totalPagos > 0)
                                         <tr class="collapse" id="mes{{ $num }}">
-                                            <td colspan="4" class="bg-light p-4">
-                                                <div class="card p-3 shadow-sm border-0">
+                                            <td colspan="4" class="p-4" style="background-color: #0f0f0f; border: 1px solid rgba(255,255,255,0.05);">
+                                                <div class="card-custom p-3 shadow-none border-0">
                                                     <h6 class="fw-bold mb-3 text-purple">Detalle de Bonos Mensuales - {{ $nombre }}</h6>
                                                 <div class="table-responsive">
                                                     <table class="table table-sm table-hover mb-0" style="min-width: 800px;">
-                                                        <thead class="table-light">
+                                                        <thead style="background-color: #0a0a0a; color: white;">
                                                             <tr>
                                                                 <th class="text-start" style="width: 25%;">Asesor</th>
                                                                 <th class="text-center" style="width: 10%;">Ventas Mes</th>
@@ -326,7 +326,7 @@
                                                                 </tr>
                                                             @endforeach
                                                         </tbody>
-                                                        <tfoot class="table-light">
+                                                        <tfoot style="border-top: 2px solid rgba(255,255,255,0.1);">
                                                             <tr>
                                                                 <th class="text-end" colspan="3">TOTALES BONOS:</th>
                                                                 <th class="text-end text-success">${{ number_format($pagosMes->sum('bonificacion'), 0, ',', '.') }}</th>
