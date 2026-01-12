@@ -47,7 +47,7 @@
                 <p class="mb-0">Se generan cada domingo. <strong>Solo incluyen las comisiones acumuladas de la semana.</strong> Los bonos por rendimiento se calculan y pagan al final del mes en la pestaña correspondiente.</p>
             </div>
 
-            <div class="card-custom animate__animated animate__fadeInUp">
+            <div class="card-custom fade-in">
                 <div class="card-header-custom">
                     <i class="fas fa-calendar-alt"></i> Semanas del Año
                 </div>
@@ -199,7 +199,7 @@
                 <p class="mb-0">Se consolidan al finalizar cada mes. Son pagos adicionales o premios acumulados por el rendimiento total mensual.</p>
             </div>
 
-            <div class="card-custom animate__animated animate__fadeInUp">
+            <div class="card-custom fade-in">
                 <div class="card-header-custom bg-purple">
                     <i class="fas fa-award"></i> Consolidado Mensual
                 </div>
@@ -358,15 +358,16 @@
         padding: 12px 25px;
         font-weight: 600;
         border: 1px solid rgba(255,255,255,0.1);
-        transition: all 0.3s ease;
+        transition: none;
     }
     .custom-pills .nav-link.active {
-        background: var(--accent-blue) !important;
-        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        background: #ffffff !important;
+        color: #000000 !important;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
         border-color: transparent;
     }
-    .bg-purple { background: var(--purple) !important; color: white; }
-    .text-purple { color: var(--purple); }
+    .bg-purple { background: #6b21a8 !important; color: white; }
+    .text-purple { color: #a855f7; }
     .btn-xs { padding: .25rem .5rem; font-size: .75rem; border-radius: .2rem; }
 </style>
 

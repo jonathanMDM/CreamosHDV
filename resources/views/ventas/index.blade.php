@@ -23,7 +23,7 @@
         <div class="card-body py-2 px-2">
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                 <a href="{{ route('ventas.index', ['semana' => $semanaActual - 1, 'año' => $añoActual]) }}" 
-                   class="btn btn-outline-primary btn-sm {{ $semanaActual <= 1 ? 'disabled' : '' }}" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
+                   class="btn btn-outline-light btn-sm {{ $semanaActual <= 1 ? 'disabled' : '' }}" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
                     <i class="fas fa-chevron-left"></i><span class="d-none d-md-inline"> Semana Anterior</span>
                 </a>
                 
@@ -35,7 +35,7 @@
                 </div>
 
                 <a href="{{ route('ventas.index', ['semana' => $semanaActual + 1, 'año' => $añoActual]) }}" 
-                   class="btn btn-outline-primary btn-sm {{ $semanaActual >= 52 ? 'disabled' : '' }}" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
+                   class="btn btn-outline-light btn-sm {{ $semanaActual >= 52 ? 'disabled' : '' }}" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
                     <span class="d-none d-md-inline">Semana Siguiente </span><i class="fas fa-chevron-right"></i>
                 </a>
             </div>
