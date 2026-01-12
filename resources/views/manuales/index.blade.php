@@ -38,39 +38,62 @@
                             <hr class="border-secondary opacity-25">
 
                             <div class="manual-section mb-5">
-                                <h3 class="text-primary fw-bold mb-3"><i class="fas fa-hand-point-right me-2"></i>1. Primeros Pasos</h3>
-                                <p>Bienvenido al equipo. En tu menú lateral izquierdo encontrarás acceso directo a tus herramientas principales:</p>
-                                <ul class="list-unstyled text-white-50 ms-3">
-                                    <li class="mb-2"><i class="fas fa-home me-2"></i> <strong>Dashboard:</strong> Resumen de tu rendimiento.</li>
-                                    <li class="mb-2"><i class="fas fa-shopping-cart me-2"></i> <strong>Ventas:</strong> Donde registras y sigues tus ventas.</li>
-                                    <li class="mb-2"><i class="fas fa-headset me-2"></i> <strong>Soporte:</strong> Contacto directo para ayuda técnica.</li>
-                                </ul>
-                                <p class="mt-3 text-white-50">En el <strong>Dashboard</strong> verás:</p>
-                                <ul class="list-unstyled text-white-50 ms-3">
-                                    <li class="mb-1"><i class="fas fa-check text-success me-2"></i> Tus ventas aprobadas.</li>
-                                    <li class="mb-1"><i class="fas fa-dollar-sign text-warning me-2"></i> Comisiones acumuladas.</li>
+                                <h3 class="text-primary fw-bold mb-3"><i class="fas fa-chart-pie me-2"></i>1. Dashboard (Tu Oficina)</h3>
+                                <p class="text-white-50">Al ingresar, ves tus números personales. Entiéndelos bien:</p>
+                                <ul class="list-unstyled ms-3">
+                                    <li class="mb-3">
+                                        <strong class="text-success"><i class="fas fa-check-circle me-2"></i>Ventas Aprobadas:</strong>
+                                        <br><span class="text-white-50 small">Es el contador de cuántas ventas ya pasaron la revisión este mes. ¡Esta es tu meta!</span>
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong class="text-warning"><i class="fas fa-coins me-2"></i>Comisiones Acumuladas:</strong>
+                                        <br><span class="text-white-50 small">Dinero que ya te ganaste por esas ventas aprobadas. Este valor es solo una referencia del mes.</span>
+                                    </li>
+                                    <li>
+                                        <strong class="text-info"><i class="fas fa-history me-2"></i>Ventas Recientes:</strong>
+                                        <br><span class="text-white-50 small">Un listado rápido de lo último que registraste para que veas cómo van tus procesos sin buscar mucho.</span>
+                                    </li>
                                 </ul>
                             </div>
 
                             <div class="manual-section mb-5">
-                                <h3 class="text-primary fw-bold mb-3"><i class="fas fa-cart-plus me-2"></i>2. ¿Cómo Registrar una Venta?</h3>
-                                <div class="alert alert-info alert-custom border-0 text-dark">
-                                    <i class="fas fa-info-circle me-2"></i> <strong>Importante:</strong> Debes registrar cada venta para recibir tu comisión.
+                                <h3 class="text-primary fw-bold mb-3"><i class="fas fa-cart-plus me-2"></i>2. Registro de Venta (Paso a Paso)</h3>
+                                <div class="alert alert-info border-0 text-white bg-opacity-10">
+                                    <i class="fas fa-lightbulb text-warning me-2"></i> <strong>Tip de Oro:</strong> ¡Registra la venta apenas el cliente pague!
                                 </div>
-                                <ol class="text-white-50">
-                                    <li class="mb-3">Ve al menú <strong>"Ventas" > "Nueva Venta"</strong>.</li>
-                                    <li class="mb-3">Completa los datos del cliente (Nombre y WhatsApp).</li>
-                                    <li class="mb-3">Selecciona el servicio vendido y el tipo de pago.</li>
+                                <p class="text-white-50">Sigue estos pasos para asegurar tu pago:</p>
+                                <ol class="text-white-50 ms-2">
                                     <li class="mb-3">
-                                        <strong class="text-white">📅 Fecha de la Venta (NUEVO):</strong>
-                                        <br>Por defecto es hoy. Si vendiste ayer o la semana pasada, ¡cámbiala aquí! El sistema sabrá a qué semana corresponde.
+                                        <strong>Datos del Cliente:</strong> Escribe el nombre completo y el número de WhatsApp correctamente.
+                                        <br><small class="text-secondary">Esto sirve para que el Admin pueda verificarlo si hay dudas.</small>
                                     </li>
-                                    <li class="mb-3">Sube el comprobante de pago (Captura).</li>
+                                    <li class="mb-3">
+                                        <strong>Servicio:</strong> Elige con cuidado qué paquete vendiste (esto define cuánto ganas).
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong class="text-white">📅 La Fecha (¡Muy Importante!):</strong>
+                                        <br>El sistema te deja elegir la fecha.
+                                        <ul class="mt-1">
+                                            <li>¿Vendiste hoy? Déjala como está.</li>
+                                            <li>¿Olvidaste registrar una venta de ayer? <strong>Cambia la fecha</strong> al día real de la venta.</li>
+                                            <li><em>Esto asegura que la venta caiga en la semana de corte correcta.</em></li>
+                                        </ul>
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong>El Comprobante:</strong> Sube una captura clara de la transferencia.
+                                        <br><small class="text-secondary">Si es borrosa o cortada, te rechazarán la venta.</small>
+                                    </li>
                                 </ol>
                             </div>
 
                             <div class="manual-section mb-5">
-                                <h3 class="text-primary fw-bold mb-3"><i class="fas fa-traffic-light me-2"></i>3. Estados de tus Ventas</h3>
+                                <h3 class="text-primary fw-bold mb-3"><i class="fas fa-headset me-2"></i>3. Soporte y Ayuda</h3>
+                                <p class="text-white-50">Si tienes problemas técnicos (ej: no puedes entrar, error en la página), usa el botón de <strong>Soporte</strong> en el menú.</p>
+                                <p class="text-white-50 small">Esto abrirá un chat directo de WhatsApp con el área técnica. ¡No lo uses para preguntar sobre pagos, eso es con administración!</p>
+                            </div>
+
+                            <div class="manual-section mb-5">
+                                <h3 class="text-primary fw-bold mb-3"><i class="fas fa-traffic-light me-2"></i>4. Estados de tus Ventas</h3>
                                 <p class="text-white-50 mb-4">Después de registrar una venta, esta pasará por tres posibles estados. Aquí te explicamos qué significa cada uno:</p>
                                 
                                 <div class="row g-3">
@@ -124,7 +147,7 @@
                             </div>
                             
                             <div class="manual-section text-white-50">
-                                <h3 class="text-primary fw-bold mb-3"><i class="fas fa-wallet me-2"></i>4. Pagos y Comisiones</h3>
+                                <h3 class="text-primary fw-bold mb-3"><i class="fas fa-wallet me-2"></i>5. Pagos y Comisiones</h3>
                                 <div class="alert alert-custom border-0 text-white">
                                     <i class="fas fa-calendar-check me-2"></i> <strong>Política de Pagos:</strong>
                                 </div>
