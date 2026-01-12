@@ -111,6 +111,23 @@
                 </div>
 
                 <div class="mb-4">
+                    <label for="fecha_venta" class="form-label">
+                        <i class="fas fa-calendar-alt"></i> Fecha de la Venta *
+                    </label>
+                    <input type="date" 
+                           class="form-control form-control-custom @error('fecha_venta') is-invalid @enderror" 
+                           id="fecha_venta" 
+                           name="fecha_venta" 
+                           value="{{ old('fecha_venta', date('Y-m-d')) }}"
+                           max="{{ date('Y-m-d') }}"
+                           required>
+                    <div class="form-text text-white-50" style="font-size: 0.75rem;">Selecciona la fecha en que se realizó la venta</div>
+                    @error('fecha_venta')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
                     <label for="tipo_pago" class="form-label">
                         <i class="fas fa-money-bill-wave"></i> Tipo de Pago *
                     </label>

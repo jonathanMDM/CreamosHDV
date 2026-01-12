@@ -81,6 +81,7 @@ class VentaController extends Controller
             'servicio_id' => 'required|exists:servicios,id',
             'nombre_cliente' => 'required|string|max:255',
             'telefono_cliente' => 'required|string|max:20',
+            'fecha_venta' => 'required|date|before_or_equal:today',
             'comprobante' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120', // Máx 5MB
         ];
 
@@ -138,6 +139,8 @@ class VentaController extends Controller
             'image_url' => $imageUrl,
             'tipo_pago' => $tipoPago,
             'estado' => $estado,
+            'created_at' => $validated['fecha_venta'] . ' ' . now()->format('H:i:s'),
+            'updated_at' => now(),
         ]);
 
         // Enviar notificación al administrador si es un asesor quien registra
