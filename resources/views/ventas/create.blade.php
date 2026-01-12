@@ -103,22 +103,17 @@
                     @enderror
                 </div>
 
-                <div id="resumen" class="alert alert-info" style="display: none;">
-                    <h5><i class="fas fa-calculator"></i> Resumen de la Venta</h5>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="mb-2">
-                                <strong>Valor del Servicio:</strong><br>
-                                <span class="fs-4 text-primary" id="valorServicio">$0</span>
-                            </p>
+                <div id="resumen" class="card-custom p-3 mb-4" style="display: none; background-color: #0d0d0d; border: 1px solid rgba(255,255,255,0.1);">
+                    <h5 class="mb-3"><i class="fas fa-calculator"></i> Resumen de la Venta</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6 border-end border-secondary border-opacity-25">
+                            <p class="mb-0 text-white-50 small">Valor del Servicio:</p>
+                            <span class="fs-3 fw-bold text-white" id="valorServicio">$0</span>
                         </div>
                         <div class="col-md-6">
-                            <p class="mb-2">
-                                <strong>Comisión del Asesor:</strong><br>
-                                <span class="fs-4 text-success" id="comisionAsesor">$0</span>
-                                <small class="text-muted d-block" id="porcentajeComision"></small>
-                            </p>
+                            <p class="mb-0 text-white-50 small">Comisión del Asesor:</p>
+                            <span class="fs-3 fw-bold text-success" id="comisionAsesor">$0</span>
+                            <small class="text-muted d-block" id="porcentajeComision" style="font-size: 0.75rem;"></small>
                         </div>
                     </div>
                 </div>

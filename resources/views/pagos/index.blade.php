@@ -384,7 +384,9 @@ function actualizarTodosPagos() {
         confirmButtonColor: '#10b981',
         cancelButtonColor: '#6c757d',
         confirmButtonText: '<i class="fas fa-sync-alt"></i> Sí, actualizar todo',
-        cancelButtonText: 'Cancelar'
+        cancelButtonText: 'Cancelar',
+        background: '#0d0d0d',
+        color: '#ffffff'
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire({
@@ -393,7 +395,9 @@ function actualizarTodosPagos() {
                 allowOutsideClick: false,
                 didOpen: () => {
                     Swal.showLoading();
-                }
+                },
+                background: '#0d0d0d',
+                color: '#ffffff'
             });
             
             // Enviar petición al servidor
@@ -414,7 +418,9 @@ function actualizarTodosPagos() {
                     icon: 'success',
                     title: '¡Actualización completada!',
                     html: data.message,
-                    confirmButtonColor: '#10b981'
+                    confirmButtonColor: '#10b981',
+                    background: '#0d0d0d',
+                    color: '#ffffff'
                 }).then(() => {
                     window.location.reload();
                 });
@@ -424,7 +430,9 @@ function actualizarTodosPagos() {
                     icon: 'error',
                     title: 'Error',
                     text: 'Hubo un problema al actualizar los pagos',
-                    confirmButtonColor: '#ef4444'
+                    confirmButtonColor: '#ef4444',
+                    background: '#0d0d0d',
+                    color: '#ffffff'
                 });
             });
         }

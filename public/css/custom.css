@@ -1036,11 +1036,24 @@ b {
     font-size: 0.9rem;
 }
 
-/* SweetAlert2 Custom Styling */
-.swal2-custom-popup {
+.swal2-popup {
+    background: #0d0d0d !important;
+    color: #ffffff !important;
     border-radius: 15px !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8) !important;
+}
+
+.swal2-header,
+.swal2-content,
+.swal2-html-container {
+    color: #ffffff !important;
+}
+
+.swal2-success-circular-line-left,
+.swal2-success-circular-line-right,
+.swal2-success-fix {
+    background-color: transparent !important;
 }
 
 .swal2-title {
