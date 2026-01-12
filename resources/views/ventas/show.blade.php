@@ -87,7 +87,16 @@
                         </h6>
                         <div class="mb-3">
                             <h5 class="fw-bold mb-1">{{ $venta->nombre_cliente ?? 'No registrado' }}</h5>
-                            <p class="mb-0 text-white-50"><i class="fas fa-phone me-2"></i> {{ $venta->telefono_cliente ?? 'No registrado' }}</p>
+                            <p class="mb-2 text-white-50"><i class="fas fa-phone me-2"></i> {{ $venta->telefono_cliente ?? 'No registrado' }}</p>
+                            
+                            @if($venta->telefono_cliente)
+                                <a href="https://wa.me/57{{ preg_replace('/[^0-9]/', '', $venta->telefono_cliente) }}" 
+                                   target="_blank" 
+                                   class="btn btn-outline-success btn-sm w-100 mt-2"
+                                   style="border-radius: 10px; border-color: #25d366; color: #25d366;">
+                                    <i class="fab fa-whatsapp me-2"></i> Contactar Cliente
+                                </a>
+                            @endif
                         </div>
                         <div class="mt-4 pt-2 border-top border-secondary border-opacity-25">
                             <small class="text-muted d-block text-uppercase" style="font-size: 0.65rem;">Estado de Pago:</small>
