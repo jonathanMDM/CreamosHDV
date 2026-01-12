@@ -94,6 +94,33 @@
     border-color: #ffffff !important;
 }
 
+/* Global Form Overrides */
+.form-control,
+.form-select,
+input,
+select,
+textarea {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.form-control:focus,
+.form-select:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    background-color: #222222 !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1) !important;
+    outline: none !important;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
 html,
 body {
     background-color: #000000 !important;
