@@ -111,14 +111,18 @@ class VentaController extends Controller
 
         $imageUrl = null;
         if ($request->hasFile('comprobante')) {
-            // Subir usando el método más directo y compatible con la configuración actual
-            $file = $request->file('comprobante');
-            $upload = \CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::upload($file->getRealPath(), [
-                'folder' => 'ventas',
-                'quality' => 'auto:low',
-                'fetch_format' => 'auto'
-            ]);
-            $imageUrl = $upload->getSecurePath();
+            try {
+                $file = $request->file('comprobante');
+                // Usar el método correcto del SDK de Cloudinary
+                $uploadedFileUrl = \Cloudinary\Cloudinary::uploadApi()->upload($file->getRealPath(), [
+                    'folder' => 'ventas',
+                    'quality' => 'auto:low',
+                    'fetch_format' => 'auto'
+                ]);
+                $imageUrl = $uploadedFileUrl['secure_url'];
+            } catch (\Exception $e) {
+                return back()->withErrors(['comprobante' => 'Error al subir la imagen: ' . $e->getMessage()]);
+            }
         }
 
         Venta::create([
