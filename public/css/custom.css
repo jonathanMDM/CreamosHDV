@@ -338,9 +338,9 @@ body {
 
 /* Buttons */
 .btn-primary-custom {
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #ffffff;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-weight: 700;
@@ -388,20 +388,21 @@ body {
 }
 
 .btn-success-custom {
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #ffffff;
+    background: #1a1a1a;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-weight: 700;
     transition: all 0.3s ease;
 }
 
-.btn-success-custom:hover {
-    background: #ffffff;
-    color: #000000;
+.btn-success-custom:hover,
+.btn-primary-custom:hover {
+    background: #333333;
+    color: #ffffff !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .btn-danger-custom {
@@ -459,10 +460,11 @@ body {
 
 /* Tables */
 .table-custom {
-    background: #000000;
+    background: #000000 !important;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    border-collapse: collapse !important;
 }
 
 .table-custom thead {
@@ -478,7 +480,8 @@ body {
 }
 
 .table-custom td {
-    color: var(--white) !important;
+    color: #ffffff !important;
+    background-color: #0a0a0a !important;
 }
 
 .table-custom strong,
@@ -491,7 +494,12 @@ body {
 }
 
 .table-custom tbody tr:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.table-custom tbody tr {
+    background-color: #0a0a0a !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
 }
 
 .table-custom tbody td {
