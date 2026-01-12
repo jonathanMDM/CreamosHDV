@@ -25,7 +25,6 @@
         <div class="login-card fade-in">
             <div class="login-header">
                 <img src="{{ asset('images/logo.png') }}" alt="CreamosHDV Logo" class="img-fluid mb-2" style="max-height: 80px;">
-                <p style="font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; margin-top: 0.5rem;">Asesoría Digital</p>
             </div>
             <div class="login-body">
                 <form method="POST" action="{{ route('login') }}" id="loginForm">
