@@ -1290,3 +1290,25 @@ table.dataTable > tbody > tr.child span.dtr-data {
 .alert-warning.alert-custom strong {
     color: #000000 !important;
 }
+
+/* Quick Reason Buttons in Rejection Modal */
+.quick-reason {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.quick-reason:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.quick-reason.active {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+.swal2-html-container .quick-reason {
+    margin: 0.25rem;
+}
