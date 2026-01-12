@@ -25,7 +25,7 @@
             <div class="row g-4 mb-4">
                 <!-- Columna Asesor -->
                 <div class="col-md-6">
-                    <div class="p-3 rounded-4 bg-light border h-100">
+                    <div class="p-3 rounded-4 border h-100" style="background-color: #0a0a0a;">
                         <h6 class="text-muted text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">
                             <i class="fas fa-user me-2"></i>Información del Asesor
                         </h6>
@@ -49,7 +49,7 @@
 
                 <!-- Columna Servicio -->
                 <div class="col-md-6">
-                    <div class="p-3 rounded-4 bg-light border h-100">
+                    <div class="p-3 rounded-4 border h-100" style="background-color: #0a0a0a;">
                         <h6 class="text-muted text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">
                             <i class="fas fa-briefcase me-2"></i>Detalle del Servicio
                         </h6>
@@ -69,7 +69,7 @@
             </div>
 
             <!-- Banner de Comisión -->
-            <div class="rounded-4 p-4 text-center mb-4" style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white;">
+            <div class="rounded-4 p-4 text-center mb-4 border" style="background: #000000; color: white; border-color: rgba(255,255,255,0.1) !important;">
                 <p class="mb-1 text-uppercase opacity-75 fw-bold" style="font-size: 0.8rem; letter-spacing: 2px;">Comisión Total a Pagar</p>
                 <h1 class="display-4 fw-bold mb-0">${{ number_format($venta->comision, 0, ',', '.') }}</h1>
             </div>
@@ -86,7 +86,7 @@
                     <h6 class="text-muted text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 1px;">
                         <i class="fas fa-image me-2"></i>Comprobante / Captura de Pantalla
                     </h6>
-                    <div class="text-center p-2 border rounded-4 bg-light">
+                    <div class="text-center p-2 border rounded-4" style="background-color: #000000;">
                         <img src="{{ $venta->image_url }}" alt="Comprobante" class="img-fluid rounded-4 shadow-sm" style="max-height: 400px;">
                     </div>
                 </div>

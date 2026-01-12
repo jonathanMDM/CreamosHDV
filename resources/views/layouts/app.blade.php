@@ -43,7 +43,6 @@
             background: #000000;
             min-height: 100vh;
             color: white;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: fixed;
             left: 0;
             top: 0;
@@ -168,15 +167,27 @@
             margin-left: 260px;
             padding: 20px;
             min-height: 100vh;
-            transition: all 0.3s ease;
             position: relative;
             display: flex;
             flex-direction: column;
-            background-color: #000000;
+            background-color: #000000 !important;
+            transition: none; /* Removed transition for stability */
         }
         
         .sidebar-custom.collapsed ~ .main-content {
             margin-left: 70px;
+        }
+
+        html, body {
+            background-color: #000000 !important;
+            background: #000000 !important; /* Kept for broader compatibility */
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
         
         /* Navbar adjustments */
@@ -213,10 +224,6 @@
             .card-modern, .card-custom {
                 border-radius: 12px;
             }
-        }
-        
-        body {
-            overflow-x: hidden;
         }
     </style>
     
