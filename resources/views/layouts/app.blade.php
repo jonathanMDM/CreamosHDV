@@ -291,6 +291,13 @@
                 <button class="navbar-toggler d-lg-none" type="button" onclick="toggleSidebar()">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
+                <!-- Nombre del usuario visible en móvil -->
+                <div class="d-flex align-items-center d-lg-none ms-auto text-white pe-2">
+                    <small class="me-2 opacity-75">Hola,</small>
+                    <span class="fw-bold" style="font-size: 0.9rem;">{{ explode(' ', trim(Auth::user()->name))[0] }}</span>
+                </div>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
