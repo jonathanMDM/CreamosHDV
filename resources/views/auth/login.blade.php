@@ -52,14 +52,14 @@
                         <label for="password" class="form-label">
                             <i class="fas fa-lock"></i> Contraseña
                         </label>
-                        <div class="input-group">
+                        <div style="position: relative;">
                             <input id="password" type="password" 
                                    class="form-control form-control-custom @error('password') is-invalid @enderror" 
                                    name="password" required autocomplete="current-password"
-                                   style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
-                            <button class="btn btn-outline-light" type="button" id="togglePassword" 
-                                    style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);">
-                                <i class="fas fa-eye"></i>
+                                   style="padding-right: 3rem;">
+                            <button type="button" id="togglePassword" 
+                                    style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #94a3b8; cursor: pointer; padding: 0.5rem; transition: color 0.3s;">
+                                <i class="fas fa-eye" style="font-size: 1.1rem;"></i>
                             </button>
                         </div>
                         @error('password')
@@ -89,6 +89,16 @@
             // Toggle password visibility
             const togglePassword = document.getElementById('togglePassword');
             if (togglePassword) {
+                // Hover effect
+                togglePassword.addEventListener('mouseenter', function() {
+                    this.style.color = '#3b82f6';
+                });
+                
+                togglePassword.addEventListener('mouseleave', function() {
+                    this.style.color = '#94a3b8';
+                });
+                
+                // Toggle functionality
                 togglePassword.addEventListener('click', function() {
                     const password = document.getElementById('password');
                     const icon = this.querySelector('i');
