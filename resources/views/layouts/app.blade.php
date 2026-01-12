@@ -275,12 +275,14 @@
                 </a>
             </li>
             @endif
+            @if(auth()->user()->role === 'admin')
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('recursos.*') ? 'active' : '' }}" href="{{ route('recursos.index') }}">
                     <i class="fas fa-folder-open"></i>
                     <span class="nav-text">Recursos</span>
                 </a>
             </li>
+            @endif
             
             <li class="nav-item mt-auto">
                 <a class="nav-link" href="https://wa.me/573145781261?text=*CREAMOS%20TU%20HOJA%20DE%20VIDA*%0A%0AHola%2C%20necesito%20soporte%20t%C3%A9cnico%20con%20el%20sistema." target="_blank">
