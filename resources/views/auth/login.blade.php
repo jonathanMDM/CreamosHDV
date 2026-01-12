@@ -13,6 +13,9 @@
     
     <!-- Custom CSS -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lccs0csAAAAALSMs3ORgCddP7eRJdeAT2VkjWC8"></script>
 </head>
 <body>
     <div class="login-container">
@@ -21,8 +24,11 @@
                 <img src="{{ asset('images/logo.png') }}" alt="CreamosHDV Logo" class="img-fluid mb-2" style="max-height: 100px;">
             </div>
             <div class="login-body">
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login') }}" id="loginForm">
                     @csrf
+                    
+                    <!-- Campo oculto para el token de reCAPTCHA -->
+                    <input type="hidden" name="recaptcha_token" id="recaptchaToken">
 
                     <div class="mb-4">
                         <label for="email" class="form-label">
@@ -60,7 +66,7 @@
                     </div>
 
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-primary-custom">
+                        <button type="submit" class="btn btn-primary-custom" id="submitBtn">
                             <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
                         </button>
                     </div>
@@ -76,6 +82,7 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Toggle password visibility
             const togglePassword = document.getElementById('togglePassword');
             if (togglePassword) {
                 togglePassword.addEventListener('click', function() {
@@ -90,6 +97,21 @@
                         icon.classList.remove('fa-eye-slash');
                         icon.classList.add('fa-eye');
                     }
+                });
+            }
+
+            // reCAPTCHA v3 form submission
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    grecaptcha.ready(function() {
+                        grecaptcha.execute('6Lccs0csAAAAALSMs3ORgCddP7eRJdeAT2VkjWC8', {action: 'login'}).then(function(token) {
+                            document.getElementById('recaptchaToken').value = token;
+                            loginForm.submit();
+                        });
+                    });
                 });
             }
         });

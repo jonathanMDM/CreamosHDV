@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use Symfony\Component\HttpFoundation\Response;
+
+class VerifyRecaptcha
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+        // Solo verificar en login POST
+        if ($request->isMethod('post') && $request->route()->named('login')) {
+            $recaptchaToken = $request->input('recaptcha_token');
+            
+            if (!$recaptchaToken) {
+                return back()->withErrors(['email' => 'Error de verificación. Por favor, intenta nuevamente.']);
+            }
+
+            $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                'secret' => '6Lccs0csAAAAAKhueLG0ayNjspI2aiNKb0MyS8it',
+                'response' => $recaptchaToken,
+                'remoteip' => $request->ip()
+            ]);
+
+            $result = $response->json();
+
+            if (!$result['success'] || $result['score'] < 0.5) {
+                return back()->withErrors(['email' => 'Verificación de seguridad fallida. Por favor, intenta nuevamente.']);
+            }
+        }
+
+        return $next($request);
+    }
+}
