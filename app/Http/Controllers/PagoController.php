@@ -215,7 +215,7 @@ class PagoController extends Controller
             'fecha_pago' => Carbon::now(),
         ]);
         
-        return redirect()->back()
+        return redirect()->route('pagos.index', ['año' => $pago->año])
             ->with('success', 'Pago registrado correctamente (No se envió correo).');
     }
 
@@ -227,7 +227,7 @@ class PagoController extends Controller
             'fecha_pago' => null,
         ]);
         
-        return redirect()->back()
+        return redirect()->route('pagos.index', ['año' => $pago->año])
             ->with('success', 'Pago marcado como no pagado');
     }
 
