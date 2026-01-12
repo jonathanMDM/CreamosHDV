@@ -17,6 +17,33 @@ Route::get('/', function () {
 // Authentication Routes
 Auth::routes(['register' => false]);
 
+// Password Change Routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/change-password', function () {
+        return view('auth.change-password');
+    })->name('password.change');
+    
+    Route::post('/change-password', function (\Illuminate\Http\Request $request) {
+        $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = auth()->user();
+
+        if (!\Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'La contraseña actual no es correcta.']);
+        }
+
+        $user->update([
+            'password' => \Hash::make($request->password),
+            'must_change_password' => false,
+        ]);
+
+        return redirect()->route('dashboard')->with('success', '¡Contraseña actualizada exitosamente!');
+    })->name('password.update.first');
+});
+
 // Protected Routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
