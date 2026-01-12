@@ -60,13 +60,12 @@
                             </div>
                             <p class="mb-2 small text-white-50"><i class="fas fa-info-circle me-2"></i>Pulsa el botón de abajo para informar de tu venta.</p>
                             @php
-                                $msg = "VENTA INGRESADA\n";
+                                $msg = "*VENTA INGRESADA*\n";
                                 $msg .= "Nombre del Cliente: " . ($venta->nombre_cliente ?? 'N/A') . "\n";
                                 $msg .= "Teléfono del cliente: " . ($venta->telefono_cliente ?? 'N/A') . "\n";
                                 $msg .= "Servicio: " . $venta->servicio->nombre_servicio . "\n";
                                 $msg .= "Valor total: $" . number_format($venta->valor_servicio, 0, ',', '.') . "\n";
                                 $msg .= "Pago recibido: " . ($venta->tipo_pago === 'pago_total' ? '100%' : '50%') . "\n";
-                                $msg .= "Comprobante: (adjunto)\n";
                                 $msg .= "Nombre del Asesor: " . $venta->asesor->nombre_completo;
                                 $waUrl = "https://wa.me/573005038368?text=" . urlencode($msg);
                             @endphp
