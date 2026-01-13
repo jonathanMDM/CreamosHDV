@@ -22,9 +22,8 @@ class AppServiceProvider extends ServiceProvider
         // Configurar Carbon para usar español
         \Carbon\Carbon::setLocale('es');
 
-        // Forzar HTTPS en producción
-        if (config('app.env') === 'production') {
-            \Illuminate\Support\Facades\URL::forceScheme('https');
-        }
+        // Forzar HTTPS
+        \Illuminate\Support\Facades\URL::forceScheme('https');
+
     }
 }
