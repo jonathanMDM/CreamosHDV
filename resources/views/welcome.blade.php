@@ -83,23 +83,20 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container h-100">
-            <div class="row min-vh-100 align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0 py-5">
-                    <h1 class="hero-title pt-5 pt-lg-0">Diseñamos tu<br>Futuro Profesional</h1>
+            <div class="row align-items-center">
+                <div class="col-lg-10 col-xl-8 py-5">
+                    <div class="hero-badge">Expertos en Selección de Personal</div>
+                    <h1 class="hero-title">Diseñamos tu<br>Futuro Profesional</h1>
                     <p class="hero-subtitle">Consigue el empleo que mereces con una hoja de vida de alto impacto. Creamos perfiles ganadores que destacan en cualquier proceso de selección.</p>
                     <div class="d-flex gap-3">
                         <a href="#servicios" class="btn-premium">Ver Planes</a>
-                        <a href="https://wa.me/573136214224" target="_blank" class="btn btn-outline-light px-4 py-2 border-radius-12" style="border-radius: 12px; font-weight: 600;">Asesoría Gratis</a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="hero-image-container fade-in shadow-lg">
-                        <img src="{{ asset('images/hero.png') }}" alt="Expert Resume Design" class="img-fluid">
+                        <a href="https://wa.me/573136214224" target="_blank" class="btn btn-outline-light px-4 py-2" style="border-radius: 12px; font-weight: 600;">Asesoría Gratis</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Info Block "Let's grow together" -->
     <section class="container my-5">
