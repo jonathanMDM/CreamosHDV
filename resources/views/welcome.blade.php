@@ -40,12 +40,12 @@
             color: #000000;
         }
         .nav-link-landing {
-            color: rgba(255, 255, 255, 0.7) !important;
+            color: rgba(0, 0, 0, 0.7) !important;
             font-weight: 500;
             transition: all 0.3s ease;
         }
         .nav-link-landing:hover {
-            color: #ffffff !important;
+            color: #000000 !important;
         }
     </style>
 </head>
@@ -55,10 +55,10 @@
     <nav class="navbar navbar-expand-lg landing-navbar">
         <div class="container px-4 px-lg-0">
             <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo" height="40" class="me-2" style="filter: brightness(0) invert(1);">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo" height="40" class="me-2">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars text-white"></i>
+                <i class="fas fa-bars text-dark"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">

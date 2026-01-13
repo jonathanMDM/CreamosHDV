@@ -1316,8 +1316,10 @@ table.dataTable>tbody>tr.child span.dtr-data {
 
 /* Landing Page Specific Styles */
 .landing-navbar {
-    background: transparent !important;
-    border: none !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
     position: fixed;
     width: 100%;
     top: 0;
@@ -1331,14 +1333,14 @@ table.dataTable>tbody>tr.child span.dtr-data {
 }
 
 .landing-navbar .nav-link-landing {
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: rgba(0, 0, 0, 0.7) !important;
     font-weight: 500;
     font-size: 0.95rem;
     transition: all 0.3s ease;
 }
 
 .landing-navbar .nav-link-landing:hover {
-    color: #ffffff !important;
+    color: #000000 !important;
 }
 
 .landing-navbar .navbar-toggler {
