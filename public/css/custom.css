@@ -1238,16 +1238,17 @@ b {
     background-color: #ffbb33 !important;
     color: #000 !important;
 }
+
 /* DataTables Responsive Premium Styling */
-table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before,
-table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
+table.dataTable.dtr-inline.collapsed>tbody>tr>td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before {
     background-color: #ffffff !important;
     color: #000000 !important;
     border: none !important;
     box-shadow: none !important;
 }
 
-table.dataTable > tbody > tr.child ul.dtr-details {
+table.dataTable>tbody>tr.child ul.dtr-details {
     width: 100%;
     padding: 1rem;
     background: #0d0d0d;
@@ -1255,7 +1256,7 @@ table.dataTable > tbody > tr.child ul.dtr-details {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-table.dataTable > tbody > tr.child span.dtr-title {
+table.dataTable>tbody>tr.child span.dtr-title {
     font-weight: 700;
     color: rgba(255, 255, 255, 0.6);
     text-transform: uppercase;
@@ -1264,7 +1265,7 @@ table.dataTable > tbody > tr.child span.dtr-title {
     min-width: 100px;
 }
 
-table.dataTable > tbody > tr.child span.dtr-data {
+table.dataTable>tbody>tr.child span.dtr-data {
     color: #ffffff;
     font-weight: 500;
     display: flex;
@@ -1312,6 +1313,7 @@ table.dataTable > tbody > tr.child span.dtr-data {
 .swal2-html-container .quick-reason {
     margin: 0.25rem;
 }
+
 /* Landing Page Specific Styles */
 .landing-navbar {
     background: transparent !important;
@@ -1336,6 +1338,8 @@ table.dataTable > tbody > tr.child span.dtr-data {
     margin-bottom: 2rem;
     background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
     -webkit-background-clip: text;
+    background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
@@ -1413,9 +1417,11 @@ table.dataTable > tbody > tr.child span.dtr-data {
     .hero-title {
         font-size: 2.5rem;
     }
+
     .info-block {
         padding: 40px 20px;
     }
+
     .info-block h2 {
         font-size: 2.5rem;
     }

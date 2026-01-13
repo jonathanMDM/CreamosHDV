@@ -9,10 +9,15 @@ use App\Http\Controllers\PagoController;
 use App\Http\Controllers\RecursoController;
 use Illuminate\Support\Facades\Auth;
 
-// Redirect root to login
+// Public Landing Page
 Route::get('/', function () {
-    return redirect()->route('login');
+    return view('welcome');
 });
+
+Route::get('/home', function () {
+    return view('welcome');
+})->name('home');
+
 
 // Authentication Routes
 Auth::routes(['register' => false]);
@@ -91,8 +96,5 @@ Route::middleware(['auth'])->group(function () {
         abort(403);
     });
 
-    // Redirect home to dashboard
-    Route::get('/home', function() {
-        return redirect()->route('dashboard');
-    })->name('home');
+
 });
