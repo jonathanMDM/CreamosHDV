@@ -1481,6 +1481,35 @@ table.dataTable>tbody>tr.child span.dtr-data {
     overflow: hidden;
 }
 
+.info-block h1,
+.info-block h2,
+.info-block h3,
+.info-block h4,
+.info-block h5,
+.info-block p,
+.info-block span,
+.info-block div,
+.info-block .service-price,
+.info-block .service-icon {
+    color: #000000 !important;
+}
+
+.info-block .text-muted {
+    color: #6c757d !important;
+}
+
+/* Excepción para el paquete completo que tiene fondo oscuro */
+.info-block .bg-dark h3,
+.info-block .bg-dark p,
+.info-block .bg-dark .service-price,
+.info-block .bg-dark .service-icon {
+    color: #ffffff !important;
+}
+
+.info-block .bg-dark .text-white-50 {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
 .service-card-light {
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.05);
