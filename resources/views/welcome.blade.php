@@ -222,7 +222,6 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <h3 class="fw-bold mb-4">CreamosHDV</h3>
                     <p class="text-white-50">Líderes en diseño de perfiles profesionales y asesoría laboral en toda Colombia.</p>
                 </div>
                 <div class="col-lg-2 offset-lg-2">
