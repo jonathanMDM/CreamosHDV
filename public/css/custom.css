@@ -1394,11 +1394,22 @@ table.dataTable>tbody>tr.child span.dtr-data {
 }
 
 .info-block {
-    background: #ffffff;
-    color: #000000;
+    background: #ffffff !important;
+    color: #000000 !important;
     border-radius: 40px;
     padding: 60px;
     margin: 40px 0;
+}
+
+.info-block h2,
+.info-block h4,
+.info-block p,
+.info-block span {
+    color: #000000 !important;
+}
+
+.info-block .text-muted {
+    color: #6c757d !important;
 }
 
 .info-block h2 {
