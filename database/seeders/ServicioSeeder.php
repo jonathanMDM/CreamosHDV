@@ -14,46 +14,40 @@ class ServicioSeeder extends Seeder
     {
         $servicios = [
             [
-                'nombre' => 'Foto para hoja de vida profesional',
-                'descripcion' => 'Retoque digital y optimización para hojas de vida y plataformas como LinkedIn. Sirve para plataformas de empleo también.',
-                'precio' => 15500,
-                'activo' => true,
+                'nombre_servicio' => 'Foto para hoja de vida profesional',
+                'valor' => 15500,
+                'porcentaje_comision' => 30,
             ],
             [
-                'nombre' => 'Hoja de vida sencilla',
-                'descripcion' => 'Formato básico, ideal para perfiles operativos y administrativos. Diseño limpio y profesional.',
-                'precio' => 7500,
-                'activo' => true,
+                'nombre_servicio' => 'Hoja de vida sencilla',
+                'valor' => 7500,
+                'porcentaje_comision' => 30,
             ],
             [
-                'nombre' => 'Hoja de vida profesional',
-                'descripcion' => 'Diseño premium con impacto visual garantizado. Estructuras modernas para destacar en procesos de selección.',
-                'precio' => 15000,
-                'activo' => true,
+                'nombre_servicio' => 'Hoja de vida profesional',
+                'valor' => 15000,
+                'porcentaje_comision' => 30,
             ],
             [
-                'nombre' => 'Traducción de hoja de vida',
-                'descripcion' => 'Traducción profesional Inglés-Español adaptada a términos laborales técnicos.',
-                'precio' => 25000,
-                'activo' => true,
+                'nombre_servicio' => 'Traducción de hoja de vida',
+                'valor' => 25000,
+                'porcentaje_comision' => 30,
             ],
             [
-                'nombre' => 'Carta de presentación',
-                'descripcion' => 'El complemento perfecto para explicar por qué eres el candidato ideal.',
-                'precio' => 6000,
-                'activo' => true,
+                'nombre_servicio' => 'Carta de presentación',
+                'valor' => 6000,
+                'porcentaje_comision' => 30,
             ],
             [
-                'nombre' => 'Paquete completo',
-                'descripcion' => 'Incluye: Hoja de vida profesional, carta de presentación, foto profesional y traducción. La solución definitiva para tu perfil.',
-                'precio' => 20000,
-                'activo' => true,
+                'nombre_servicio' => 'Paquete completo',
+                'valor' => 20000,
+                'porcentaje_comision' => 30,
             ],
         ];
 
         foreach ($servicios as $servicio) {
             Servicio::updateOrCreate(
-                ['nombre' => $servicio['nombre']],
+                ['nombre_servicio' => $servicio['nombre_servicio']],
                 $servicio
             );
         }
