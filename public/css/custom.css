@@ -1476,25 +1476,19 @@ table.dataTable>tbody>tr.child span.dtr-data {
     background: #ffffff !important;
     color: #000000 !important;
     border-radius: 40px;
-    padding: 60px;
+    padding: 0;
     margin: 40px 0;
+    overflow: hidden;
 }
 
-.info-block h2,
-.info-block h4,
-.info-block p,
-.info-block span {
-    color: #000000 !important;
+.service-card-light {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.info-block .text-muted {
-    color: #6c757d !important;
-}
-
-.info-block h2 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
+.service-card-light:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .footer-landing {
