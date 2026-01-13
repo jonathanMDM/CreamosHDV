@@ -71,10 +71,10 @@
                         @auth
                             <a href="{{ url('/dashboard') }}" class="btn-premium">Ir al Dashboard</a>
                         @else
-                            <a href="{{ route('login') }}" class="nav-link nav-link-landing d-flex align-items-center">Iniciar Sesión</a>
-                            <a href="{{ route('register') }}" class="btn-premium">Registrarse</a>
+                            <a href="{{ route('login') }}" class="btn-premium">Iniciar Sesión</a>
                         @endauth
                     @endif
+
                 </div>
             </div>
         </div>
