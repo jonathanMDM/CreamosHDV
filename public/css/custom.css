@@ -1316,13 +1316,32 @@ table.dataTable>tbody>tr.child span.dtr-data {
 
 /* Landing Page Specific Styles */
 .landing-navbar {
-    background: transparent !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(10px);
     border: none !important;
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
+    z-index: 1000;
+    padding: 1rem 0;
 }
+
+.landing-navbar .navbar-brand img {
+    height: 35px;
+}
+
+.landing-navbar .nav-link-landing {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.landing-navbar .nav-link-landing:hover {
+    color: #ffffff !important;
+}
+
 
 .hero-section {
     position: relative;

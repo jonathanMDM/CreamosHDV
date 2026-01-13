@@ -52,7 +52,7 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg landing-navbar pt-4">
+    <nav class="navbar navbar-expand-lg landing-navbar">
         <div class="container px-4 px-lg-0">
             <a class="navbar-brand d-flex align-items-center" href="/">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" height="40" class="me-2" style="filter: brightness(0) invert(1);">
