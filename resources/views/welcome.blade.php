@@ -125,8 +125,8 @@
             <!-- Bottom Section: Services Grid -->
             <div>
                 <div class="mb-5">
-                    <span class="text-uppercase fw-bold ls-2 d-block mb-2 text-muted">Servicios Premium</span>
-                    <h2 class="display-5 fw-bold text-dark">Nuestras Soluciones</h2>
+                    <span class="text-uppercase fw-bold ls-2 d-block mb-2 text-muted">Nuestros Productos</span>
+                    <h2 class="display-5 fw-bold text-dark">Servicios que ofrecemos</h2>
                 </div>
                 
                 <div class="row g-4">
