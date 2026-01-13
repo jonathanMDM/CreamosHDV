@@ -98,91 +98,109 @@
     </section>
 
 
-    <!-- Info Block + Services Combined -->
+    <!-- Info Block + Services Combined (Reference Layout) -->
     <section class="container my-5" id="servicios">
         <div class="info-block p-5">
-            <!-- Top Section: Impulsemos tu carrera -->
-            <div class="d-flex flex-column flex-lg-row align-items-center gap-5 mb-5 border-bottom pb-5">
-                <div class="col-lg-7">
-                    <h2 class="text-dark fw-bold display-5 mb-3">Impulsemos tu carrera juntos</h2>
-                    <p class="fs-5 text-muted mb-4">No solo hacemos hojas de vida, construimos tu marca personal para que las empresas te busquen a ti. Nuestro enfoque combina diseño premium y estrategia de selección.</p>
-                    <div class="row g-4 mt-2">
-                        <div class="col-6 col-md-4">
-                            <h4 class="fw-bold mb-1 text-dark">+1000</h4>
-                            <p class="text-muted small">Hojas de vida creadas</p>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <h4 class="fw-bold mb-1 text-dark">98%</h4>
-                            <p class="text-muted small">Tasa de éxito</p>
-                        </div>
+            <div class="row g-5">
+                <!-- Left Column: Services & Description -->
+                <div class="col-lg-8">
+                    <div class="mb-5">
+                        <span class="text-uppercase fw-bold ls-2 d-block mb-2 text-muted">Servicios Premium</span>
+                        <h2 class="display-5 fw-bold text-dark">Nuestras Soluciones</h2>
+                        <p class="fs-5 text-muted mt-3" style="max-width: 600px;">Elige el plan que mejor se adapte a tu etapa profesional. Desde retoques puntuales hasta la transformación total de tu perfil.</p>
                     </div>
-                </div>
-                <div class="col-lg-5 text-center">
-                    <a href="https://wa.me/573136214224" target="_blank" class="btn btn-dark btn-lg px-5 py-3 rounded-pill fw-bold">Empieza Ahora</a>
-                </div>
-            </div>
 
-            <!-- Bottom Section: Services Grid -->
-            <div>
-                <div class="mb-5">
-                    <span class="text-uppercase fw-bold ls-2 d-block mb-2 text-muted">Servicios Premium</span>
-                    <h2 class="display-5 fw-bold text-dark">Nuestras Soluciones</h2>
+                    <div class="row g-4">
+                        <!-- Service 1: Foto -->
+                        <div class="col-md-6">
+                            <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="service-icon text-dark fs-3"><i class="fas fa-camera"></i></div>
+                                    <h3 class="text-dark fw-bold h5 mb-0">Foto Profesional</h3>
+                                </div>
+                                <p class="text-muted small mb-3">Retoque digital y optimización para hojas de vida y plataformas como LinkedIn.</p>
+                                <div class="service-price text-dark fw-bold">$15.500</div>
+                            </div>
+                        </div>
+                        <!-- Service 2: Sencilla -->
+                        <div class="col-md-6">
+                            <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="service-icon text-dark fs-3"><i class="fas fa-file-lines"></i></div>
+                                    <h3 class="text-dark fw-bold h5 mb-0">Diseño Básico</h3>
+                                </div>
+                                <p class="text-muted small mb-3">Hoja de vida sencilla y limpia, ideal para perfiles operativos.</p>
+                                <div class="service-price text-dark fw-bold">$7.500</div>
+                            </div>
+                        </div>
+                        <!-- Service 3: Profesional -->
+                        <div class="col-md-6">
+                            <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="service-icon text-dark fs-3"><i class="fas fa-crown"></i></div>
+                                    <h3 class="text-dark fw-bold h5 mb-0">Diseño Premium</h3>
+                                </div>
+                                <p class="text-muted small mb-3">Impacto visual garantizado con diseños modernos y estructurados.</p>
+                                <div class="service-price text-dark fw-bold">$15.000</div>
+                            </div>
+                        </div>
+                        <!-- Service 4: Traducción -->
+                        <div class="col-md-6">
+                            <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="service-icon text-dark fs-3"><i class="fas fa-language"></i></div>
+                                    <h3 class="text-dark fw-bold h5 mb-0">Traducción</h3>
+                                </div>
+                                <p class="text-muted small mb-3">Traducción profesional (Inglés-Español) para perfiles bilingües.</p>
+                                <div class="service-price text-dark fw-bold">$25.000</div>
+                            </div>
+                        </div>
+                        <!-- Service 5: Carta -->
+                        <div class="col-md-6">
+                            <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="service-icon text-dark fs-3"><i class="fas fa-envelope-open-text"></i></div>
+                                    <h3 class="text-dark fw-bold h5 mb-0">Carta Pres.</h3>
+                                </div>
+                                <p class="text-muted small mb-3">El complemento perfecto para explicar por qué eres el candidato ideal.</p>
+                                <div class="service-price text-dark fw-bold">$6.000</div>
+                            </div>
+                        </div>
+                         <!-- Service 6: Pack -->
+                         <div class="col-md-6">
+                            <div class="service-card-light h-100 p-4 rounded-4" style="background: #000000; color: white;">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="service-icon text-white fs-3"><i class="fas fa-box"></i></div>
+                                    <h3 class="text-white fw-bold h5 mb-0">Paquete Completo</h3>
+                                </div>
+                                <p class="text-white-50 small mb-3">Todo lo anterior por un precio especial. Solución definitiva.</p>
+                                <div class="service-price text-white fw-bold">$20.000</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="row g-4">
-                    <!-- Service 1: Foto -->
-                    <div class="col-md-4">
-                        <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
-                            <div class="service-icon mb-3 text-dark fs-2"><i class="fas fa-camera"></i></div>
-                            <h3 class="text-dark fw-bold h4">Foto Profesional</h3>
-                            <p class="text-muted">Retoque digital y optimización para hojas de vida y plataformas como LinkedIn.</p>
-                            <div class="service-price text-dark fw-bold fs-4">$15.500</div>
+
+                <!-- Right Column: Impulsemos CTA Card -->
+                <div class="col-lg-4">
+                    <div class="card-cta p-5 h-100 d-flex flex-column justify-content-center bg-dark text-white rounded-5 position-relative overflow-hidden">
+                        <!-- Decorative Circle -->
+                        <div class="position-absolute top-0 end-0 p-5 rounded-circle bg-white opacity-10" style="margin-top: -50px; margin-right: -50px; width: 200px; height: 200px; opacity: 0.1;"></div>
+                        
+                        <h2 class="display-6 fw-bold mb-4 text-white">Impulsemos tu carrera juntos</h2>
+                        <p class="text-white-50 mb-5 fs-5">construimos tu marca personal para que las empresas te busquen a ti. Estrategia y diseño en un solo lugar.</p>
+                        
+                        <div class="row g-4 mb-5">
+                            <div class="col-6">
+                                <h3 class="fw-bold mb-0 text-white">+1000</h3>
+                                <small class="text-white-50">Hojas creadas</small>
+                            </div>
+                            <div class="col-6">
+                                <h3 class="fw-bold mb-0 text-white">98%</h3>
+                                <small class="text-white-50">Éxito</small>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Service 2: Sencilla -->
-                    <div class="col-md-4">
-                        <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
-                            <div class="service-icon mb-3 text-dark fs-2"><i class="fas fa-file-lines"></i></div>
-                            <h3 class="text-dark fw-bold h4">Diseño Básico</h3>
-                            <p class="text-muted">Hoja de vida sencilla y limpia, ideal para perfiles operativos y administrativos.</p>
-                            <div class="service-price text-dark fw-bold fs-4">$7.500</div>
-                        </div>
-                    </div>
-                    <!-- Service 3: Profesional -->
-                    <div class="col-md-4">
-                        <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
-                            <div class="service-icon mb-3 text-dark fs-2"><i class="fas fa-crown"></i></div>
-                            <h3 class="text-dark fw-bold h4">Diseño Premium</h3>
-                            <p class="text-muted">Impacto visual garantizado con diseños modernos y estructurados para resaltar.</p>
-                            <div class="service-price text-dark fw-bold fs-4">$15.000</div>
-                        </div>
-                    </div>
-                    <!-- Service 4: Traducción -->
-                    <div class="col-md-4">
-                        <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
-                            <div class="service-icon mb-3 text-dark fs-2"><i class="fas fa-language"></i></div>
-                            <h3 class="text-dark fw-bold h4">Traducción</h3>
-                            <p class="text-muted">Traducción profesional (Inglés-Español) adaptada a términos laborales técnicos.</p>
-                            <div class="service-price text-dark fw-bold fs-4">$25.000</div>
-                        </div>
-                    </div>
-                    <!-- Service 5: Carta -->
-                    <div class="col-md-4">
-                        <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
-                            <div class="service-icon mb-3 text-dark fs-2"><i class="fas fa-envelope-open-text"></i></div>
-                            <h3 class="text-dark fw-bold h4">Carta de Presentación</h3>
-                            <p class="text-muted">El complemento perfecto para explicar por qué eres el candidato ideal.</p>
-                            <div class="service-price text-dark fw-bold fs-4">$6.000</div>
-                        </div>
-                    </div>
-                    <!-- Service 6: Pack -->
-                    <div class="col-md-4">
-                        <div class="service-card-light h-100 p-4 rounded-4 bg-dark text-white">
-                            <div class="service-icon mb-3 text-white fs-2"><i class="fas fa-box"></i></div>
-                            <h3 class="text-white fw-bold h4">Paquete Completo</h3>
-                            <p class="text-white-50">Todo lo anterior por un precio especial. La solución definitiva para tu perfil.</p>
-                            <div class="service-price text-white fw-bold fs-4">$20.000</div>
-                        </div>
+
+                        <a href="https://wa.me/573136214224" target="_blank" class="btn btn-light btn-lg w-100 py-3 rounded-pill fw-bold text-dark">Empieza Ahora</a>
                     </div>
                 </div>
             </div>
