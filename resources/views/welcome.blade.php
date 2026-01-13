@@ -105,7 +105,7 @@
             <div class="d-flex flex-column flex-lg-row align-items-center gap-5 mb-5 border-bottom pb-5">
                 <div class="col-lg-7">
                     <h2 class="text-dark fw-bold display-5 mb-3">Impulsemos tu carrera juntos</h2>
-                    <p class="fs-5 text-muted mb-4">No solo hacemos hojas de vida, construimos tu marca personal para que las empresas te busquen a ti. Nuestro enfoque combina diseño premium y estrategia de selección.</p>
+                    <p class="fs-5 text-muted mb-4">Nos especializamos en el diseño y redacción de Hojas de Vida profesionales. Creamos documentos impactantes y bien estructurados que resaltan tu perfil para que destaques en cualquier proceso de selección.</p>
                     <div class="row g-4 mt-2">
                         <div class="col-6 col-md-4">
                             <h4 class="fw-bold mb-1 text-dark">+1000</h4>
