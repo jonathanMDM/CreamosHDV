@@ -18,7 +18,7 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     
     <!-- Google reCAPTCHA v3 -->
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lea4kcsAAAAAByyP4gBzZ-PyW2YLzVRX0OhHlVC"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
 </head>
 <body>
     <div class="login-container">
@@ -136,7 +136,7 @@
                     if (typeof grecaptcha !== 'undefined') {
                         grecaptcha.ready(function() {
                             try {
-                                grecaptcha.execute('6Lea4kcsAAAAAByyP4gBzZ-PyW2YLzVRX0OhHlVC', {action: 'login'}).then(function(token) {
+                                grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'login'}).then(function(token) {
                                     const recaptchaInput = document.getElementById('recaptchaToken');
                                     if (recaptchaInput) {
                                         recaptchaInput.value = token;

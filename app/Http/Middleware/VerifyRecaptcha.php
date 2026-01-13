@@ -25,10 +25,11 @@ class VerifyRecaptcha
             }
 
             $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-                'secret' => '6Lea4kcsAAAAACIo1AnIxpXlypwtlNln5c1kddOP',
+                'secret' => config('services.recaptcha.secret_key'),
                 'response' => $recaptchaToken,
                 'remoteip' => $request->ip()
             ]);
+
 
             $result = $response->json();
 
