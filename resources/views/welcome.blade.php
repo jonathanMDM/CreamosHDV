@@ -143,7 +143,7 @@
                     <div class="col-md-4">
                         <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
                             <div class="service-icon mb-3 text-dark fs-2"><i class="fas fa-file-lines"></i></div>
-                            <h3 class="text-dark fw-bold h4">Diseño Básico</h3>
+                            <h3 class="text-dark fw-bold h4">Hoja Diseño Básico</h3>
                             <p class="text-muted">Hoja de vida sencilla y limpia, ideal para perfiles operativos y administrativos.</p>
                             <div class="service-price text-dark fw-bold fs-4">$7.500</div>
                         </div>
@@ -152,7 +152,7 @@
                     <div class="col-md-4">
                         <div class="service-card-light h-100 p-4 rounded-4" style="background: #f8f9fa;">
                             <div class="service-icon mb-3 text-dark fs-2"><i class="fas fa-crown"></i></div>
-                            <h3 class="text-dark fw-bold h4">Diseño Premium</h3>
+                            <h3 class="text-dark fw-bold h4">Hoja Diseño Premium</h3>
                             <p class="text-muted">Impacto visual garantizado con diseños modernos y estructurados para resaltar.</p>
                             <div class="service-price text-dark fw-bold fs-4">$15.000</div>
                         </div>
