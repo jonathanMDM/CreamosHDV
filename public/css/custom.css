@@ -1500,31 +1500,6 @@ table.dataTable>tbody>tr.child span.dtr-data {
     color: #6c757d !important;
 }
 
-/* Exception: Dark CTA Card (Right Column) */
-.info-block .card-cta {
-    background: #000000 !important;
-    color: #ffffff !important;
-}
-
-.info-block .card-cta h2,
-.info-block .card-cta h3,
-.info-block .card-cta p,
-.info-block .card-cta small,
-.info-block .card-cta span,
-.info-block .card-cta div {
-    color: #ffffff !important;
-}
-
-.info-block .card-cta .text-white-50 {
-    color: rgba(255, 255, 255, 0.5) !important;
-}
-
-.info-block .card-cta .btn-light {
-    background: #ffffff !important;
-    color: #000000 !important;
-    border: none;
-}
-
 /* Exception: Service Card "Full Package" (Dark) */
 .info-block .service-card-light[style*="background: #000000"] h3,
 .info-block .service-card-light[style*="background: #000000"] p,
