@@ -1501,15 +1501,15 @@ table.dataTable>tbody>tr.child span.dtr-data {
 }
 
 /* Exception: Service Card "Full Package" (Dark) */
-.info-block .service-card-light[style*="background: #000000"] h3,
-.info-block .service-card-light[style*="background: #000000"] p,
-.info-block .service-card-light[style*="background: #000000"] .service-price,
-.info-block .service-card-light[style*="background: #000000"] .service-icon {
+.info-block .service-card-light.bg-dark h3,
+.info-block .service-card-light.bg-dark p,
+.info-block .service-card-light.bg-dark .service-price,
+.info-block .service-card-light.bg-dark .service-icon {
     color: #ffffff !important;
 }
 
-.info-block .service-card-light[style*="background: #000000"] .text-white-50 {
-    color: rgba(255, 255, 255, 0.5) !important;
+.info-block .service-card-light.bg-dark .text-white-50 {
+    color: rgba(255, 255, 255, 0.7) !important;
 }
 
 .service-card-light {

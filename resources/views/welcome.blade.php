@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <div class="col-lg-5 text-center">
-                    <a href="https://wa.me/573136214224" target="_blank" class="btn btn-dark btn-lg px-5 py-3 rounded-pill fw-bold">Empieza Ahora</a>
+                    <a href="https://wa.me/573005038368" target="_blank" class="btn btn-dark btn-lg px-5 py-3 rounded-pill fw-bold">Empieza Ahora</a>
                 </div>
             </div>
 
