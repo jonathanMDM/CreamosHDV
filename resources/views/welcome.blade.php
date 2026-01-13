@@ -222,7 +222,7 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo" height="40" class="mb-4" style="filter: brightness(0) invert(1);">
+                    <h3 class="fw-bold mb-4">CreamosHDV</h3>
                     <p class="text-white-50">Líderes en diseño de perfiles profesionales y asesoría laboral en toda Colombia.</p>
                 </div>
                 <div class="col-lg-2 offset-lg-2">
@@ -237,7 +237,7 @@
                     <h5 class="fw-bold mb-4">Contacto</h5>
                     <ul class="list-unstyled text-white-50">
                         <li class="mb-2"><i class="fas fa-envelope me-2"></i> creamoshojasdevida@gmail.com</li>
-                        <li class="mb-2"><i class="fab fa-whatsapp me-2"></i> +57 313 621 4224</li>
+                        <li class="mb-2"><i class="fab fa-whatsapp me-2"></i> +57 300 5038368</li>
                     </ul>
                     <div class="d-flex gap-3 mt-4">
                         <a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
