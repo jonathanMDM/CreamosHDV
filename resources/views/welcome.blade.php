@@ -55,9 +55,9 @@
     <nav class="navbar navbar-expand-lg landing-navbar">
         <div class="container px-4 px-lg-0">
             <a class="navbar-brand d-flex align-items-center" href="/">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo" height="40" class="me-2">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo" height="40" class="me-2" style="filter: brightness(0);">
             </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler border shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="background: rgba(255,255,255,0.8);">
                 <i class="fas fa-bars text-dark"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
