@@ -98,29 +98,6 @@
     </section>
 
 
-    <!-- Info Block "Let's grow together" -->
-    <section class="container my-5">
-        <div class="info-block d-flex flex-column flex-lg-row align-items-center gap-5">
-            <div class="col-lg-7">
-                <h2>Impulsemos tu carrera juntos</h2>
-                <p class="fs-5 text-muted mb-4">No solo hacemos hojas de vida, construimos tu marca personal para que las empresas te busquen a ti. Nuestro enfoque combina diseño premium y estrategia de selección.</p>
-                <div class="row g-4 mt-2">
-                    <div class="col-6 col-md-4">
-                        <h4 class="fw-bold mb-1">+1000</h4>
-                        <p class="text-muted small">Hojas de vida creadas</p>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <h4 class="fw-bold mb-1">98%</h4>
-                        <p class="text-muted small">Tasa de éxito</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 text-center">
-                <a href="#servicios" class="btn btn-dark btn-lg px-5 py-3 rounded-pill fw-bold">Empieza Ahora</a>
-            </div>
-        </div>
-    </section>
-
     <!-- Services Grid -->
     <section id="servicios" class="py-5">
         <div class="container py-5">
@@ -186,6 +163,29 @@
                         <div class="service-price">$20.000</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Block "Let's grow together" -->
+    <section class="container my-5">
+        <div class="info-block d-flex flex-column flex-lg-row align-items-center gap-5">
+            <div class="col-lg-7">
+                <h2>Impulsemos tu carrera juntos</h2>
+                <p class="fs-5 text-muted mb-4">No solo hacemos hojas de vida, construimos tu marca personal para que las empresas te busquen a ti. Nuestro enfoque combina diseño premium y estrategia de selección.</p>
+                <div class="row g-4 mt-2">
+                    <div class="col-6 col-md-4">
+                        <h4 class="fw-bold mb-1">+1000</h4>
+                        <p class="text-muted small">Hojas de vida creadas</p>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <h4 class="fw-bold mb-1">98%</h4>
+                        <p class="text-muted small">Tasa de éxito</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center">
+                <a href="#servicios" class="btn btn-dark btn-lg px-5 py-3 rounded-pill fw-bold">Empieza Ahora</a>
             </div>
         </div>
     </section>
