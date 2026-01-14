@@ -1354,8 +1354,8 @@ table.dataTable>tbody>tr.child span.dtr-data {
 }
 
 .landing-navbar .navbar-collapse {
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     margin-top: 1rem;
     padding: 1.5rem;
