@@ -1396,15 +1396,9 @@ table.dataTable>tbody>tr.child span.dtr-data {
 }
 
 
-/* Global Background with Fixed Image */
+/* Global Background with Fixed Image - REVERTED */
 body {
-    background-image: url('../images/hero.png');
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     background-color: #000000;
-    /* Fallback */
     font-family: 'Outfit', sans-serif;
 }
 
@@ -1413,7 +1407,11 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    /* Image moved to body */
+    background-image: url('../images/hero.png');
+    background-size: cover;
+    background-position: top right;
+    /* Keep top alignment */
+    background-repeat: no-repeat;
     padding: 0;
     overflow: hidden;
 }
@@ -1510,15 +1508,13 @@ body {
 
 /* Info Block Global Styles */
 .info-block {
-    background: rgba(255, 255, 255, 0.85) !important;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: #ffffff !important;
     color: #000000 !important;
     border-radius: 40px;
     padding: 0;
     margin: 40px 0;
-    border: 1px solid rgba(255, 255, 255, 0.2);
     overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* Force Black Text for General Info Block Content */
