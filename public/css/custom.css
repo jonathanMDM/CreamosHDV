@@ -1409,8 +1409,7 @@ body {
     align-items: center;
     background-image: url('../images/hero.png');
     background-size: cover;
-    background-position: top right;
-    /* Keep top alignment */
+    background-position: right 20%;
     background-repeat: no-repeat;
     padding: 0;
     overflow: hidden;
