@@ -1316,7 +1316,7 @@ table.dataTable>tbody>tr.child span.dtr-data {
 
 /* Landing Page Specific Styles */
 .landing-navbar {
-    background: #ffffff !important;
+    background: #f8f9fa !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
     position: fixed;
