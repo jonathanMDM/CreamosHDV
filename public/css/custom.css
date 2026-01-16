@@ -1316,11 +1316,11 @@ table.dataTable>tbody>tr.child span.dtr-data {
 
 /* Landing Page Specific Styles */
 .landing-navbar {
-    background: rgba(248, 249, 250, 0.6) !important;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     position: fixed;
     width: 100%;
     top: 0;
@@ -1334,14 +1334,14 @@ table.dataTable>tbody>tr.child span.dtr-data {
 }
 
 .landing-navbar .nav-link-landing {
-    color: rgba(0, 0, 0, 0.7) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
     font-weight: 500;
     font-size: 0.95rem;
     transition: all 0.3s ease;
 }
 
 .landing-navbar .nav-link-landing:hover {
-    color: #000000 !important;
+    color: #ffffff !important;
 }
 
 .landing-navbar .navbar-toggler {
@@ -1375,14 +1375,13 @@ table.dataTable>tbody>tr.child span.dtr-data {
 }
 
 .landing-navbar .navbar-collapse {
-    background: #ffffff;
-    /* Removed heavy shadow for cleaner look */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     margin-top: 1rem;
     padding: 1.5rem;
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    /* Very subtle border instead */
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (min-width: 992px) {
