@@ -12,44 +12,28 @@ class ServicioSeeder extends Seeder
      */
     public function run(): void
     {
+        Servicio::truncate();
+
         $servicios = [
             [
-                'nombre_servicio' => 'Foto para hoja de vida profesional',
-                'valor' => 15500,
-                'porcentaje_comision' => 30,
-            ],
-            [
-                'nombre_servicio' => 'Hoja de vida sencilla',
-                'valor' => 7500,
-                'porcentaje_comision' => 30,
-            ],
-            [
-                'nombre_servicio' => 'Hoja de vida profesional',
+                'nombre_servicio' => 'Foto Profesional',
                 'valor' => 15000,
                 'porcentaje_comision' => 30,
             ],
             [
-                'nombre_servicio' => 'Traducción de hoja de vida',
-                'valor' => 25000,
+                'nombre_servicio' => 'Hoja Diseño Premium',
+                'valor' => 15500,
                 'porcentaje_comision' => 30,
             ],
             [
-                'nombre_servicio' => 'Carta de presentación',
-                'valor' => 6000,
-                'porcentaje_comision' => 30,
-            ],
-            [
-                'nombre_servicio' => 'Paquete completo',
+                'nombre_servicio' => 'Paquete Completo',
                 'valor' => 20000,
                 'porcentaje_comision' => 30,
             ],
         ];
 
         foreach ($servicios as $servicio) {
-            Servicio::updateOrCreate(
-                ['nombre_servicio' => $servicio['nombre_servicio']],
-                $servicio
-            );
+            Servicio::create($servicio);
         }
     }
 }
