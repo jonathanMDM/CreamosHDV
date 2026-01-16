@@ -248,6 +248,9 @@
             <hr class="my-5 border-secondary opacity-25">
             <div class="text-center text-white-50 small">
                 &copy; {{ date('Y') }} Creamos tu Hoja de Vida. Todos los derechos reservados.
+                <div class="mt-2">
+                    <span class="badge bg-warning text-dark">Ambiente de Desarrollo (Staging)</span>
+                </div>
             </div>
         </div>
     </footer>
