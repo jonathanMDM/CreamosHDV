@@ -16,6 +16,11 @@ class VerifyRecaptcha
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Posibilidad de saltar la verificación (útil para Staging/Desarrollo)
+        if (config('services.recaptcha.skip', env('SKIP_RECAPTCHA', false))) {
+            return $next($request);
+        }
+
         // Solo verificar en login POST
         if ($request->isMethod('post') && $request->route() && $request->route()->named('login')) {
             $recaptchaToken = $request->input('recaptcha_token');
