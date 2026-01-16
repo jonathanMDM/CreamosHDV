@@ -1386,11 +1386,13 @@ table.dataTable>tbody>tr.child span.dtr-data {
 
 @media (min-width: 992px) {
     .landing-navbar .navbar-collapse {
-        background: transparent;
-        backdrop-filter: none;
-        border-radius: 0;
-        margin-top: 0;
-        padding: 0;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin-top: 0 !important;
+        padding: 0 !important;
+        border: none !important;
     }
 }
 
