@@ -85,7 +85,6 @@
         <div class="container h-100">
             <div class="row align-items-center">
                 <div class="col-lg-10 col-xl-8 py-5">
-                    <div class="hero-badge">Expertos en Selección de Personal</div>
                     <h1 class="hero-title">Diseñamos tu<br>Futuro Profesional</h1>
                     <p class="hero-subtitle">Consigue el empleo que mereces con una hoja de vida de alto impacto. Creamos perfiles ganadores que destacan en cualquier proceso de selección.</p>
                     <div class="d-flex gap-3">
