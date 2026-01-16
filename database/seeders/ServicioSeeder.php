@@ -21,8 +21,23 @@ class ServicioSeeder extends Seeder
                 'porcentaje_comision' => 30,
             ],
             [
+                'nombre_servicio' => 'Hoja Diseño Básico',
+                'valor' => 7500,
+                'porcentaje_comision' => 30,
+            ],
+            [
                 'nombre_servicio' => 'Hoja Diseño Premium',
                 'valor' => 15500,
+                'porcentaje_comision' => 30,
+            ],
+            [
+                'nombre_servicio' => 'Traducción de hoja de vida',
+                'valor' => 25000,
+                'porcentaje_comision' => 30,
+            ],
+            [
+                'nombre_servicio' => 'Carta de presentación',
+                'valor' => 6000,
                 'porcentaje_comision' => 30,
             ],
             [
