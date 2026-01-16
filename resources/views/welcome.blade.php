@@ -238,9 +238,9 @@
                         <li class="mb-2"><i class="fab fa-whatsapp me-2"></i> +57 300 5038368</li>
                     </ul>
                     <div class="d-flex gap-3 mt-4">
-                        <a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white fs-4"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-white fs-4"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/creamos_hojas_de_vida" target="_blank" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/14TAas7pNfc/?mibextid=wwXIfr" target="_blank" class="text-white fs-4"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.tiktok.com/@creamostuhojadevida" target="_blank" class="text-white fs-4"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
