@@ -1375,23 +1375,28 @@ table.dataTable>tbody>tr.child span.dtr-data {
 }
 
 .landing-navbar .navbar-collapse {
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    margin-top: 1rem;
-    padding: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: none;
+    box-shadow: none;
+    margin-top: 0;
+    padding: 0;
+}
+
+@media (max-width: 991px) {
+    .landing-navbar .navbar-collapse {
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        margin-top: 1rem;
+        padding: 1.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 }
 
 @media (min-width: 992px) {
     .landing-navbar .navbar-collapse {
         background: transparent !important;
         backdrop-filter: none !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        margin-top: 0 !important;
-        padding: 0 !important;
         border: none !important;
     }
 }
