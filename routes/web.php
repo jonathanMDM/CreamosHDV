@@ -32,7 +32,18 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/change-password', function (\Illuminate\Http\Request $request) {
         $request->validate([
             'current_password' => 'required',
-            'password' => 'required|min:8|confirmed',
+            'password' => [
+                'required',
+                'min:8',
+                'confirmed',
+                'regex:/[A-Z]/',      // Al menos una mayúscula
+                'regex:/[0-9]/',      // Al menos un número
+                'regex:/[@$!%*#?&]/', // Al menos un carácter especial
+            ],
+        ], [
+            'password.regex' => 'La contraseña debe contener al menos una mayúscula, un número y un carácter especial.',
+            'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
+            'password.confirmed' => 'La confirmación de la contraseña no coincide.',
         ]);
 
         $user = auth()->user();

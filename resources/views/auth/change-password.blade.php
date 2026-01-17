@@ -53,7 +53,26 @@
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
-                    <small class="text-muted">Mínimo 8 caracteres</small>
+                    
+                    <!-- Checklist de requisitos -->
+                    <div class="password-requirements mt-3 p-3 rounded bg-dark border border-secondary border-opacity-25 shadow-sm">
+                        <h6 class="text-white-50 mb-3" style="font-size: 0.85rem;">La contraseña debe incluir:</h6>
+                        <ul class="list-unstyled mb-0" style="font-size: 0.85rem;">
+                            <li id="req-length" class="text-danger mb-1">
+                                <i class="fas fa-times me-2"></i> Mínimo 8 caracteres
+                            </li>
+                            <li id="req-upper" class="text-danger mb-1">
+                                <i class="fas fa-times me-2"></i> Una letra mayúscula
+                            </li>
+                            <li id="req-number" class="text-danger mb-1">
+                                <i class="fas fa-times me-2"></i> Un número
+                            </li>
+                            <li id="req-special" class="text-danger mb-0">
+                                <i class="fas fa-times me-2"></i> Un carácter especial (@$!%*#?&)
+                            </li>
+                        </ul>
+                    </div>
+
                     @error('password')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>{{ $message }}</strong>
@@ -88,6 +107,35 @@
 </div>
 
 <script>
+document.getElementById('password').addEventListener('input', function() {
+    const password = this.value;
+    
+    // Requirements regex
+    const requirements = [
+        { id: 'req-length', regex: /.{8,}/ },
+        { id: 'req-upper', regex: /[A-Z]/ },
+        { id: 'req-number', regex: /[0-9]/ },
+        { id: 'req-special', regex: /[@$!%*#?&]/ }
+    ];
+
+    requirements.forEach(req => {
+        const element = document.getElementById(req.id);
+        const icon = element.querySelector('i');
+        
+        if (req.regex.test(password)) {
+            element.classList.remove('text-danger');
+            element.classList.add('text-success');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-check');
+        } else {
+            element.classList.remove('text-success');
+            element.classList.add('text-danger');
+            icon.classList.remove('fa-check');
+            icon.classList.add('fa-times');
+        }
+    });
+});
+
 function togglePasswordVisibility(inputId, button) {
     const input = document.getElementById(inputId);
     const icon = button.querySelector('i');
