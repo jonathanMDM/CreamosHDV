@@ -1492,22 +1492,14 @@ body {
 }
 
 .service-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
-    color: #ffffff;
+    display: inline-block;
 }
 
 .service-price {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #ffffff;
     margin-top: 1rem;
 }
 
