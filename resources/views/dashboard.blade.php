@@ -117,10 +117,17 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <div class="avatar-circle bg-primary text-white me-2">
-                                                        {{ substr($venta->asesor->nombre_completo, 0, 1) }}
-                                                    </div>
-                                                    <strong>{{ $venta->asesor->nombre_completo }}</strong>
+                                                    @if($venta->asesor)
+                                                        <div class="avatar-circle bg-primary text-white me-2">
+                                                            {{ substr($venta->asesor->nombre_completo, 0, 1) }}
+                                                        </div>
+                                                        <strong>{{ $venta->asesor->nombre_completo }}</strong>
+                                                    @else
+                                                        <div class="avatar-circle bg-success text-white me-2">
+                                                            <i class="fas fa-store"></i>
+                                                        </div>
+                                                        <strong>Venta Directa</strong>
+                                                    @endif
                                                 </div>
                                             </td>
                                             <td>{{ $venta->servicio->nombre_servicio }}</td>
