@@ -1554,6 +1554,41 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.btn-whatsapp-card {
+    background-color: #25d366;
+    color: white !important;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    width: 100%;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+.btn-whatsapp-card:hover {
+    background-color: #128c7e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+.service-card-light.bg-dark .btn-whatsapp-card {
+    background-color: #ffffff;
+    color: #000000 !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.service-card-light.bg-dark .btn-whatsapp-card:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
 .footer-landing {
     background: rgba(0, 0, 0, 0.95);
     border-top: 1px solid rgba(255, 255, 255, 0.1);

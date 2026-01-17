@@ -128,19 +128,29 @@
                     <h2 class="display-5 fw-bold text-dark">Servicios que ofrecemos</h2>
                 </div>
                 
-                <div class="row g-4 justify-content-center">
+                <div class="row g-4">
                     @foreach($servicios as $servicio)
                     <div class="col-md-6 col-lg-4">
                         @php
                             $isPack = stripos($servicio->nombre_servicio, 'Paquete') !== false || stripos($servicio->nombre_servicio, 'Pack') !== false;
+                            $whatsappMessage = "Hola, estoy interesado en el servicio: " . $servicio->nombre_servicio;
                         @endphp
-                        <div class="service-card-light h-100 p-4 rounded-4 {{ $isPack ? 'bg-dark text-white shadow-lg' : 'bg-light' }}" style="{{ $isPack ? '' : 'background: #f8f9fa;' }}">
-                            <div class="service-icon mb-3 {{ $isPack ? 'text-white' : 'text-dark' }} fs-2">
-                                <i class="{{ $servicio->icono ?? 'fas fa-file-invoice' }}"></i>
+                        <div class="service-card-light h-100 p-4 rounded-4 {{ $isPack ? 'bg-dark text-white shadow-lg' : 'bg-light' }} d-flex flex-column" style="{{ $isPack ? '' : 'background: #f8f9fa;' }}">
+                            <div class="flex-grow-1">
+                                <div class="service-icon mb-3 {{ $isPack ? 'text-white' : 'text-dark' }} fs-2">
+                                    <i class="{{ $servicio->icono ?? 'fas fa-file-invoice' }}"></i>
+                                </div>
+                                <h3 class="{{ $isPack ? 'text-white' : 'text-dark' }} fw-bold h4">{{ $servicio->nombre_servicio }}</h3>
+                                <p class="{{ $isPack ? 'text-white-50' : 'text-muted' }}">{{ $servicio->descripcion }}</p>
+                                <div class="service-price {{ $isPack ? 'text-white' : 'text-dark' }} fw-bold fs-4 mb-4">${{ number_format($servicio->valor, 0, ',', '.') }}</div>
                             </div>
-                            <h3 class="{{ $isPack ? 'text-white' : 'text-dark' }} fw-bold h4">{{ $servicio->nombre_servicio }}</h3>
-                            <p class="{{ $isPack ? 'text-white-50' : 'text-muted' }}">{{ $servicio->descripcion }}</p>
-                            <div class="service-price {{ $isPack ? 'text-white' : 'text-dark' }} fw-bold fs-4">${{ number_format($servicio->valor, 0, ',', '.') }}</div>
+                            
+                            <a href="https://wa.me/573005038368?text={{ urlencode($whatsappMessage) }}" 
+                               target="_blank" 
+                               class="btn-whatsapp-card">
+                                <i class="fab fa-whatsapp fs-5"></i> 
+                                Comprar ahora
+                            </a>
                         </div>
                     </div>
                     @endforeach
