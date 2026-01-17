@@ -11,7 +11,8 @@ class ServicioController extends Controller
     {
         $servicios = Servicio::withCount('ventas')
             ->withSum('ventas', 'valor_servicio')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('orden', 'asc')
+            ->orderBy('nombre_servicio', 'asc')
             ->get();
         
         return view('servicios.index', compact('servicios'));
@@ -30,6 +31,7 @@ class ServicioController extends Controller
             'icono' => 'nullable|string|max:255',
             'valor' => 'required|numeric|min:0',
             'porcentaje_comision' => 'required|numeric|min:0|max:100',
+            'orden' => 'required|integer|min:0',
         ]);
 
         Servicio::create($validated);
@@ -57,6 +59,7 @@ class ServicioController extends Controller
             'icono' => 'nullable|string|max:255',
             'valor' => 'required|numeric|min:0',
             'porcentaje_comision' => 'required|numeric|min:0|max:100',
+            'orden' => 'required|integer|min:0',
         ]);
 
         $servicio->update($validated);

@@ -98,7 +98,24 @@
                     @error('porcentaje_comision')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                    <small class="text-muted">Ingrese el porcentaje (0-100)</small>
+                    <small class="text-white-50">Ingrese el porcentaje (0-100)</small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="orden" class="form-label">
+                        <i class="fas fa-sort-numeric-down"></i> Orden de Visualización
+                    </label>
+                    <input type="number" 
+                           class="form-control form-control-custom @error('orden') is-invalid @enderror" 
+                           id="orden" 
+                           name="orden" 
+                           value="{{ old('orden', $servicio->orden) }}" 
+                           min="0"
+                           required>
+                    <small class="text-white-50">Los servicios se muestran de menor a mayor (0, 1, 2...)</small>
+                    @error('orden')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mt-4">

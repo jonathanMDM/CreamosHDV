@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 // Public Landing Page
 Route::get('/', function () {
-    $servicios = \App\Models\Servicio::all();
+    $servicios = \App\Models\Servicio::orderBy('orden', 'asc')->orderBy('nombre_servicio', 'asc')->get();
     return view('welcome', compact('servicios'));
 });
 
