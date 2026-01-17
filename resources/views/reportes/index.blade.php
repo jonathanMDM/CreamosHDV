@@ -116,7 +116,13 @@
                                     <div class="fw-bold">{{ $venta->nombre_cliente }}</div>
                                     <small class="text-white-50">{{ $venta->telefono_cliente }}</small>
                                 </td>
-                                <td>{{ $venta->asesor ? $venta->asesor->nombre_completo : 'N/A' }}</td>
+                                <td>
+                                    @if($venta->asesor)
+                                        {{ $venta->asesor->nombre_completo }}
+                                    @else
+                                        <span class="badge bg-info text-dark">Venta Directa</span>
+                                    @endif
+                                </td>
                                 <td>{{ $venta->servicio ? $venta->servicio->nombre_servicio : 'N/A' }}</td>
                                 <td class="text-end fw-bold">${{ number_format($venta->valor_servicio, 0, ',', '.') }}</td>
                                 <td class="text-end text-warning">${{ number_format($venta->comision, 0, ',', '.') }}</td>
