@@ -439,6 +439,8 @@ body {
 .card-body {
     padding: 2rem;
     color: inherit;
+    position: relative;
+    z-index: 1;
 }
 
 /* Buttons */
