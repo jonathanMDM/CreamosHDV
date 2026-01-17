@@ -247,44 +247,46 @@
                 </a>
             </li>
             @if(auth()->check() && auth()->user()->role === 'admin')
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('asesores.*') ? 'active' : '' }}" href="{{ route('asesores.index') }}">
-                    <i class="fas fa-users"></i>
-                    <span class="nav-text">Asesores</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('servicios.*') ? 'active' : '' }}" href="{{ route('servicios.index') }}">
-                    <i class="fas fa-briefcase"></i>
-                    <span class="nav-text">Servicios</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('asesores.*') ? 'active' : '' }}" href="{{ route('asesores.index') }}">
+                        <i class="fas fa-users"></i>
+                        <span class="nav-text">Asesores</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('servicios.*') ? 'active' : '' }}" href="{{ route('servicios.index') }}">
+                        <i class="fas fa-briefcase"></i>
+                        <span class="nav-text">Servicios</span>
+                    </a>
+                </li>
             @endif
+            
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('ventas.*') ? 'active' : '' }}" href="{{ route('ventas.index') }}">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="nav-text">Ventas</span>
                 </a>
             </li>
+            
             @if(auth()->check() && auth()->user()->role === 'admin')
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('pagos.*') ? 'active' : '' }}" href="{{ route('pagos.index') }}">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <span class="nav-text">Pagos</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('recursos.*') ? 'active' : '' }}" href="{{ route('recursos.index') }}">
-                    <i class="fas fa-folder-open"></i>
-                    <span class="nav-text">Recursos</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('reportes.*') ? 'active' : '' }}" href="{{ route('reportes.index') }}">
-                    <i class="fas fa-chart-line"></i>
-                    <span class="nav-text">Reportes</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('pagos.*') ? 'active' : '' }}" href="{{ route('pagos.index') }}">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span class="nav-text">Pagos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('recursos.*') ? 'active' : '' }}" href="{{ route('recursos.index') }}">
+                        <i class="fas fa-folder-open"></i>
+                        <span class="nav-text">Recursos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('reportes.*') ? 'active' : '' }}" href="{{ route('reportes.index') }}">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="nav-text">Reportes</span>
+                    </a>
+                </li>
             @endif
             
             <li class="nav-item mt-4">
