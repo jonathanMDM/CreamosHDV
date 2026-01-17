@@ -31,13 +31,13 @@
                 @else
                     <div class="mb-4">
                         <label for="asesor_id" class="form-label">
-                            <i class="fas fa-user"></i> Seleccionar Asesor *
+                            <i class="fas fa-user"></i> Seleccionar Asesor (Opcional - Dejar vacío para venta directa)
                         </label>
                         <select class="form-control form-control-custom @error('asesor_id') is-invalid @enderror" 
                                 id="asesor_id" 
                                 name="asesor_id" 
-                                required>
-                            <option value="">-- Seleccione un asesor --</option>
+                                name="asesor_id">
+                            <option value="">-- Venta Directa (Sin Asesor) --</option>
                             @foreach($asesores as $asesor)
                                 <option value="{{ $asesor->id }}" {{ old('asesor_id') == $asesor->id ? 'selected' : '' }}>
                                     {{ $asesor->nombre_completo }} - {{ $asesor->cedula }}
@@ -47,6 +47,9 @@
                         @error('asesor_id')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+                        <small class="text-muted">
+                            <i class="fas fa-info-circle"></i> Si no seleccionas un asesor, la venta se registrará como venta directa (sin comisión) y solo aparecerá en reportes.
+                        </small>
                     </div>
                 @endif
                 

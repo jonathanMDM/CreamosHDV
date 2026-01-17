@@ -54,7 +54,9 @@ class VentaController extends Controller
         $inicio = $fecha->copy()->startOfDay();
         $fin = $fecha->copy()->addDays(6)->endOfDay();
 
-        $ventas = $query->whereBetween('created_at', [$inicio, $fin])
+        // Excluir ventas directas del administrador (sin asesor)
+        $ventas = $query->where('es_venta_directa', false)
+            ->whereBetween('created_at', [$inicio, $fin])
             ->orderBy('created_at', 'desc')
             ->get();
         
@@ -86,30 +88,36 @@ class VentaController extends Controller
         ];
 
         if ($user->role === 'admin') {
-            $rules['asesor_id'] = 'required|exists:asesors,id';
+            $rules['asesor_id'] = 'nullable|exists:asesors,id';
         }
 
         $validated = $request->validate($rules);
 
         // Si es asesor, el asesor_id viene de su perfil
+        $esVentaDirecta = false;
         if ($user->role !== 'admin') {
             $asesor = Asesor::where('user_id', $user->id)->first();
             if (!$asesor) return back()->with('error', 'No tienes perfil de asesor.');
             $asesor_id = $asesor->id;
             $estado = 'pendiente';
         } else {
-            $asesor_id = $validated['asesor_id'];
+            $asesor_id = $validated['asesor_id'] ?? null;
             $estado = 'aprobada';
+            // Si el admin no selecciona asesor, es venta directa
+            if (!$asesor_id) {
+                $esVentaDirecta = true;
+            }
         }
 
         $servicio = Servicio::findOrFail($validated['servicio_id']);
         $valorServicio = $servicio->valor;
-        $comision = ($valorServicio * $servicio->porcentaje_comision) / 100;
+        // Si es venta directa, no hay comisión
+        $comision = $esVentaDirecta ? 0 : ($valorServicio * $servicio->porcentaje_comision) / 100;
         $tipoPago = $request->input('tipo_pago', 'pago_total');
 
         if ($tipoPago === 'pago_50') {
             $valorServicio = $valorServicio / 2;
-            $comision = $comision / 2;
+            $comision = $esVentaDirecta ? 0 : $comision / 2;
         }
 
         $imageUrl = null;
@@ -139,6 +147,7 @@ class VentaController extends Controller
             'image_url' => $imageUrl,
             'tipo_pago' => $tipoPago,
             'estado' => $estado,
+            'es_venta_directa' => $esVentaDirecta,
             'created_at' => $validated['fecha_venta'] . ' ' . now()->format('H:i:s'),
             'updated_at' => now(),
         ]);

@@ -16,7 +16,8 @@ class Venta extends Model
         'image_url',
         'tipo_pago',
         'estado',
-        'motivo_rechazo'
+        'motivo_rechazo',
+        'es_venta_directa'
     ];
 
     public function asesor()
