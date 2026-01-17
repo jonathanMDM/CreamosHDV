@@ -77,21 +77,6 @@
                         @error('banco')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
-
-                        <div id="div_banco_otro" class="mt-3 slide-down" style="display: {{ old('banco', $currentBanco) == 'Otros' ? 'block' : 'none' }};">
-                            <label for="banco_nombre_otro" class="form-label">
-                                <i class="fas fa-plus-circle"></i> ¿Cuál banco? *
-                            </label>
-                            <input type="text" 
-                                   class="form-control form-control-custom @error('banco_nombre_otro') is-invalid @enderror" 
-                                   id="banco_nombre_otro" 
-                                   name="banco_nombre_otro" 
-                                   value="{{ old('banco_nombre_otro', $bancoNombreOtro) }}"
-                                   placeholder="Nombre del banco">
-                            @error('banco_nombre_otro')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
                     </div>
 
                     <div class="col-md-6 mb-3">
@@ -105,6 +90,23 @@
                                value="{{ old('numero_cuenta', $asesor->numero_cuenta) }}" 
                                required>
                         @error('numero_cuenta')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="row" id="div_banco_otro" style="display: {{ old('banco', $currentBanco) == 'Otros' ? 'block' : 'none' }};">
+                    <div class="col-md-12 mb-3">
+                        <label for="banco_nombre_otro" class="form-label">
+                            <i class="fas fa-plus-circle"></i> ¿Cuál banco? *
+                        </label>
+                        <input type="text" 
+                               class="form-control form-control-custom @error('banco_nombre_otro') is-invalid @enderror" 
+                               id="banco_nombre_otro" 
+                               name="banco_nombre_otro" 
+                               value="{{ old('banco_nombre_otro', $bancoNombreOtro) }}"
+                               placeholder="Nombre del banco">
+                        @error('banco_nombre_otro')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
