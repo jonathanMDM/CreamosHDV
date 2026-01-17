@@ -86,7 +86,7 @@
         <div class="container h-100">
             <div class="row align-items-center">
                 <div class="col-lg-10 col-xl-8 py-5">
-                    <span class="d-inline-block py-1 px-3 rounded-pill bg-white bg-opacity-10 text-white text-uppercase fw-bold mb-3" style="font-size: 0.8rem; letter-spacing: 2px; backdrop-filter: blur(5px);">Creamos Hojas de Vida</span>
+                    <span class="d-inline-block py-1 px-3 rounded-pill bg-white bg-opacity-10 text-white text-uppercase fw-bold mb-3" style="font-size: 0.8rem; letter-spacing: 2px; backdrop-filter: blur(5px);">Nuestra misión Impulsar carreras profesionales</span>
                     <h1 class="hero-title">Diseñamos tu<br>Futuro Profesional</h1>
                     <p class="hero-subtitle">Consigue el empleo que mereces con una hoja de vida de alto impacto. Creamos perfiles ganadores que destacan en cualquier proceso de selección.</p>
                     <div class="d-flex gap-3">
