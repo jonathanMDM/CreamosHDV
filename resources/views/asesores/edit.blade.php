@@ -56,20 +56,42 @@
                         <label for="banco" class="form-label">
                             <i class="fas fa-university"></i> Banco *
                         </label>
+                        @php
+                            $predefinedBancos = ['Nequi', 'Bancolombia', 'Daviplata', 'Nu'];
+                            $isOtro = !in_array($asesor->banco, $predefinedBancos) && $asesor->banco != 'Otros';
+                            $currentBanco = $isOtro ? 'Otros' : $asesor->banco;
+                            $bancoNombreOtro = $isOtro ? $asesor->banco : '';
+                        @endphp
                         <select class="form-control form-control-custom @error('banco') is-invalid @enderror" 
                                 id="banco" 
                                 name="banco" 
-                                required>
+                                required 
+                                onchange="toggleBancoOtro(this.value)">
                             <option value="">Seleccione un banco</option>
-                            <option value="Nequi" {{ old('banco', $asesor->banco) == 'Nequi' ? 'selected' : '' }}>Nequi</option>
-                            <option value="Bancolombia" {{ old('banco', $asesor->banco) == 'Bancolombia' ? 'selected' : '' }}>Bancolombia</option>
-                            <option value="Daviplata" {{ old('banco', $asesor->banco) == 'Daviplata' ? 'selected' : '' }}>Daviplata</option>
-                            <option value="Nu" {{ old('banco', $asesor->banco) == 'Nu' ? 'selected' : '' }}>Nu</option>
-                            <option value="Otros" {{ old('banco', $asesor->banco) == 'Otros' ? 'selected' : '' }}>Otros</option>
+                            <option value="Nequi" {{ old('banco', $currentBanco) == 'Nequi' ? 'selected' : '' }}>Nequi</option>
+                            <option value="Bancolombia" {{ old('banco', $currentBanco) == 'Bancolombia' ? 'selected' : '' }}>Bancolombia</option>
+                            <option value="Daviplata" {{ old('banco', $currentBanco) == 'Daviplata' ? 'selected' : '' }}>Daviplata</option>
+                            <option value="Nu" {{ old('banco', $currentBanco) == 'Nu' ? 'selected' : '' }}>Nu</option>
+                            <option value="Otros" {{ old('banco', $currentBanco) == 'Otros' ? 'selected' : '' }}>Otros</option>
                         </select>
                         @error('banco')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+
+                        <div id="div_banco_otro" class="mt-3 slide-down" style="display: {{ old('banco', $currentBanco) == 'Otros' ? 'block' : 'none' }};">
+                            <label for="banco_nombre_otro" class="form-label">
+                                <i class="fas fa-plus-circle"></i> ¿Cuál banco? *
+                            </label>
+                            <input type="text" 
+                                   class="form-control form-control-custom @error('banco_nombre_otro') is-invalid @enderror" 
+                                   id="banco_nombre_otro" 
+                                   name="banco_nombre_otro" 
+                                   value="{{ old('banco_nombre_otro', $bancoNombreOtro) }}"
+                                   placeholder="Nombre del banco">
+                            @error('banco_nombre_otro')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
 
                     <div class="col-md-6 mb-3">
@@ -152,4 +174,23 @@
         </div>
     </div>
 </div>
+
+<script>
+function toggleBancoOtro(val) {
+    const div = document.getElementById('div_banco_otro');
+    const input = document.getElementById('banco_nombre_otro');
+    if (val === 'Otros') {
+        div.style.display = 'block';
+        input.setAttribute('required', 'required');
+    } else {
+        div.style.display = 'none';
+        input.removeAttribute('required');
+    }
+}
+
+// Inicializar al cargar
+document.addEventListener('DOMContentLoaded', function() {
+    toggleBancoOtro(document.getElementById('banco').value);
+});
+</script>
 @endsection

@@ -30,17 +30,23 @@ class AsesorController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'nombre_completo' => 'required|string|max:255',
             'cedula' => 'required|string|unique:asesors,cedula',
             'email' => 'required|email|unique:users,email|unique:asesors,email',
-            'banco' => 'required|in:Nequi,Bancolombia,Daviplata,Nu,Otros',
+            'banco' => 'required|string',
+            'banco_nombre_otro' => 'required_if:banco,Otros|nullable|string|max:255',
             'numero_cuenta' => 'required|string',
             'whatsapp' => 'required|string',
             'ciudad' => 'required|string|max:255',
         ]);
 
-        $asesor = Asesor::create($validated);
+        $data = $request->all();
+        if ($request->banco === 'Otros' && $request->banco_nombre_otro) {
+            $data['banco'] = $request->banco_nombre_otro;
+        }
+
+        $asesor = Asesor::create($data);
 
         // Crear usuario vinculado automáticamente
         $user = User::create([
@@ -73,17 +79,23 @@ class AsesorController extends Controller
 
     public function update(Request $request, Asesor $asesor)
     {
-        $validated = $request->validate([
+        $request->validate([
             'nombre_completo' => 'required|string|max:255',
             'cedula' => 'required|string|unique:asesors,cedula,' . $asesor->id,
             'email' => 'required|email|unique:asesors,email,' . $asesor->id,
-            'banco' => 'required|in:Nequi,Bancolombia,Daviplata,Nu,Otros',
+            'banco' => 'required|string',
+            'banco_nombre_otro' => 'required_if:banco,Otros|nullable|string|max:255',
             'numero_cuenta' => 'required|string',
             'whatsapp' => 'required|string',
             'ciudad' => 'required|string|max:255',
         ]);
 
-        $asesor->update($validated);
+        $data = $request->all();
+        if ($request->banco === 'Otros' && $request->banco_nombre_otro) {
+            $data['banco'] = $request->banco_nombre_otro;
+        }
+
+        $asesor->update($data);
 
         // Actualizar usuario vinculado si existe
         if ($asesor->user) {

@@ -58,7 +58,8 @@
                         <select class="form-control form-control-custom @error('banco') is-invalid @enderror" 
                                 id="banco" 
                                 name="banco" 
-                                required>
+                                required 
+                                onchange="toggleBancoOtro(this.value)">
                             <option value="">Seleccione un banco</option>
                             <option value="Nequi" {{ old('banco') == 'Nequi' ? 'selected' : '' }}>Nequi</option>
                             <option value="Bancolombia" {{ old('banco') == 'Bancolombia' ? 'selected' : '' }}>Bancolombia</option>
@@ -69,6 +70,21 @@
                         @error('banco')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+
+                        <div id="div_banco_otro" class="mt-3 slide-down" style="display: {{ old('banco') == 'Otros' ? 'block' : 'none' }};">
+                            <label for="banco_nombre_otro" class="form-label">
+                                <i class="fas fa-plus-circle"></i> ¿Cuál banco? *
+                            </label>
+                            <input type="text" 
+                                   class="form-control form-control-custom @error('banco_nombre_otro') is-invalid @enderror" 
+                                   id="banco_nombre_otro" 
+                                   name="banco_nombre_otro" 
+                                   value="{{ old('banco_nombre_otro') }}"
+                                   placeholder="Nombre del banco">
+                            @error('banco_nombre_otro')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
 
                     <div class="col-md-6 mb-3">
@@ -154,4 +170,18 @@
         </div>
     </div>
 </div>
+
+<script>
+function toggleBancoOtro(val) {
+    const div = document.getElementById('div_banco_otro');
+    const input = document.getElementById('banco_nombre_otro');
+    if (val === 'Otros') {
+        div.style.display = 'block';
+        input.setAttribute('required', 'required');
+    } else {
+        div.style.display = 'none';
+        input.removeAttribute('required');
+    }
+}
+</script>
 @endsection
