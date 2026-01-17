@@ -417,10 +417,14 @@ body {
     overflow: hidden;
     color: var(--white);
     position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .card-custom:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    transform: translateY(-2px);
 }
 
 .card-header-custom {
@@ -1545,13 +1549,16 @@ body {
 }
 
 .service-card-light {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform, box-shadow;
 }
 
 .service-card-light:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .btn-whatsapp-card {
