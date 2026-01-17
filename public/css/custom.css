@@ -417,13 +417,6 @@ body {
     overflow: hidden;
     color: var(--white);
     position: relative;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateZ(0);
-    backface-visibility: hidden;
-}
-
-.card-custom:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 .card-header-custom {
@@ -920,11 +913,7 @@ body {
 }
 
 .fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
+    /* Animation disabled to prevent rendering issues */
 }
 
 @keyframes fadeIn {
