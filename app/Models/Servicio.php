@@ -12,7 +12,8 @@ class Servicio extends Model
         'icono',
         'valor',
         'porcentaje_comision',
-        'orden'
+        'orden',
+        'visible_en_landing'
     ];
 
     public function ventas()

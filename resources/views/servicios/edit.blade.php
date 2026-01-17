@@ -118,6 +118,21 @@
                     @enderror
                 </div>
 
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" 
+                               type="checkbox" 
+                               id="visible_en_landing" 
+                               name="visible_en_landing" 
+                               value="1"
+                               {{ old('visible_en_landing', $servicio->visible_en_landing) ? 'checked' : '' }}>
+                        <label class="form-check-label text-white" for="visible_en_landing">
+                            <i class="fas fa-eye"></i> Mostrar en la página principal (Landing)
+                        </label>
+                    </div>
+                    <small class="text-white-50">Si está desmarcado, el servicio solo estará disponible internamente para asesores</small>
+                </div>
+
                 <div class="mt-4">
                     <button type="submit" class="btn btn-primary-custom">
                         <i class="fas fa-save"></i> Actualizar Servicio

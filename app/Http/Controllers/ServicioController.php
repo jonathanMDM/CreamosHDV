@@ -34,6 +34,8 @@ class ServicioController extends Controller
             'orden' => 'required|integer|min:0',
         ]);
 
+        $validated['visible_en_landing'] = $request->has('visible_en_landing');
+
         Servicio::create($validated);
 
         return redirect()->route('servicios.index')
@@ -61,6 +63,8 @@ class ServicioController extends Controller
             'porcentaje_comision' => 'required|numeric|min:0|max:100',
             'orden' => 'required|integer|min:0',
         ]);
+
+        $validated['visible_en_landing'] = $request->has('visible_en_landing');
 
         $servicio->update($validated);
 
