@@ -43,7 +43,7 @@
                 </div>
                 <div class="stat-content">
                     <h3>{{ $totalVentas }}</h3>
-                    <p>Ventas Totales</p>
+                    <p>Ventas de la Semana</p>
                 </div>
             </div>
         </div>
@@ -55,10 +55,10 @@
                 <div class="stat-content">
                     @if(auth()->user()->role === 'admin')
                         <h3>${{ number_format($totalIngresos, 0, ',', '.') }}</h3>
-                        <p>Ingresos Totales</p>
+                        <p>Ingresos de la Semana</p>
                     @else
                         <h3>${{ number_format($totalComisiones, 0, ',', '.') }}</h3>
-                        <p>Total Comisiones</p>
+                        <p>Comisiones de la Semana</p>
                     @endif
                 </div>
             </div>
@@ -73,10 +73,10 @@
                 <div class="d-flex align-items-center">
                     <div class="flex-grow-1">
                         <h5 class="text-white mb-1">
-                            <i class="fas fa-percentage"></i> Comisiones Totales
+                            <i class="fas fa-percentage"></i> Comisiones de la Semana
                         </h5>
                         <h2 class="text-white mb-0">${{ number_format($totalComisiones, 0, ',', '.') }}</h2>
-                        <small class="text-white-50">Total acumulado de comisiones generadas</small>
+                        <small class="text-white-50">Total acumulado desde el lunes</small>
                     </div>
                     <div class="stat-icon-large">
                         <i class="fas fa-money-bill-wave"></i>
@@ -162,7 +162,7 @@
             <div class="card-modern">
                 <div class="card-header-modern">
                     <h5 class="mb-0">
-                        <i class="fas fa-trophy"></i> Top Asesores
+                        <i class="fas fa-trophy"></i> Top Asesores (Semana)
                     </h5>
                 </div>
                 <div class="card-body">
