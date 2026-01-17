@@ -3,6 +3,7 @@
 @section('title', 'Dashboard - CreamosHDV')
 
 @section('content')
+<!-- Dashboard Updated Fix V2 -->
 <div class="fade-in">
     <!-- Header -->
     <div class="mb-4">
