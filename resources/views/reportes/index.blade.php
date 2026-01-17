@@ -96,7 +96,7 @@
         </div>
         <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-custom mb-0 js-table">
+                <table class="table table-custom mb-0">
                     <thead>
                         <tr>
                             <th>Fecha</th>
