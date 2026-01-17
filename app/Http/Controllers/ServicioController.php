@@ -26,6 +26,8 @@ class ServicioController extends Controller
     {
         $validated = $request->validate([
             'nombre_servicio' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'icono' => 'nullable|string|max:255',
             'valor' => 'required|numeric|min:0',
             'porcentaje_comision' => 'required|numeric|min:0|max:100',
         ]);
@@ -51,6 +53,8 @@ class ServicioController extends Controller
     {
         $validated = $request->validate([
             'nombre_servicio' => 'required|string|max:255',
+            'descripcion' => 'nullable|string',
+            'icono' => 'nullable|string|max:255',
             'valor' => 'required|numeric|min:0',
             'porcentaje_comision' => 'required|numeric|min:0|max:100',
         ]);

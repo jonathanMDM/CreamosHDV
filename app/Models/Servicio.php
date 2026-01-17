@@ -8,6 +8,8 @@ class Servicio extends Model
 {
     protected $fillable = [
         'nombre_servicio',
+        'descripcion',
+        'icono',
         'valor',
         'porcentaje_comision'
     ];

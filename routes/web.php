@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Auth;
 
 // Public Landing Page
 Route::get('/', function () {
-    return view('welcome');
+    $servicios = \App\Models\Servicio::all();
+    return view('welcome', compact('servicios'));
 });
 
 Route::get('/home', function () {

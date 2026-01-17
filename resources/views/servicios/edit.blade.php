@@ -35,6 +35,36 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="icono" class="form-label">
+                        <i class="fas fa-icons"></i> Icono FontAwesome
+                    </label>
+                    <input type="text" 
+                           class="form-control form-control-custom @error('icono') is-invalid @enderror" 
+                           id="icono" 
+                           name="icono" 
+                           value="{{ old('icono', $servicio->icono) }}" 
+                           placeholder="ej: fas fa-camera">
+                    <small class="text-white-50">Copia el nombre de las clases desde <a href="https://fontawesome.com/v6/search" target="_blank" class="text-info">FontAwesome</a></small>
+                    @error('icono')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">
+                        <i class="fas fa-align-left"></i> Descripción para la Landing
+                    </label>
+                    <textarea class="form-control form-control-custom @error('descripcion') is-invalid @enderror" 
+                              id="descripcion" 
+                              name="descripcion" 
+                              rows="3">{{ old('descripcion', $servicio->descripcion) }}</textarea>
+                    <small class="text-white-50">Este texto aparecerá debajo del título en la página principal</small>
+                    @error('descripcion')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
                     <label for="valor" class="form-label">
                         <i class="fas fa-dollar-sign"></i> Valor del Servicio *
                     </label>
