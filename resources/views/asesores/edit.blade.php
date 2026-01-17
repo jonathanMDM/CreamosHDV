@@ -3,7 +3,7 @@
 @section('title', 'Editar Asesor - CreamosHDV')
 
 @section('content')
-<div class="fade-in">
+<div>
     <div class="mb-4">
         <a href="{{ route('asesores.index') }}" class="btn btn-secondary">
             <i class="fas fa-arrow-left"></i> Volver

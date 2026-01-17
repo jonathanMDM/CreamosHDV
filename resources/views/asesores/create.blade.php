@@ -5,7 +5,7 @@
 {{-- Updated: 2026-01-16 20:58 - Fixed form layout --}}
 
 @section('content')
-<div class="fade-in">
+<div>
     <div class="mb-4">
         <a href="{{ route('asesores.index') }}" class="btn btn-secondary">
             <i class="fas fa-arrow-left"></i> Volver
