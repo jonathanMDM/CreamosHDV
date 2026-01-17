@@ -207,10 +207,13 @@
             </div>
             <hr class="my-5 border-secondary opacity-25">
             <div class="text-center text-white-50 small">
-                &copy; {{ date('Y') }} Creamos tu Hoja de Vida. Todos los derechos reservados.
+                <p class="mb-1">&copy; {{ date('Y') }} Creamos tu Hoja de Vida. Todos los derechos reservados.</p>
+                <p class="mb-3">Desarrollado por <a href="https://outdeveloper.com" target="_blank" class="text-white text-decoration-none fw-bold">OutDeveloper</a></p>
+                @if(config('app.env') !== 'production')
                 <div class="mt-2">
                     <span class="badge bg-warning text-dark">Ambiente de Desarrollo (Staging)</span>
                 </div>
+                @endif
             </div>
         </div>
     </footer>
