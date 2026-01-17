@@ -11,6 +11,7 @@ class Asesor extends Model
         'cedula',
         'email',
         'banco',
+        'banco_nombre_otro',
         'numero_cuenta',
         'whatsapp',
         'ciudad',

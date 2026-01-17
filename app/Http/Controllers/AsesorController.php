@@ -41,12 +41,7 @@ class AsesorController extends Controller
             'ciudad' => 'required|string|max:255',
         ]);
 
-        $data = $request->all();
-        if ($request->banco === 'Otros' && $request->banco_nombre_otro) {
-            $data['banco'] = $request->banco_nombre_otro;
-        }
-
-        $asesor = Asesor::create($data);
+        $asesor = Asesor::create($request->all());
 
         // Crear usuario vinculado automáticamente
         $user = User::create([
@@ -90,12 +85,7 @@ class AsesorController extends Controller
             'ciudad' => 'required|string|max:255',
         ]);
 
-        $data = $request->all();
-        if ($request->banco === 'Otros' && $request->banco_nombre_otro) {
-            $data['banco'] = $request->banco_nombre_otro;
-        }
-
-        $asesor->update($data);
+        $asesor->update($request->all());
 
         // Actualizar usuario vinculado si existe
         if ($asesor->user) {
