@@ -161,15 +161,7 @@
             margin-left: 260px;
             padding: 20px;
             min-height: 100vh;
-            position: relative;
-            display: flex;
-            flex-direction: column;
             background-color: #000000 !important;
-            transition: none; /* Removed transition for stability */
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
         }
         
         .sidebar-custom.collapsed ~ .main-content {
