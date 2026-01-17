@@ -160,6 +160,34 @@
         </div>
     </section>
 
+    <!-- Nosotros Section -->
+    <section id="nosotros" class="container py-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 order-lg-2">
+                <img src="{{ asset('images/about.png') }}" alt="Sobre Nosotros" class="img-fluid rounded-4 shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <span class="text-white-50 text-uppercase fw-bold d-block mb-3">Sobre Nosotros</span>
+                <h2 class="display-5 fw-bold mb-4">Transformamos tu perfil profesional</h2>
+                
+                <p class="text-white-50 fs-5 mb-4">
+                    <strong class="text-white">Creamos Hojas de Vida</strong> es un emprendimiento enfocado en ayudar a las personas a mejorar su perfil profesional y aumentar sus oportunidades laborales.
+                </p>
+                
+                <p class="text-white-50 fs-5 mb-4">
+                    Entendemos que la primera impresión es fundamental en cualquier proceso de selección. Por eso, nos dedicamos a transformar perfiles tradicionales en presentaciones de alto impacto.
+                </p>
+
+                <div class="p-4 rounded-4 border border-secondary border-opacity-25 bg-dark">
+                    <p class="mb-0 text-white-50">
+                        <i class="fas fa-quote-left text-white fs-4 me-2"></i>
+                        Trabajamos ofreciendo servicios digitales orientados exclusivamente a personas que están buscando empleo o desean mejorar significativamente su presentación profesional ante el mercado laboral.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Experts Section -->
     <section id="expertos" class="container py-5">
         <div class="row align-items-center g-5">
