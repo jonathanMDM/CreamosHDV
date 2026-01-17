@@ -2,6 +2,8 @@
 
 @section('title', 'Crear Asesor - CreamosHDV')
 
+{{-- Updated: 2026-01-16 20:58 - Fixed form layout --}}
+
 @section('content')
 <div class="fade-in">
     <div class="mb-4">
