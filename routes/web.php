@@ -99,6 +99,9 @@ Route::middleware(['auth'])->group(function () {
     // Recursos
     Route::resource('recursos', RecursoController::class);
 
+    // Reportes
+    Route::get('/reportes', [App\Http\Controllers\ReporteController::class, 'index'])->name('reportes.index');
+
     // Mantenimiento (Temporal)
     Route::get('/system/migrate', function() {
         if (auth()->user()->role === 'admin') {

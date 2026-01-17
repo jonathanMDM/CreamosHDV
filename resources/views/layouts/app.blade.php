@@ -274,11 +274,16 @@
                 </a>
             </li>
             @endif
-            @if(auth()->check() && auth()->user()->role === 'admin')
             <li class="nav-item">
                 <a class="nav-link {{ request()->routeIs('recursos.*') ? 'active' : '' }}" href="{{ route('recursos.index') }}">
                     <i class="fas fa-folder-open"></i>
                     <span class="nav-text">Recursos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('reportes.*') ? 'active' : '' }}" href="{{ route('reportes.index') }}">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="nav-text">Reportes</span>
                 </a>
             </li>
             @endif
