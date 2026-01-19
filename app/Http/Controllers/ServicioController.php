@@ -35,6 +35,7 @@ class ServicioController extends Controller
         ]);
 
         $validated['visible_en_landing'] = $request->has('visible_en_landing');
+        $validated['visible_para_asesores'] = $request->has('visible_para_asesores');
 
         Servicio::create($validated);
 
@@ -65,6 +66,7 @@ class ServicioController extends Controller
         ]);
 
         $validated['visible_en_landing'] = $request->has('visible_en_landing');
+        $validated['visible_para_asesores'] = $request->has('visible_para_asesores');
 
         $servicio->update($validated);
 

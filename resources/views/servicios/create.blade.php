@@ -117,19 +117,35 @@
                     @enderror
                 </div>
 
-                <div class="mb-3">
-                    <div class="form-check">
-                        <input class="form-check-input" 
-                               type="checkbox" 
-                               id="visible_en_landing" 
-                               name="visible_en_landing" 
-                               value="1"
-                               {{ old('visible_en_landing', true) ? 'checked' : '' }}>
-                        <label class="form-check-label text-white" for="visible_en_landing">
-                            <i class="fas fa-eye"></i> Mostrar en la página principal (Landing)
-                        </label>
+                <div class="row mb-4">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <div class="form-check form-switch custom-switch">
+                            <input class="form-check-input" 
+                                   type="checkbox" 
+                                   id="visible_en_landing" 
+                                   name="visible_en_landing" 
+                                   value="1"
+                                   {{ old('visible_en_landing', true) ? 'checked' : '' }}>
+                            <label class="form-check-label text-white fw-bold mb-1" for="visible_en_landing">
+                                <i class="fas fa-desktop me-1"></i> Página Principal
+                            </label>
+                            <p class="text-white-50 mb-0" style="font-size: 0.75rem;">Visibilidad en la Landing Page externa</p>
+                        </div>
                     </div>
-                    <small class="text-white-50">Si está desmarcado, el servicio solo estará disponible internamente para asesores</small>
+                    <div class="col-md-6">
+                        <div class="form-check form-switch custom-switch">
+                            <input class="form-check-input" 
+                                   type="checkbox" 
+                                   id="visible_para_asesores" 
+                                   name="visible_para_asesores" 
+                                   value="1"
+                                   {{ old('visible_para_asesores', true) ? 'checked' : '' }}>
+                            <label class="form-check-label text-white fw-bold mb-1" for="visible_para_asesores">
+                                <i class="fas fa-users-cog me-1"></i> Panel de Asesores
+                            </label>
+                            <p class="text-white-50 mb-0" style="font-size: 0.75rem;">Disponibilidad interna para registros</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="mt-4">

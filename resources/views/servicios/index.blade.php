@@ -43,6 +43,19 @@
                                         </span>
                                     </div>
 
+                                    <div class="mb-3 d-flex justify-content-center gap-2">
+                                        <span class="badge {{ $servicio->visible_en_landing ? 'bg-info' : 'bg-dark border border-secondary text-white-50' }}" 
+                                              title="{{ $servicio->visible_en_landing ? 'Visible en Landing' : 'Oculto en Landing' }}"
+                                              style="font-size: 0.75rem;">
+                                            <i class="fas fa-desktop"></i> {{ $servicio->visible_en_landing ? 'Landing' : 'Oculto' }}
+                                        </span>
+                                        <span class="badge {{ $servicio->visible_para_asesores ? 'bg-primary' : 'bg-dark border border-secondary text-white-50' }}" 
+                                              title="{{ $servicio->visible_para_asesores ? 'Visible para Asesores' : 'Oculto para Asesores' }}"
+                                              style="font-size: 0.75rem;">
+                                            <i class="fas fa-users-cog"></i> {{ $servicio->visible_para_asesores ? 'Asesores' : 'Oculto' }}
+                                        </span>
+                                    </div>
+
                                     <div class="mb-3">
                                         <small class="text-muted">
                                             <i class="fas fa-shopping-cart"></i> 

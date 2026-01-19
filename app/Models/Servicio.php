@@ -13,7 +13,8 @@ class Servicio extends Model
         'valor',
         'porcentaje_comision',
         'orden',
-        'visible_en_landing'
+        'visible_en_landing',
+        'visible_para_asesores'
     ];
 
     public function ventas()

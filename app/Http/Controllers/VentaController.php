@@ -67,7 +67,13 @@ class VentaController extends Controller
     {
         $user = auth()->user();
         $asesores = Asesor::orderBy('nombre_completo')->get();
-        $servicios = Servicio::orderBy('nombre_servicio')->get();
+        
+        // Filtrar servicios para asesores
+        $serviciosQuery = Servicio::orderBy('nombre_servicio');
+        if ($user->role !== 'admin') {
+            $serviciosQuery->where('visible_para_asesores', true);
+        }
+        $servicios = $serviciosQuery->get();
         
         // Si es asesor, pre-seleccionar o limitar
         $myAsesor = $user->role !== 'admin' ? Asesor::where('user_id', $user->id)->first() : null;
