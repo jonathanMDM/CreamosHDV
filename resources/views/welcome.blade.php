@@ -164,7 +164,7 @@
     <section id="nosotros" class="container py-5">
         <div class="row align-items-center g-5">
             <div class="col-lg-6 order-lg-2">
-                <img src="{{ asset('images/about.png') }}" alt="Sobre Nosotros" class="img-fluid rounded-4 shadow-lg" style="height: 400px; width: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                <img src="{{ asset('images/about.png') }}" alt="Sobre Nosotros" class="img-fluid rounded-4 shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
             </div>
             <div class="col-lg-6 order-lg-1">
                 <span class="text-white-50 text-uppercase fw-bold d-block mb-3">Sobre Nosotros</span>
@@ -192,7 +192,7 @@
     <section id="expertos" class="container py-5">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <img src="{{ asset('images/about.jpg') }}" alt="Nuestros Expertos" class="img-fluid rounded-4 shadow-lg" style="height: 400px; width: 100%; object-fit: cover;">
+                <img src="{{ asset('images/team.png') }}" alt="Nuestros Expertos" class="img-fluid rounded-4 shadow-lg">
             </div>
             <div class="col-lg-6">
                 <span class="text-white-50 text-uppercase fw-bold d-block mb-3">Equipo de Reclutamiento</span>
