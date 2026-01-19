@@ -68,9 +68,9 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="avatar-circle bg-primary text-white me-2" style="width: 30px; height: 30px; font-size: 0.8rem;">
-                                                {{ substr($venta->asesor->nombre_completo, 0, 1) }}
+                                                {{ $venta->asesor ? substr($venta->asesor->nombre_completo, 0, 1) : '?' }}
                                             </div>
-                                            {{ $venta->asesor->nombre_completo }}
+                                            {{ $venta->asesor ? $venta->asesor->nombre_completo : 'Asesor Eliminado' }}
                                         </div>
                                     </td>
                                     <td>
@@ -112,7 +112,7 @@
                                                 <button type="button" 
                                                         class="btn btn-sm btn-outline-danger" 
                                                         title="Rechazar"
-                                                        onclick="rechazarVenta('{{ route('ventas.rechazar', $venta) }}', '{{ $venta->asesor->nombre_completo }}')">
+                                                        onclick="rechazarVenta('{{ route('ventas.rechazar', $venta) }}', '{{ $venta->asesor ? addslashes($venta->asesor->nombre_completo) : 'Asesor Eliminado' }}')">
                                                     <i class="fas fa-times"></i>
                                                 </button>
                                             @endif

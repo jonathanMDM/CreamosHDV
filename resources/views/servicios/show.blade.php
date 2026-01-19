@@ -82,7 +82,7 @@
                                         <tr>
                                             <td class="text-center align-middle">{{ $loop->iteration }}</td>
                                             <td class="align-middle">
-                                                <strong>{{ $venta->asesor->nombre_completo }}</strong>
+                                                <strong>{{ $venta->asesor ? $venta->asesor->nombre_completo : 'Asesor Eliminado' }}</strong>
                                             </td>
                                             <td class="text-end align-middle">
                                                 ${{ number_format($venta->valor_servicio, 0, ',', '.') }}
