@@ -192,7 +192,7 @@
     <section id="expertos" class="container py-5">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <img src="{{ asset('images/team.png') }}" alt="Nuestros Expertos" class="img-fluid rounded-4 shadow-lg">
+                <img src="{{ asset('images/team.jpg') }}" alt="Nuestros Expertos" class="img-fluid rounded-4 shadow-lg">
             </div>
             <div class="col-lg-6">
                 <span class="text-white-50 text-uppercase fw-bold d-block mb-3">Equipo de Reclutamiento</span>
