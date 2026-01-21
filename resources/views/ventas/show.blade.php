@@ -3,7 +3,7 @@
 @section('title', 'Detalles de Venta - CreamosHDV')
 
 @section('content')
-<div class="fade-in">
+<div>
     <div class="mb-4">
         <a href="{{ route('ventas.index') }}" class="btn btn-secondary">
             <i class="fas fa-arrow-left"></i> Volver

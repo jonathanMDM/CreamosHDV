@@ -411,7 +411,8 @@ body {
 
 /* Old Cards - Refreshed with Glassmorphism */
 .card-custom {
-    background: #0a0a0a;
+    background-color: #0a0a0a !important;
+    background: #0a0a0a !important;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
@@ -797,8 +798,10 @@ body {
     }
 }
 
+/* Animations Disabled for Stability */
 .fade-in {
-    animation: fadeIn 0.5s ease-in-out;
+    animation: none !important;
+    opacity: 1 !important;
 }
 
 /* Responsive */
@@ -913,7 +916,8 @@ body {
 }
 
 .fade-in {
-    /* Animation disabled to prevent rendering issues */
+    animation: none !important;
+    opacity: 1 !important;
 }
 
 @keyframes fadeIn {
@@ -1632,6 +1636,7 @@ body {
         font-size: 2.5rem;
     }
 }
+
 /* Custom Switches for Premium Theme */
 .custom-switch .form-check-input {
     width: 3em;
@@ -1659,7 +1664,8 @@ body {
 }
 
 /* Fix for jumping/flickering layout on hover in certain sections */
-.no-hover-animation, .no-hover-animation * {
+.no-hover-animation,
+.no-hover-animation * {
     transition: none !important;
     transform: none !important;
     animation: none !important;
