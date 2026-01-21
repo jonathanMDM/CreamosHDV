@@ -193,21 +193,21 @@
                 </div>
             @endif
 
-            <div class="row text-center mb-4 g-3">
-                <div class="col-md-6">
-                    <div class="p-3 rounded-4 border shadow-sm" style="background-color: #0d0d0d; border-color: rgba(255,255,255,0.1) !important;">
-                        <small class="text-white-50 d-block text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 1px;">
+            <div class="d-flex flex-wrap gap-3 mb-4 no-hover-animation" style="overflow: hidden;">
+                <div style="flex: 1; min-width: 250px;" class="no-hover-animation">
+                    <div class="p-3 rounded-4 no-hover-animation" style="background-color: #0d0d0d; border: 1px solid rgba(255,255,255,0.1) !important; text-align: center;">
+                        <small class="text-white-50 d-block text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 1px; pointer-events: none;">
                             <i class="fas fa-calendar-check me-1"></i> Registrado el
                         </small>
-                        <span class="fw-bold fs-5">{{ $venta->created_at->format('d/m/Y H:i') }}</span>
+                        <span class="fw-bold fs-5" style="pointer-events: none;">{{ $venta->created_at->format('d/m/Y H:i') }}</span>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="p-3 rounded-4 border shadow-sm" style="background-color: #0d0d0d; border-color: rgba(255,255,255,0.1) !important;">
-                        <small class="text-white-50 d-block text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 1px;">
+                <div style="flex: 1; min-width: 250px;" class="no-hover-animation">
+                    <div class="p-3 rounded-4 no-hover-animation" style="background-color: #0d0d0d; border: 1px solid rgba(255,255,255,0.1) !important; text-align: center;">
+                        <small class="text-white-50 d-block text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 1px; pointer-events: none;">
                             <i class="fas fa-clock-rotate-left me-1"></i> Última actualización
                         </small>
-                        <span class="fw-bold fs-5">{{ $venta->updated_at->format('d/m/Y H:i') }}</span>
+                        <span class="fw-bold fs-5" style="pointer-events: none;">{{ $venta->updated_at->format('d/m/Y H:i') }}</span>
                     </div>
                 </div>
             </div>
