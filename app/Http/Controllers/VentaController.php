@@ -143,7 +143,7 @@ class VentaController extends Controller
             }
         }
 
-        $venta = Venta::create([
+        $venta = new Venta([
             'asesor_id' => $asesor_id,
             'servicio_id' => $validated['servicio_id'],
             'nombre_cliente' => $validated['nombre_cliente'],
@@ -154,9 +154,10 @@ class VentaController extends Controller
             'tipo_pago' => $tipoPago,
             'estado' => $estado,
             'es_venta_directa' => $esVentaDirecta,
-            'created_at' => $validated['fecha_venta'] . ' ' . now()->format('H:i:s'),
-            'updated_at' => now(),
         ]);
+        
+        $venta->created_at = $validated['fecha_venta'] . ' ' . now()->format('H:i:s');
+        $venta->save();
 
         // Enviar notificación al administrador si es un asesor quien registra
         if ($user->role !== 'admin') {
@@ -188,25 +189,50 @@ class VentaController extends Controller
 
     public function update(Request $request, Venta $venta)
     {
-        $validated = $request->validate([
-            'asesor_id' => 'required|exists:asesors,id',
+        $rules = [
             'servicio_id' => 'required|exists:servicios,id',
-        ]);
+            'nombre_cliente' => 'required|string|max:255',
+            'telefono_cliente' => 'required|string|max:20',
+            'fecha_venta' => 'required|date|before_or_equal:today',
+            'tipo_pago' => 'required|in:pago_total,pago_50'
+        ];
 
-        // Obtener el servicio para recalcular la comisión
+        if (auth()->user()->role === 'admin') {
+            $rules['asesor_id'] = 'nullable|exists:asesors,id';
+        }
+
+        $validated = $request->validate($rules);
+
         $servicio = Servicio::findOrFail($validated['servicio_id']);
-        
-        // Calcular la comisión
         $valorServicio = $servicio->valor;
-        $comision = ($valorServicio * $servicio->porcentaje_comision) / 100;
+        
+        // Recalcular según si hay asesor o es venta directa
+        $asesor_id = auth()->user()->role === 'admin' ? $validated['asesor_id'] : $venta->asesor_id;
+        $esVentaDirecta = auth()->user()->role === 'admin' && !$asesor_id;
+        
+        $comision = $esVentaDirecta ? 0 : ($valorServicio * $servicio->porcentaje_comision) / 100;
 
-        // Actualizar la venta
-        $venta->update([
-            'asesor_id' => $validated['asesor_id'],
+        if ($validated['tipo_pago'] === 'pago_50') {
+            $valorServicio = $valorServicio / 2;
+            $comision = $esVentaDirecta ? 0 : $comision / 2;
+        }
+
+        $venta->fill([
+            'asesor_id' => $asesor_id,
             'servicio_id' => $validated['servicio_id'],
+            'nombre_cliente' => $validated['nombre_cliente'],
+            'telefono_cliente' => $validated['telefono_cliente'],
             'valor_servicio' => $valorServicio,
             'comision' => $comision,
+            'tipo_pago' => $validated['tipo_pago'],
+            'es_venta_directa' => $esVentaDirecta,
         ]);
+
+        // Mantener la hora original de la venta pero cambiar la fecha
+        $horaOriginal = $venta->created_at->format('H:i:s');
+        $venta->created_at = $validated['fecha_venta'] . ' ' . $horaOriginal;
+        
+        $venta->save();
 
         return redirect()->route('ventas.index')
             ->with('success', 'Venta actualizada exitosamente');
