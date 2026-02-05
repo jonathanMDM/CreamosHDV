@@ -66,12 +66,25 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="avatar-circle bg-primary text-white me-2" style="width: 30px; height: 30px; font-size: 0.8rem;">
-                                                {{ $venta->asesor ? substr($venta->asesor->nombre_completo, 0, 1) : '?' }}
+                                        @if($venta->es_venta_directa)
+                                            <div class="d-flex align-items-center">
+                                                <div class="avatar-circle bg-success text-white me-2" style="width: 30px; height: 30px; font-size: 0.8rem;">
+                                                    <i class="fas fa-store" style="font-size: 0.7rem;"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="fw-bold">Venta Directa</span>
+                                                    <br>
+                                                    <span class="badge bg-success" style="font-size: 0.65rem;">Administrador</span>
+                                                </div>
                                             </div>
-                                            {{ $venta->asesor ? $venta->asesor->nombre_completo : 'Asesor Eliminado' }}
-                                        </div>
+                                        @else
+                                            <div class="d-flex align-items-center">
+                                                <div class="avatar-circle bg-primary text-white me-2" style="width: 30px; height: 30px; font-size: 0.8rem;">
+                                                    {{ $venta->asesor ? substr($venta->asesor->nombre_completo, 0, 1) : '?' }}
+                                                </div>
+                                                {{ $venta->asesor ? $venta->asesor->nombre_completo : 'Asesor Eliminado' }}
+                                            </div>
+                                        @endif
                                     </td>
                                     <td>
                                         <span class="text-info"><i class="fas fa-file-alt"></i></span>

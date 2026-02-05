@@ -42,7 +42,10 @@ class VentaController extends Controller
                 return redirect()->route('dashboard')->with('error', 'No tienes un perfil de asesor vinculado.');
             }
             $query->where('asesor_id', $asesor->id);
+            // Los asesores no deben ver ventas directas del administrador
+            $query->where('es_venta_directa', false);
         }
+        // Si es admin, mostrar todas las ventas (incluidas las directas)
 
         // Calcular fechas exactas (Lunes a Domingo)
         $fecha = \Carbon\Carbon::create($añoActual, 1, 1);
@@ -54,9 +57,8 @@ class VentaController extends Controller
         $inicio = $fecha->copy()->startOfDay();
         $fin = $fecha->copy()->addDays(6)->endOfDay();
 
-        // Excluir ventas directas del administrador (sin asesor)
-        $ventas = $query->where('es_venta_directa', false)
-            ->whereBetween('created_at', [$inicio, $fin])
+        // Aplicar filtro de fechas
+        $ventas = $query->whereBetween('created_at', [$inicio, $fin])
             ->orderBy('created_at', 'desc')
             ->get();
         
